@@ -1,0 +1,8 @@
+.jumbotron{
+  background-image: url("../../assets/international.jpg");
+  background-size: cover;
+}
+
+.overlay{
+  background-color: lightskyblue;
+}
