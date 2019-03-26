@@ -7,12 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import { PresentationComponent } from './presentation/presentation.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
+import { StudiesComponent } from './studies/studies.component';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'auth', component: AuthFormComponent},
-  { path: '', component: PresentationComponent}
+  { path: '', component: PresentationComponent},
+  { path: 'studies', component: StudiesComponent}
 ];
 
 @NgModule({
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     PresentationComponent,
     ConnexionComponent,
-    AuthFormComponent
+    AuthFormComponent,
+    StudiesComponent
   ],
   imports: [
     BrowserModule,
