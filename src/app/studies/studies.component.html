@@ -4,10 +4,19 @@
       <label for="school" class="text-right">Ecole</label>
       <input type="text" class="form-control" id="school" placeholder="Nom de l'établissement">
     </div>
-    <div class="form-group">
-      <label for="year" class="text-right">Ecole</label>
-      <input type="date" class="form-control" id="year" >
+    <div class="dropdown">
+      <button class="btn btn-outline-dark dropdown-toggle" type="button" data-toggle="dropdown">
+        année
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item"> 2016 </a>
+        <a class="dropdown-item">2017</a>
+
+      </div>
+
+
     </div>
+
 
     <button type="submit" class="btn  btn-info">Ajouter</button>
   </form>
