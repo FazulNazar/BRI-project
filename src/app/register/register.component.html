@@ -1,28 +1,67 @@
 
-<div ng-app="sample">
-  <form class="form-horizontal" name="registerForm">
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="Email">Email</label>
-      <div class="col-md-4">
-        <input id="Email" type="email" class="form-control" name="Email" ng-model="Email" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="Password">Password</label>
-      <div class="col-md-4">
-        <input id="Password" type="password" class="form-control" name="Password" ng-model="Password" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="ConfirmPassword">Confirm Password</label>
-      <div class="col-md-4">
-        <input id="ConfirmPassword" type="password" class="form-control" name="ConfirmPassword" ng-model="ConfirmPassword" />
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-3 col-md-9">
-        <input type="submit" class="btn btn-default" value="Sign Up" />
-      </div>
-    </div>
-  </form>
-</div>
+<form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    e-mail:
+    <input type="text" formControlName="mail">
+  </label>
+
+  <label>
+    mot de passe:
+    <input type="text" formControlName="mdp">
+  </label>
+  <label>
+    nom
+    <input type="text" formControlName="nom">
+  </label>
+  <label>
+    prenom:
+    <input type="text" formControlName="prenom">
+  </label>
+  <label>
+    date de naissance
+    <input type="text" formControlName="birthday">
+  </label>
+  <label>
+    sexe
+    <input type="text" formControlName="sexe">
+  </label>
+  <label>
+    nationalite
+    <input type="text" formControlName="nationalite">
+  </label>
+  <label>
+    adresse
+    <input type="text" formControlName="adresse">
+  </label>
+  <label>
+    ville
+    <input type="text" formControlName="ville">
+  </label>
+  <label>
+    code postal
+    <input type="text" formControlName="codePostal">
+  </label>
+  <label>
+    tel
+    <input type="text" formControlName="tel">
+  </label>
+  <label>
+    numero etudiant
+    <input type="text" formControlName="numetudiant">
+  </label>
+  <label>
+    filiere
+    <input type="text" formControlName="filiere">
+  </label>
+
+</form>
+
+<button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
+
+<p>
+  Form Status: {{ profilForm.status }}
+  <br>
+  {{profilForm.getRawValue() | json}}
+</p>
+
