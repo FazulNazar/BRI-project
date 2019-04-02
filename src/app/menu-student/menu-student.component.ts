@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuStudentComponent implements OnInit {
 
-  title = 'SEJOUR D ETUDES';
+  title = 'SEJOUR D\'ETUDES';
 
   constructor() { }
   ngOnInit() {

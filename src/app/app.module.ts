@@ -10,6 +10,7 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
 import { MenuStudentComponent } from './menu-student/menu-student.component';
 import { StudiesComponent } from './studies/studies.component';
 import { RegisterComponent } from './register/register.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   { path: 'auth', component: AuthFormComponent},
   { path: '', component: PresentationComponent},
   { path: 'auth/menu-student', component: MenuStudentComponent},
+  { path: 'menu-admin', component: MenuAdminComponent},
 
   { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     AuthFormComponent,
     RegisterComponent,
     AuthFormComponent,
-    StudiesComponent
+    StudiesComponent,
+    MenuAdminComponent
   ],
   imports: [
     BrowserModule,
