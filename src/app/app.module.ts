@@ -11,6 +11,8 @@ import {StudiesComponent} from './studies/studies.component';
 import {RegisterComponent} from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import {UserService} from '../services/user.service';
+
 const appRoutes: Routes = [
   {path: 'presentation', component: PresentationComponent},
   {path: 'connexion', component: ConnexionComponent},
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 
 })
