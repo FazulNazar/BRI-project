@@ -1,10 +1,11 @@
 import { User } from '../models/User.model';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 // import { Subject } from 'rxjs/Subject';
 
 export class UserService {
   private users: User[];
   userSubject = new Subject<User[]>();
+  public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
 
   emitUsers() {
     this.userSubject.next(this.users.slice());

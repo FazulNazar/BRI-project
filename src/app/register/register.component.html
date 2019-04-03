@@ -98,16 +98,19 @@
       </div>
     </label>
   </div>
+
+  <div id="submit">
+    <button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
+
+
+    <p>
+      Form Status: {{ profilForm.status }}
+      <br>
+      {{profilForm.getRawValue() | json}}
+    </p>
+  </div>
+
 </form>
 
 
-<div id="submit">
-  <button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
 
-
-  <p>
-    Form Status: {{ profilForm.status }}
-    <br>
-    {{profilForm.getRawValue() | json}}
-  </p>
-</div>
