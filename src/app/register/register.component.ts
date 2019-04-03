@@ -7,6 +7,9 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  sexe = ['Homme', 'Femme', 'Autre'];
+  filiere = ['SI', 'ELEC', 'BAT', 'GE', 'GB' ]
+
   profilForm = new FormGroup({
     mail: new FormControl(''),
     mdp: new FormControl(''),

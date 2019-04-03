@@ -1,67 +1,113 @@
+<!--<img id="rightPic" src="../../assets/paysage1.jpg" width="500" >-->
 
 <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+  <div id="leftForm">
 
-  <label>
-    e-mail:
-    <input type="text" formControlName="mail">
-  </label>
+    <div class="form-group">
+      <label>
+        e-mail:
+      </label>
+      <input type="text" formControlName="mail">
+    </div>
 
-  <label>
-    mot de passe:
-    <input type="text" formControlName="mdp">
-  </label>
-  <label>
-    nom
-    <input type="text" formControlName="nom">
-  </label>
-  <label>
-    prenom:
-    <input type="text" formControlName="prenom">
-  </label>
-  <label>
-    date de naissance
-    <input type="text" formControlName="birthday">
-  </label>
-  <label>
-    sexe
-    <input type="text" formControlName="sexe">
-  </label>
-  <label>
-    nationalite
-    <input type="text" formControlName="nationalite">
-  </label>
-  <label>
-    adresse
-    <input type="text" formControlName="adresse">
-  </label>
-  <label>
-    ville
-    <input type="text" formControlName="ville">
-  </label>
-  <label>
-    code postal
-    <input type="text" formControlName="codePostal">
-  </label>
-  <label>
-    tel
-    <input type="text" formControlName="tel">
-  </label>
-  <label>
-    numero etudiant
-    <input type="text" formControlName="numetudiant">
-  </label>
-  <label>
-    filiere
-    <input type="text" formControlName="filiere">
-  </label>
+    <div class="form-group">
+      <label>
+        mot de passe:
+      </label>
+      <input type="text" formControlName="mdp">
+    </div>
 
+    <div class="form-group">
+      <label>
+        nom
+      </label>
+      <input type="text" formControlName="nom">
+    </div>
+    <div class="form-group">
+      <label>
+        prenom:
+      </label>
+      <input type="text" formControlName="prenom">
+    </div>
+
+    <div class="form-group">
+      <label>
+        date de naissance</label>
+      <input type="text" formControlName="birthday">
+    </div>
+
+
+    <div class="form-group">
+      <label for="sexe">Sexe</label>
+      <select class="form-control" formControlName="sexe" id="sexe" required>
+        <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>
+        nationalite
+      </label>
+      <input type="text" formControlName="nationalite">
+    </div>
+
+  </div>
+
+
+  <div id="rightForm">
+    <div class="form-group">
+    <label>
+      adresse
+    </label>
+      <input type="text" formControlName="adresse">
+    </div>
+
+    <div class="form-group">
+    <label>
+      ville
+    </label>
+      <input type="text" formControlName="ville">
+    </div>
+
+    <div class="form-group">
+    <label>
+      code postal
+    </label>
+      <input type="text" formControlName="codePostal">
+    </div>
+
+    <div class="form-group">
+    <label>
+      tel
+    </label>
+      <input type="text" formControlName="tel">
+    </div>
+
+    <div class="form-group">
+    <label>
+      numero etudiant
+    </label>
+      <input type="text" formControlName="numetudiant">
+    </div>
+    <label>
+      <div class="form-group">
+        <label for="filiere">filiere</label>
+        <select class="form-control" formControlName="filiere" id="filiere" required>
+          <option *ngFor="let fil of filiere" [value]="fil">{{fil}}</option>
+        </select>
+      </div>
+    </label>
+  </div>
 </form>
 
-<button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
 
-<p>
-  Form Status: {{ profilForm.status }}
-  <br>
-  {{profilForm.getRawValue() | json}}
-</p>
+<div id="submit">
+  <button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
 
+
+  <p>
+    Form Status: {{ profilForm.status }}
+    <br>
+    {{profilForm.getRawValue() | json}}
+  </p>
+</div>
