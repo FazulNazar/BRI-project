@@ -1,15 +1,88 @@
 <div class="container-fluid">
-  <!--<form>-->
-    <!--<div class="form-group">-->
-      <!--<label for="school" class="text-right">Ecole</label>-->
-      <!--<input type="text" class="form-control" id="school" placeholder="Nom de l'établissement">-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<label for="year" class="text-right">Ecole</label>-->
-      <!--<input type="date" class="form-control" id="year" >-->
-    <!--</div>-->
+  <div class="row">
+    <div class="col-md-4 offset-md-1 ">
+  <form>
+    <div class="form-row ">
+      <div class="form-group col-md-6 ">
+        <label for="school"> Ecole </label>
+        <input type="text" class="form-control" id="school" placeholder="Nom de l'établissement">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="state">Région</label>
+        <select id="state" class="form-control">
+          <option selected>FRANCE</option>
+          <option>DOM-TOM</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="grade"> Niveau d'études </label>
+        <select id="grade" class="form-control">
+          <option selected>BAC</option>
+          <option>BAC +1</option>
+          <option>BAC +2</option>
+          <option>BAC +3</option>
+          <option>BAC +4</option>
+          <option>BAC +5</option>
 
-    <!--<button type="submit" class="btn  btn-info">Ajouter</button>-->
-  <!--</form>-->
+        </select>
+      </div>
+
+
+        <div class="form-group">
+          <label for="year">Annéee</label>
+          <input type="date" class="form-control" id="year" placeholder="AAAA">
+        </div>
+
+    </div>
+    <div class="form-group">
+      <label for="mean">Moyenne</label>
+      <input type="number" class="form-control" id="mean" min="0" max="20">
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-dark">Ajouter etudes</button>
+  </form>
+    </div>
+    <div class="col-md-3 ">
+
+
+
+
+      <div class="container-fluid">
+        <h2>Table</h2>
+        <p>The .table-responsive class creates a responsive table which will scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, there is no difference:</p>
+        <div class="table-hover">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>City</th>
+              <th>Country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Anna</td>
+              <td>Pitt</td>
+              <td>35</td>
+              <td>New York</td>
+              <td>USA</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
 
 </div>
