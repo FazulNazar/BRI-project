@@ -41,8 +41,9 @@ export class RegisterComponent implements OnInit {
 
   onSubmitForm() {
     if (this.profilForm.valid) {
-      const ticket = this.profilForm.getRawValue();
-      this.studentService.addUser(ticket);
+      const user = this.profilForm.getRawValue();
+      this.studentService.addUser(user);
+      this.profilList = this.studentService.getUser();
     }
   }
 
