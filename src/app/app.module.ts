@@ -1,6 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +11,10 @@ import { MenuStudentComponent } from './menu-student/menu-student.component';
 import { StudiesComponent } from './studies/studies.component';
 import { RegisterComponent } from './register/register.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
+  
+  
+import {UserService} from '../services/user.service';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -39,14 +42,18 @@ const appRoutes: Routes = [
     RegisterComponent,
     AuthFormComponent,
     StudiesComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 
 })
-export class AppModule { }
+export class AppModule {
+}

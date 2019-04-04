@@ -14,7 +14,7 @@
       <label>
         mot de passe:
       </label>
-      <input type="password" formControlName="mdp">
+      <input type="password" class="inputPassword" formControlName="mdp">
     </div>
 
     <div class="form-group">
@@ -98,16 +98,28 @@
       </div>
     </label>
   </div>
+
+  <div id="submit">
+    <button type="submit" class="btn btn-success" (click)="onSubmitForm()"  [disabled]="!profilForm.valid">Submit</button>
+
+
+    <p>
+      Form Status: {{ profilForm.status }}
+      <br>
+      {{profilForm.getRawValue() | json}}
+      <br>
+      izi:
+      <br>
+      {{profilList | json}}
+
+      <br>
+
+      service:
+      {{this.studentService.getUser() | json}}
+    </p>
+  </div>
+
 </form>
 
 
-<div id="submit">
-  <button type="submit" class="btn btn-success" [disabled]="!profilForm.valid">Submit</button>
 
-
-  <p>
-    Form Status: {{ profilForm.status }}
-    <br>
-    {{profilForm.getRawValue() | json}}
-  </p>
-</div>
