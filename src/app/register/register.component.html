@@ -1,28 +1,125 @@
+<!--<img id="rightPic" src="../../assets/paysage1.jpg" width="500" >-->
 
-<div ng-app="sample">
-  <form class="form-horizontal" name="registerForm">
+<form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+  <div id="leftForm">
+
     <div class="form-group">
-      <label class="col-md-3 control-label" for="Email">Email</label>
-      <div class="col-md-4">
-        <input id="Email" type="email" class="form-control" name="Email" ng-model="Email" />
-      </div>
+      <label>
+        e-mail:
+      </label>
+      <input type="text" formControlName="mail">
+    </div>
+
+    <div class="form-group">
+      <label>
+        mot de passe:
+      </label>
+      <input type="password" class="inputPassword" formControlName="mdp">
+    </div>
+
+    <div class="form-group">
+      <label>
+        nom
+      </label>
+      <input type="text" formControlName="nom">
     </div>
     <div class="form-group">
-      <label class="col-md-3 control-label" for="Password">Password</label>
-      <div class="col-md-4">
-        <input id="Password" type="password" class="form-control" name="Password" ng-model="Password" />
-      </div>
+      <label>
+        prenom:
+      </label>
+      <input type="text" formControlName="prenom">
     </div>
+
     <div class="form-group">
-      <label class="col-md-3 control-label" for="ConfirmPassword">Confirm Password</label>
-      <div class="col-md-4">
-        <input id="ConfirmPassword" type="password" class="form-control" name="ConfirmPassword" ng-model="ConfirmPassword" />
-      </div>
+      <label>
+        date de naissance</label>
+      <input type="text" formControlName="birthday">
     </div>
+
+
     <div class="form-group">
-      <div class="col-md-offset-3 col-md-9">
-        <input type="submit" class="btn btn-default" value="Sign Up" />
-      </div>
+      <label for="sexe">Sexe</label>
+      <select class="form-control" formControlName="sexe" id="sexe" required>
+        <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
+      </select>
     </div>
-  </form>
-</div>
+
+    <div class="form-group">
+      <label>
+        nationalite
+      </label>
+      <input type="text" formControlName="nationalite">
+    </div>
+
+  </div>
+
+
+  <div id="rightForm">
+    <div class="form-group">
+    <label>
+      adresse
+    </label>
+      <input type="text" formControlName="adresse">
+    </div>
+
+    <div class="form-group">
+    <label>
+      ville
+    </label>
+      <input type="text" formControlName="ville">
+    </div>
+
+    <div class="form-group">
+    <label>
+      code postal
+    </label>
+      <input type="text" formControlName="codePostal">
+    </div>
+
+    <div class="form-group">
+    <label>
+      tel
+    </label>
+      <input type="text" formControlName="tel">
+    </div>
+
+    <div class="form-group">
+    <label>
+      numero etudiant
+    </label>
+      <input type="text" formControlName="numetudiant">
+    </div>
+    <label>
+      <div class="form-group">
+        <label for="filiere">filiere</label>
+        <select class="form-control" formControlName="filiere" id="filiere" required>
+          <option *ngFor="let fil of filiere" [value]="fil">{{fil}}</option>
+        </select>
+      </div>
+    </label>
+  </div>
+
+  <div id="submit">
+    <button type="submit" class="btn btn-success" (click)="onSubmitForm()"  [disabled]="!profilForm.valid">Submit</button>
+
+
+    <p>
+      Form Status: {{ profilForm.status }}
+      <br>
+      {{profilForm.getRawValue() | json}}
+      <br>
+      izi:
+      <br>
+      {{profilList | json}}
+
+      <br>
+
+      service:
+      {{this.studentService.getUser() | json}}
+    </p>
+  </div>
+
+</form>
+
+
+
