@@ -1,0 +1,84 @@
+<html>
+<body>
+<p style="text-align:center">Modifier son profil!!</p>
+<br /><br />
+</body>
+
+</html>
+
+<!--<img id="rightPic" src="../../assets/paysage1.jpg" width="500" >-->
+
+<form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+  <div id="leftForm">
+
+
+
+    <div class="form-group">
+      <label>
+        mot de passe:
+      </label>
+      <br />
+      <input type="password" class="inputPassword" formControlName="mdp">
+    </div>
+
+    <div class="form-group">
+      <label>
+        e-mail:
+
+      </label>
+      <br />
+
+      <input type="text" formControlName="mail">
+    </div>
+
+
+  </div>
+
+
+  <div id="rightForm">
+    <div class="form-group">
+      <label>
+        adresse
+      </label>
+      <br />
+      <input type="text" formControlName="adresse">
+    </div>
+
+    <div class="form-group">
+      <label>
+        ville
+      </label>
+      <br />
+      <input type="text" formControlName="ville">
+    </div>
+
+    <div class="form-group">
+      <label>
+        code postal
+      </label>
+      <br />
+      <input type="text" formControlName="codePostal">
+    </div>
+
+    <div class="form-group">
+      <label>
+        tel
+      </label>
+      <br />
+      <input type="text" formControlName="tel">
+    </div>
+
+
+
+  </div>
+  <br />
+  <br />
+  <div class="wrapper">
+    <button class="button">Valider</button>
+  </div>
+
+</form>
+
+
+
+
