@@ -13,6 +13,8 @@ import { RegisterComponent } from './register/register.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
+import {ProfileComponent} from './profile/profile.component';
+
 
 
 import {UserService} from '../services/user.service';
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
   { path: 'studies', component: StudiesComponent},
   { path: '', component: PresentationComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'update-profile', component: UpdateprofileComponent}
+  { path: 'update-profile', component: UpdateprofileComponent},
+  { path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -47,6 +50,7 @@ const appRoutes: Routes = [
     StudiesComponent,
     MenuAdminComponent,
     UpdateprofileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
