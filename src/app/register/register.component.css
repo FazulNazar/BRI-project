@@ -35,12 +35,12 @@ label{}
 #rightForm{
   display: block;
   width: 400px;
-  float: right;
+  float: left;
   text-align: left;
   font-family: 'Helvetica Neue',Helvetica,HiraKakuProN-W3,sans-serif;
 }
 #leftForm{
-
+  display: block;
   width: 400px;
   float: left;
   text-align: left;
@@ -49,9 +49,6 @@ label{}
 }
 
 #submit{
-  position: absolute;
-  top: 800px;
-  right: 400px;
   float: right;
   width: 800px;
 }
