@@ -1,5 +1,5 @@
 {
-  "name": "back-end BRI Charo 2.0",
+  "name": "back-end-bri-charo-2.0",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,6 @@
     "lint": "./node_modules/.bin/eslint -c .eslintrc.js app/",
     "lint:fix": "./node_modules/.bin/eslint -c .eslintrc.js app/ --fix"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/FazulNazar/BRI-project"
@@ -17,7 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "homepage": "https://github.com/FazulNazar/BRI-project",
   "dependencies": {
     "body-parser": "1.18.3",
