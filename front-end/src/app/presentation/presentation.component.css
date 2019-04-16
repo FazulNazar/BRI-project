@@ -1,14 +1,68 @@
-.jumbotron{
-  background-image: url("../../assets/international.jpg");
-  background-size: cover;
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
-.overlay{
-  background-color: lightskyblue;
+.carousel-inner img{
+  width: 100%;
+  height: 100%;
 }
 
-.container-fluid{
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
+.carousel-caption{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+}
+.carousel-caption h1{
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000000;
+}
+.carousel-caption h3{
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #000000;
+}
+
+.btn-primary{
+  background-color: #563d7c;
+  border: 1px solid #563d7c;
+}
+.btn-primary:hover{
+  background-color:#42A948;
+  border: 1px solid #563d7c;
+}
+.padding{
+  padding-bottom: 2rem;
+}
+.welcome{
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.my-4{
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.welcome hr{
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: .3rem;
+  margin-bottom: 1rem ;
+}
+
+footer{
+  width: 100%;
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+  padding-top: 2rem;
+}
+
+hr.light{
+  border-top: 1px solid #d5d5d5;
+  width: 25%;
 }

@@ -1,31 +1,9 @@
-.container-fluid{
-  min-height: 100px;
-  max-height: 101px;
-  border: solid 3px  #19208f;
-  text-align: center ;
-  background-color: darkgrey;
-
-
-}
-
 .navbar{
-  margin-bottom: 85px;
+  padding: .8rem;
 }
-.poly-logo{
-  float: left;
-  size: auto;
+.navbar-nav li {
+  padding-right: 20px;
 }
-
-.univ-logo{
-  float: right;
-  size: auto;
+.nav-link{
+  font-size: 1.5em !important;
 }
-
-.h2{
-  margin-top: 10px;
-}
-
-/*img {
-  width: 230px;
-  height: 100px;
-}*/
