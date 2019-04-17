@@ -1,5 +1,9 @@
 
+.card{
+  margin-top: 50px;
+  background-color: rgba(245, 245, 245, 0.95);
 
+}
 body{
   background-size: cover;
   background: no-repeat center center;
