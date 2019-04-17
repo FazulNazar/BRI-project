@@ -1,94 +1,60 @@
 <!--<img id="rightPic" src="../../assets/paysage1.jpg" width="500" >-->
-
+<div class="card">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
-  <div id="leftForm">
+  <div class="row">
+  <div class="col" >
 
     <div class="form-group">
       <label>
         e-mail:
       </label>
-      <input type="text" formControlName="mail">
+      <input type="text" class="form-control" formControlName="mail">
     </div>
 
     <div class="form-group">
       <label>
         mot de passe:
       </label>
-      <input type="password" class="inputPassword" formControlName="mdp">
+      <input type="password" class="form-control"  formControlName="mdp">
     </div>
-
+<div class="row">
+  <div class="col">
     <div class="form-group">
       <label>
         nom
       </label>
-      <input type="text" formControlName="nom">
+      <input type="text"  class="form-control" formControlName="nom">
     </div>
+  </div>
+  <div class="col">
     <div class="form-group">
       <label>
         prenom:
       </label>
-      <input type="text" formControlName="prenom">
+      <input type="text" class="form-control" formControlName="prenom">
     </div>
+  </div>
+</div>
 
     <div class="form-group">
       <label>
         date de naissance</label>
-      <input type="text" formControlName="birthday">
+      <input type="text" formControlName="birthday" class="form-control">
     </div>
 
-
+<div class="row">
+  <div class="col">
     <div class="form-group">
       <label for="sexe">Sexe</label>
       <select class="form-control" formControlName="sexe" id="sexe" required>
         <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
       </select>
     </div>
-
-    <div class="form-group">
-      <label>
-        nationalite
-      </label>
-      <input type="text" formControlName="nationalite">
-    </div>
-
   </div>
 
-
-  <div id="rightForm">
-    <div class="form-group">
-    <label>
-      adresse
-    </label>
-      <input type="text" formControlName="adresse">
-    </div>
-
-    <div class="form-group">
-    <label>
-      ville
-    </label>
-      <input type="text" formControlName="ville">
-    </div>
-
-    <div class="form-group">
-    <label>
-      code postal
-    </label>
-      <input type="text" formControlName="codePostal">
-    </div>
-
-    <div class="form-group">
-    <label>
-      tel
-    </label>
-      <input type="text" formControlName="tel">
-    </div>
-
-    <div class="form-group">
-    <label>
-      numero etudiant
-    </label>
-      <input type="text" formControlName="numetudiant">
-    </div>
+<div class="col">
     <label>
       <div class="form-group">
         <label for="filiere">filiere</label>
@@ -97,8 +63,58 @@
         </select>
       </div>
     </label>
+</div>
+
+  </div>
   </div>
 
+
+  <div class="col">
+    <div class="form-group">
+      <label>
+        nationalite
+      </label>
+      <input type="text" class="form-control" formControlName="nationalite">
+    </div>
+    <div class="form-group">
+    <label>
+      adresse
+    </label>
+      <div class="row">
+        <div class="col">
+      <input  class="form-control" type="text" formControlName="adresse" placeholder="adresse">
+        </div>
+        <div class="col">
+    <div class="form-group">
+      <input  class="form-control" type="text" formControlName="ville" placeholder="ville">
+    </div>
+        </div>
+        <div class="col">
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
+    </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+    <label>
+      tel
+    </label>
+      <input class="form-control"type="text" formControlName="tel">
+    </div>
+
+    <div class="form-group">
+    <label>
+      numero etudiant
+    </label>
+      <input class="form-control" type="text" formControlName="numetudiant">
+    </div>
+
+  </div>
+
+
+</div>
   <div id="submit">
     <button type="submit" class="btn btn-success" (click)="onSubmitForm()"  [disabled]="!profilForm.valid">Submit</button>
 
@@ -118,8 +134,11 @@
       {{this.studentService.getUser() | json}}
     </p>
   </div>
-
 </form>
+</div>
+  </div>
+</div>
+
 
 
 
