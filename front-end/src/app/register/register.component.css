@@ -1,6 +1,10 @@
 
 
-
+body{
+  background-size: cover;
+  background: no-repeat center center;
+  height: 83vh;
+}
 
 .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid #42A948; /* green */
