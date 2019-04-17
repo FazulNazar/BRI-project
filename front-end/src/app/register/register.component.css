@@ -1,9 +1,5 @@
 
 
-#submit{
-  float: right;
-  width: 800px;
-}
 
 
 .ng-valid[required], .ng-valid.required  {
@@ -13,3 +9,5 @@
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+
+

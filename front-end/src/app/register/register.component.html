@@ -1,144 +1,156 @@
 <!--<img id="rightPic" src="../../assets/paysage1.jpg" width="500" >-->
-<div class="card">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-<form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
-  <div class="row">
-  <div class="col" >
 
-    <div class="form-group">
-      <label>
-        e-mail:
-      </label>
-      <input type="text" class="form-control" formControlName="mail">
+<body class="page-header section-dark" style="background-image: url('../../assets/background.png')">
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+        <header class="card-header">
+          <a href="auth" class="float-right btn btn-outline-primary mt-1">Deja inscrit?</a>
+          <h4 class="card-title mt-2">Inscription</h4>
+        </header>
+
+        <article class="card-body">
+          <div class="row">
+            <div class="col">
+
+              <div class="form-group">
+                <label>
+                  e-mail:
+                </label>
+                <input type="text" class="form-control" formControlName="mail" placeholder="e-mail">
+              </div>
+
+              <div class="form-group">
+                <label>
+                  mot de passe:
+                </label>
+                <input type="password" class="form-control" formControlName="mdp" placeholder="Mot de passe">
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>
+                      nom
+                    </label>
+                    <input type="text" class="form-control" formControlName="nom" placeholder="nom">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label>
+                      prenom:
+                    </label>
+                    <input type="text" class="form-control" formControlName="prenom" placeholder="prenom">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  date de naissance</label>
+                <input type="text" formControlName="birthday" class="form-control" placeholder="Date de naissance">
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="sexe">Sexe</label>
+                    <select class="form-control" formControlName="sexe" id="sexe" required>
+                      <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <label>
+                    <div class="form-group">
+                      <label for="filiere">filiere</label>
+                      <select class="form-control" formControlName="filiere" id="filiere" required>
+                        <option *ngFor="let fil of filiere" [value]="fil">{{fil}}</option>
+                      </select>
+                    </div>
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="col">
+              <div class="form-group">
+                <label>
+                  nationalite
+                </label>
+                <input type="text" class="form-control" formControlName="nationalite" placeholder="nationalité">
+              </div>
+              <div class="form-group">
+                <label>
+                  adresse
+                </label>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <input class="form-control" type="text" formControlName="adresse" placeholder="adresse" >
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="ville" placeholder="ville">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  tel
+                </label>
+                <input class="form-control" type="text" formControlName="tel" placeholder="numero telphone">
+              </div>
+
+              <div class="form-group">
+                <label>
+                  numero etudiant
+                </label>
+                <input class="form-control" type="text" formControlName="numetudiant" placeholder="num. étudiant">
+              </div>
+
+            </div>
+
+
+          </div>
+          <div id="submit">
+            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmitForm()"
+                    [disabled]="!profilForm.valid">S'inscrire
+            </button>
+          </div>
+
+        </article>
+
+
+      </form>
     </div>
-
-    <div class="form-group">
-      <label>
-        mot de passe:
-      </label>
-      <input type="password" class="form-control"  formControlName="mdp">
-    </div>
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label>
-        nom
-      </label>
-      <input type="text"  class="form-control" formControlName="nom">
-    </div>
-  </div>
-  <div class="col">
-    <div class="form-group">
-      <label>
-        prenom:
-      </label>
-      <input type="text" class="form-control" formControlName="prenom">
-    </div>
-  </div>
-</div>
-
-    <div class="form-group">
-      <label>
-        date de naissance</label>
-      <input type="text" formControlName="birthday" class="form-control">
-    </div>
-
-<div class="row">
-  <div class="col">
-    <div class="form-group">
-      <label for="sexe">Sexe</label>
-      <select class="form-control" formControlName="sexe" id="sexe" required>
-        <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
-      </select>
-    </div>
-  </div>
-
-<div class="col">
-    <label>
-      <div class="form-group">
-        <label for="filiere">filiere</label>
-        <select class="form-control" formControlName="filiere" id="filiere" required>
-          <option *ngFor="let fil of filiere" [value]="fil">{{fil}}</option>
-        </select>
-      </div>
-    </label>
-</div>
-
-  </div>
-  </div>
-
-
-  <div class="col">
-    <div class="form-group">
-      <label>
-        nationalite
-      </label>
-      <input type="text" class="form-control" formControlName="nationalite">
-    </div>
-    <div class="form-group">
-    <label>
-      adresse
-    </label>
-      <div class="row">
-        <div class="col">
-      <input  class="form-control" type="text" formControlName="adresse" placeholder="adresse">
-        </div>
-        <div class="col">
-    <div class="form-group">
-      <input  class="form-control" type="text" formControlName="ville" placeholder="ville">
-    </div>
-        </div>
-        <div class="col">
-    <div class="form-group">
-      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
-    </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-    <label>
-      tel
-    </label>
-      <input class="form-control"type="text" formControlName="tel">
-    </div>
-
-    <div class="form-group">
-    <label>
-      numero etudiant
-    </label>
-      <input class="form-control" type="text" formControlName="numetudiant">
-    </div>
-
-  </div>
-
-
-</div>
-  <div id="submit">
-    <button type="submit" class="btn btn-success" (click)="onSubmitForm()"  [disabled]="!profilForm.valid">Submit</button>
-
-
-    <p>
-      Form Status: {{ profilForm.status }}
-      <br>
-      {{profilForm.getRawValue() | json}}
-      <br>
-      izi:
-      <br>
-      {{profilList | json}}
-
-      <br>
-
-      service:
-      {{this.studentService.getUser() | json}}
-    </p>
-  </div>
-</form>
-</div>
   </div>
 </div>
+<!--<p>
+  Form Status: {{ profilForm.status }}
+  <br>
+  {{profilForm.getRawValue() | json}}
+  <br>
+  izi:
+  <br>
+  {{profilList | json}}
 
+  <br>
 
+  service:
+  {{this.studentService.getUser() | json}}
+</p>-->
+
+</body>
 
 
