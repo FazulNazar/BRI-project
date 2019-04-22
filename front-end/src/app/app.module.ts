@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
 import {ProfileComponent} from './profile/profile.component';
 
+import { CountriesListComponent } from './countries-list/countries-list.component';
+
 
 
 import {UserService} from '../services/user.service';
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
   { path: '', component: PresentationComponent},
   { path: 'auth/menu-student', component: MenuStudentComponent},
   { path: 'menu-admin', component: MenuAdminComponent},
-
+  { path: 'auth/menu-student/countries-list', component: CountriesListComponent},
   { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
   { path: '', component: PresentationComponent},
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
     StudiesComponent,
     MenuAdminComponent,
     UpdateprofileComponent,
-    ProfileComponent
+    ProfileComponent,
+    CountriesListComponent
   ],
   imports: [
     BrowserModule,
