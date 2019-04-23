@@ -14,6 +14,8 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
 import {ProfileComponent} from './profile/profile.component';
+import {UniversityPickedComponent} from './university-picked/university-picked.component' ;
+import {UniversityAvailableComponent} from './university-available/university-available.component' ;
 
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { WishListComponent } from './wish-list/wish-list.component';
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
   { path: '', component: PresentationComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateprofileComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent},
+  {path: 'university-picked', component: UniversityPickedComponent},
+  {path: 'university-available', component: UniversityAvailableComponent}
 ];
 
 @NgModule({
@@ -56,7 +60,10 @@ const appRoutes: Routes = [
     UpdateprofileComponent,
     ProfileComponent,
     CountriesListComponent,
-    WishListComponent
+    WishListComponent,
+    CountriesListComponent,
+    UniversityPickedComponent,
+    UniversityAvailableComponent
   ],
   imports: [
     BrowserModule,
