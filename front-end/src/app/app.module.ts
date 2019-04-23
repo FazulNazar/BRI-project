@@ -23,6 +23,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 
 
 import {UserService} from '../services/user.service';
+import { DocumentComponent } from './document/document.component';
 
 
 const appRoutes: Routes = [
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
   { path: 'update-profile', component: UpdateprofileComponent},
   { path: 'profile', component: ProfileComponent},
   {path: 'university-picked', component: UniversityPickedComponent},
-  {path: 'university-available', component: UniversityAvailableComponent}
+  {path: 'university-available', component: UniversityAvailableComponent},
+  {path: 'documents', component: DocumentComponent}
 ];
 
 @NgModule({
@@ -63,7 +65,8 @@ const appRoutes: Routes = [
     WishListComponent,
     CountriesListComponent,
     UniversityPickedComponent,
-    UniversityAvailableComponent
+    UniversityAvailableComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,
