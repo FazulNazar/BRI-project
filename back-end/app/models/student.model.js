@@ -1,7 +1,7 @@
 const Joi = require('joi');
 const BaseModel = require('../utils/base-model.js');
 
-module.exports = new BaseModel('University', {
+module.exports = new BaseModel('Student', {
   mail: Joi.string().required(),
   birthday: Joi.date().required(),
   mdp: Joi.string().required(),
