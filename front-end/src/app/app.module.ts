@@ -14,12 +14,16 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
 import {ProfileComponent} from './profile/profile.component';
+import {UniversityPickedComponent} from './university-picked/university-picked.component' ;
+import {UniversityAvailableComponent} from './university-available/university-available.component' ;
 
 import { CountriesListComponent } from './countries-list/countries-list.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 
 
 import {UserService} from '../services/user.service';
+import { DocumentComponent } from './document/document.component';
 
 
 const appRoutes: Routes = [
@@ -30,12 +34,16 @@ const appRoutes: Routes = [
   { path: 'auth/menu-student', component: MenuStudentComponent},
   { path: 'menu-admin', component: MenuAdminComponent},
   { path: 'auth/menu-student/countries-list', component: CountriesListComponent},
+  { path: 'auth/menu-student/wish-list', component: WishListComponent},
   { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
   { path: '', component: PresentationComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateprofileComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent},
+  {path: 'university-picked', component: UniversityPickedComponent},
+  {path: 'university-available', component: UniversityAvailableComponent},
+  {path: 'documents', component: DocumentComponent}
 ];
 
 @NgModule({
@@ -53,7 +61,12 @@ const appRoutes: Routes = [
     MenuAdminComponent,
     UpdateprofileComponent,
     ProfileComponent,
-    CountriesListComponent
+    CountriesListComponent,
+    WishListComponent,
+    CountriesListComponent,
+    UniversityPickedComponent,
+    UniversityAvailableComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,

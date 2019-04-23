@@ -1,15 +1,15 @@
-.titles, .wish-list{
+.titles{
   text-align: center;
 }
 
 .container{
-  background-image: url("../../assets/mapamundi.png");
   text-align: center;
   border: 1px solid black;
   margin: 25px auto;
   padding: 20px 20px;
   font: 18px sans-serif;
 }
+
 
 .container div{
   display: inline-block;
@@ -22,3 +22,4 @@
   text-shadow: 3px 3px 2px gray;
   cursor: pointer;
 }
+
