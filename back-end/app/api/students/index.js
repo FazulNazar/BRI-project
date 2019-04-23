@@ -1,12 +1,12 @@
 const { Router } = require('express');
-const { Ticket } = require('../../models');
+const { Student } = require('../../models');
 
 const router = new Router();
-router.get('/', (req, res) => res.status(200).json(Ticket.get()));
+router.get('/', (req, res) => res.status(200).json(Student.get()));
 router.post('/', (req, res) => {
   try {
-    const ticket = Ticket.create(req.body);
-    res.status(201).json(ticket);
+    const student = Student.create(req.body);
+    res.status(201).json(student);
   } catch (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra);
