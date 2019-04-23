@@ -16,6 +16,7 @@ import {UpdateprofileComponent} from './update-profile/update_profile.component'
 import {ProfileComponent} from './profile/profile.component';
 
 import { CountriesListComponent } from './countries-list/countries-list.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 
 
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'auth/menu-student', component: MenuStudentComponent},
   { path: 'menu-admin', component: MenuAdminComponent},
   { path: 'auth/menu-student/countries-list', component: CountriesListComponent},
+  { path: 'auth/menu-student/wish-list', component: WishListComponent},
   { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
   { path: '', component: PresentationComponent},
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     MenuAdminComponent,
     UpdateprofileComponent,
     ProfileComponent,
-    CountriesListComponent
+    CountriesListComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,
