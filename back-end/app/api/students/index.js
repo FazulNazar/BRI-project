@@ -20,4 +20,7 @@ router.post('/', (req, res) => {
   }
 });
 
+router.delete('/:studentId', (req, res) => res.status(204).json(Student.delete(req.params.studentId)));
+router.put('/:studentId', (req, res) => res.status(201).json(Student.update(req.params.studentId, req.body)));
+
 module.exports = router;
