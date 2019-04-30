@@ -3,7 +3,8 @@
 }
 
 .container{
-  background-image: url("../../assets/mapamundi.png");
+  background-size: cover;
+  background: url("../../assets/mapamundi.png") no-repeat center center;
   text-align: center;
   border: 1px solid black;
   margin: 25px auto;

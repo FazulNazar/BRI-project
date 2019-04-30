@@ -17,23 +17,17 @@
       </tr>
       </thead>
       <tbody>
+      <!--<tr *ngFor="let wish of wishService.wishes" >-->
+        <!--<td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>-->
+          <!--<button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>-->
       <tr>
         <th scope="row"><div class="btn-group"><button class="btn-info" (click)="editInfo()" >EDITER</button>
           <button class="btn-danger" (click)="deleteInfo()" >SUPRIMER</button></div></th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
-      <tr>
-        <th scope="row"><div class="btn-group"><button class="btn-info" (click)="editInfo()" >EDITER</button>
-          <button class="btn-danger" (click)="deleteInfo()" >SUPRIMER</button></div></th>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
-        <td>Cell</td>
+        <td>{{ wish.university }}</td>
+        <td>{{ wish.country }}</td>
+        <td>{{ wish.city }}</td>
+        <td>{{ wish.full }}</td>
+        <td>{{ wish.semester }}</td>
       </tr>
       </tbody>
     </table>
