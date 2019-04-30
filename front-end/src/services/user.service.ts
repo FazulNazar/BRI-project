@@ -1,5 +1,7 @@
 import {User} from '../models/User.model';
 import {BehaviorSubject, Subject} from 'rxjs';
+import {catchError, take} from "rxjs/operators";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 // import { Subject } from 'rxjs/Subject';
 
@@ -9,6 +11,7 @@ export class UserService {
 
   // public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
 
+
   emitUsers() {
     this.userSubject.next(this.users.slice());
   }
@@ -17,6 +20,8 @@ export class UserService {
     this.users.push(user);
     this.emitUsers();
   }
+
+
 
   getUser() {
     return(this.users);

@@ -21,6 +21,8 @@ import { CountriesListComponent } from './countries-list/countries-list.componen
 import { WishListComponent } from './wish-list/wish-list.component';
 
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 import {UserService} from '../services/user.service';
 import { DocumentComponent } from './document/document.component';
@@ -66,12 +68,15 @@ const appRoutes: Routes = [
     CountriesListComponent,
     UniversityPickedComponent,
     UniversityAvailableComponent,
-    DocumentComponent
+    DocumentComponent,
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [
     UserService,
