@@ -45,7 +45,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent},
   {path: 'university-picked', component: UniversityPickedComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
-  {path: 'documents', component: DocumentComponent}
+  {path: 'document', component: DocumentComponent}
 ];
 
 @NgModule({

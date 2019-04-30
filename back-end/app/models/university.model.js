@@ -6,5 +6,6 @@ module.exports = new BaseModel('University', {
   ville: Joi.string().required(),
   filieres: Joi.string().required(),
   accord: Joi.string().required(),
+  pays: Joi.string().required,
 
 });

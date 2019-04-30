@@ -1,10 +1,10 @@
 import {User} from '../models/User.model';
-import {UniversityModel} from '../models/university.model';
+import {UniversityModel} from '../models/University.model';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {catchError, take} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl} from '../configs/server.config';
-import {ErrorService} from "./error";
+import {ErrorService} from './error';
 
 // import { Subject } from 'rxjs/Subject';
 
