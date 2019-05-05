@@ -12,7 +12,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UniversityService {
-  public universityList: UniversityModel[] = [];
+  private universityList: UniversityModel[] = [];
   private url = serverUrl + '/university';
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 

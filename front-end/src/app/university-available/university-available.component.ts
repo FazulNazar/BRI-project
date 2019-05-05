@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {UniversityService} from '../../services/university.service';
 import {UniversityModel} from '../../models/University.model';
 import {Observable} from 'rxjs';
