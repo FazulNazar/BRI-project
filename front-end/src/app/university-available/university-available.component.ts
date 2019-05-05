@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UniversityService} from '../../services/university.service';
-import {UniversityModel} from "../../models/University.model";
+import {UniversityModel} from '../../models/University.model';
+import {Observable} from 'rxjs';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-university-available',
@@ -10,14 +12,18 @@ import {UniversityModel} from "../../models/University.model";
 export class UniversityAvailableComponent implements OnInit {
 
 
+  university$: Observable<UniversityModel[]>;
   public universityList: UniversityModel[] = [];
 
-  constructor(public ticketService: UniversityService) {
-    this.ticketService.university$.subscribe((tickets) => {
-      this.universityList = tickets;
+  constructor(public universityService: UniversityService) {
+    this.universityService.university$.subscribe((university) => {
+      this.universityList = university;
     });
   }
+
   ngOnInit() {
+    // this.university$ = this.universityService.university$;
+    // this.universityList = this.universityService.universityList;
   }
 
 }

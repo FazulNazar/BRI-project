@@ -5,47 +5,37 @@ import {catchError, take} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl} from '../configs/server.config';
 import {ErrorService} from './error';
+import { Injectable } from '@angular/core';
 
 // import { Subject } from 'rxjs/Subject';
-
+@Injectable({
+  providedIn: 'root'
+})
 export class UniversityService {
-  private universityList: UniversityModel[] = [];
-  universitySubject = new Subject<UniversityModel[]>();
-
+  public universityList: UniversityModel[] = [];
   private url = serverUrl + '/university';
-
-  private httpOptions = httpOptionsBase;
-
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 
-  public studentViewed$: BehaviorSubject<UniversityModel> = new BehaviorSubject<UniversityModel>(null);
-
-
   constructor(public http: HttpClient, private errorService: ErrorService) {
+
+    this.url = 'http://localhost:9428/api/university';
+    this.getUniversityByHttp();
+    this.university$ = new BehaviorSubject(this.universityList);
   }
 
+  //
+  // emitUsers() {
+  //   //this.universitySubject.next(this.universityList.slice());
+  // }
+  //
+  getUniversityByHttp() {
 
-  emitUsers() {
-    this.universitySubject.next(this.universityList.slice());
+    this.http.get<UniversityModel[]>(this.url).subscribe(university => {
+      this.universityList = university;
+      this.university$.next(this.universityList);
+    });
+
   }
-
-  getUniversity() {
-    this.http.get<UniversityModel[]>(this.url)
-      .pipe(
-        take(1),
-        catchError((err: HttpErrorResponse) => this.errorService.handleError<UniversityModel[]>(err, 'get /university', [])))
-      .subscribe((students: UniversityModel[]) => {
-        this.university$.next(students);
-        this.universityList = students;
-      });
-  }
-
-  addUser(university: UniversityModel) {
-    this.universityList.push(university);
-    this.emitUsers();
-  }
-
-
   getUser() {
     return (this.universityList);
   }

@@ -37,7 +37,7 @@ export class ErrorService {
    * returns {Observable<T>}
    */
   handleError<T>(error: HttpErrorResponse, operation: string, result?: T) {
-    this.errors.push({operation: operation, error: error});
+    this.errors.push({operation, error});
     this.errors$.next([...this.errors]);
 
     return of(result as T);
