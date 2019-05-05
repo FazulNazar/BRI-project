@@ -16,3 +16,4 @@ module.exports = new BaseModel('Student', {
   numetudiant: Joi.string().required(),
   filiere: Joi.string().required(),
 });
+// ozoozoz
