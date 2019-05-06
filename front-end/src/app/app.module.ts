@@ -14,8 +14,9 @@ import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
 import {ProfileComponent} from './profile/profile.component';
-import {UniversityPickedComponent} from './university-picked/university-picked.component' ;
-import {UniversityAvailableComponent} from './university-available/university-available.component' ;
+import {UniversityPickedComponent} from './universities/university-picked/university-picked.component' ;
+import {UniversityAvailableComponent} from './universities/university-available/university-available.component' ;
+import { UniversityPreviewComponent } from './universities/university-preview/university-preview.component';
 
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { WishListComponent } from './wish-list/wish-list.component';
@@ -26,6 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {UserService} from '../services/user.service';
 import { DocumentComponent } from './document/document.component';
+import { AddUniversityComponent } from './add-university/add-university.component';
+import {UniversityService} from '../services/university.service';
+
 
 
 const appRoutes: Routes = [
@@ -35,6 +39,7 @@ const appRoutes: Routes = [
   { path: '', component: PresentationComponent},
   { path: 'auth/menu-student', component: MenuStudentComponent},
   { path: 'menu-admin', component: MenuAdminComponent},
+  { path: 'menu-admin/add-university', component: AddUniversityComponent},
   { path: 'auth/menu-student/countries-list', component: CountriesListComponent},
   { path: 'auth/menu-student/wish-list', component: WishListComponent},
   { path: '', component: PresentationComponent},
@@ -43,7 +48,7 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateprofileComponent},
   { path: 'profile', component: ProfileComponent},
-  {path: 'university-picked', component: UniversityPickedComponent},
+  {path: 'university-picked/:id', component: UniversityPickedComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
   {path: 'document', component: DocumentComponent}
 ];
@@ -70,6 +75,8 @@ const appRoutes: Routes = [
     UniversityAvailableComponent,
     DocumentComponent,
     AppComponent,
+    AddUniversityComponent,
+    UniversityPreviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +87,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     UserService,
+    UniversityService,
   ],
   bootstrap: [AppComponent]
 

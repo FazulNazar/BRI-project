@@ -1,3 +1,24 @@
-.btn-primary{
-  height: 50px;
+.container-perso{
+  height: 600px;
+  background: url("../../assets/polytech-nice-sophia.jpg") no-repeat center center;
+  background-size: cover;
+  text-align: center;
+  padding: 20px 20px;
+  color: white;
+  font: 18px sans-serif;
 }
+
+.container{
+  height: auto;
+  width: auto;
+  margin-top: 50px;
+  margin-left: 70%;
+}
+
+
+.btn-primary{
+  background-color: #2980b9;
+  height: 50px;
+  font: 18px sans-serif;
+}
+

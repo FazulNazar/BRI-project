@@ -1,0 +1,12 @@
+.titles{
+  text-align: center;
+}
+
+.container{
+  text-align: center;
+  border: 1px solid black;
+  margin: 25px auto;
+  padding: 20px 20px;
+  font: 18px sans-serif;
+}
+

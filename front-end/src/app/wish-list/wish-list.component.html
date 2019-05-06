@@ -20,7 +20,7 @@
       <!--<tr *ngFor="let wish of wishService.wishes" >-->
         <!--<td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>-->
           <!--<button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>-->
-      <tr>
+      <tr *ngFor="let wish of wishService.wishes">
         <th scope="row"><div class="btn-group"><button class="btn-info" (click)="editInfo()" >EDITER</button>
           <button class="btn-danger" (click)="deleteInfo()" >SUPRIMER</button></div></th>
         <td>{{ wish.university }}</td>

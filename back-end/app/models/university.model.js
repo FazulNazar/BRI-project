@@ -2,10 +2,13 @@ const Joi = require('joi');
 const BaseModel = require('../utils/base-model.js');
 
 module.exports = new BaseModel('University', {
-  nom: Joi.string().required(),
-  ville: Joi.string().required(),
-  filieres: Joi.string().required(),
+  name: Joi.string().required(),
+  city: Joi.string().required(),
+  majors: Joi.string().required(),
   accord: Joi.string().required(),
-  pays: Joi.string().required(),
-
+  country: Joi.string().required(),
+  id: Joi.number().integer().required(),
+  universityId: Joi.number().integer().required(),
+  exchangeStudents: Joi.number().integer(),
+  note: Joi.string(),
 });

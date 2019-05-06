@@ -1,9 +1,14 @@
 export class UniversityModel {
   constructor(
-    public nom: string,
-    public ville: string,
-    public filiere: string,
+    public name: string,
+    public city: string,
+    public majors: string,
     public accord: string,
-
+    public country: string,
+    public id: number,
+    public universityId: number,
+    public exchangeStudents?: number,
+    public note?: string,
   ) {}
 }
+

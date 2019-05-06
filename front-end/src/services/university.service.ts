@@ -1,7 +1,7 @@
 import {User} from '../models/User.model';
 import {UniversityModel} from '../models/University.model';
-import {BehaviorSubject, Subject} from 'rxjs';
-import {catchError, take} from 'rxjs/operators';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {catchError, take, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl} from '../configs/server.config';
 import {ErrorService} from './error';
@@ -12,15 +12,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UniversityService {
+
+  private httpOptions = httpOptionsBase;
+  // public selectedUniversity: UniversityModel;
   private universityList: UniversityModel[] = [];
   private url = serverUrl + '/university';
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
 
-    this.url = 'http://localhost:9428/api/university';
-    this.getUniversityByHttp();
-    this.university$ = new BehaviorSubject(this.universityList);
+  //   this.url = 'http://localhost:9428/api/university';
+  //   this.getUniversityByHttp();
+  //   this.university$ = new BehaviorSubject(this.universityList);
   }
 
   //
@@ -36,7 +39,34 @@ export class UniversityService {
     });
 
   }
-  getUser() {
+
+  getUniversities(): Observable<UniversityModel[]> {
+    return this.http.get<UniversityModel[]>(this.url).pipe(
+      tap(_ => this.log('fetched universities'))
+    );
+  }
+
+
+  getUniversity(id: number): Observable<UniversityModel> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<UniversityModel>(url).pipe(
+      tap(_ => this.log(`fetched university id=${id}`))
+    );
+  }
+  private log(message: string) {
+    console.log(message);
+  }
+
+  postUniversity(university: UniversityModel) {
+    this.http.post<UniversityModel>(this.url, university, this.httpOptions)
+      .pipe(
+        take(1),
+        catchError((err: HttpErrorResponse) =>
+          this.errorService.handleError<User>(err, 'post /university'))
+      ).subscribe((universityList) => this.getUniversityByHttp());
+  }
+
+  getUniversityList() {
     return (this.universityList);
   }
 

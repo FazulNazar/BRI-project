@@ -8,10 +8,11 @@
   </h4>
 </div>
 
-
 <div class="container">
-  <div class="universities-available" routerLink="/university-picked">
-    <p>City University Hong Kong</p>
+  <div class="university-picked">
+    <app-university-preview
+      *ngFor="let university of universityList" [university]="university">
+    </app-university-preview>
   </div>
 </div>
 

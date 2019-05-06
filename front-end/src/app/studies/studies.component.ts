@@ -18,7 +18,7 @@ export class StudiesComponent implements OnInit {
       year: new FormControl(''),
       grade: new FormControl(''),
       locality: new FormControl(''),
-      ville: new FormControl(''),
+      city: new FormControl(''),
       speciality: new FormControl(''),
       mean: new FormControl(''),
     });
