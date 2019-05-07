@@ -9,7 +9,7 @@ import {UserService} from '../../services/user.service';
 })
 export class StudiesComponent implements OnInit {
   public  studiesForm: FormGroup;
-  spec = ['SI', 'ELEC', 'BAT', 'GE', 'GB'];
+  mean = [];
   public years = [];
 
 
@@ -31,8 +31,8 @@ constructor(public formBuilder: FormBuilder, public studentService: UserService)
 
 
   ngOnInit() {
-    for (let i =  2000 ; i < 2020; i++) {
-      this.years.push(i);
+  for (let i =  0 ; i < 21; i++) {
+      this.mean.push(i);
     }
   }
 

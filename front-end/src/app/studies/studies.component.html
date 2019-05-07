@@ -97,9 +97,9 @@
 <div class="row ">
   <div class="col-md-6">
     <div class="card">
-      <form [formGroup]="studiesForm" (ngSubmit)="onSubmit()">
+      <form >
         <header class="card-header">
-          <a href="auth" class="float-right btn btn-outline-primary mt-1">Valider</a>
+
           <h4 class="card-title mt-2">Parcours universitaire</h4>
         </header>
 
@@ -134,16 +134,14 @@
               <div class="form-group">
                 <label>
                   Année</label>
-                <input type="text" formControlName="year" class="form-control" placeholder="Année">
+                <input type="number" max="2019" min="2005" formControlName="year" class="form-control" placeholder="Année">
               </div>
 
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="sexe">Sexe</label>
-                    <select class="form-control" formControlName="sexe" id="sexe" required>
-                      <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
-                    </select>
+                    <label for="mean">Moyenne /20 </label>
+                    <input type="number" min="0" max="20" class="form-control" formControlName="mean" id="mean" required>
                   </div>
                 </div>
 
@@ -151,9 +149,9 @@
                   <label>
                     <div class="form-group">
                       <label for="spec">filiere</label>
-                      <select class="form-control" formControlName="spec" id="spec" required>
-                        <option *ngFor="let spek of spec" [value]="spek">{{spek}}</option>
-                      </select>
+                      <input type="text" placeholder="Maths/SVT/Physique ou autre" class="form-control" formControlName="spec" id="spec" required>
+
+
                     </div>
                   </label>
                 </div>
@@ -164,55 +162,13 @@
 
 
 
-            <div class="col">
-              <div class="form-group">
-                <label>
-                  nationalite
-                </label>
-                <input type="text" class="form-control" formControlName="nationalite" placeholder="nationalité">
-              </div>
-              <div class="form-group">
-                <label>
-                  adresse
-                </label>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <input class="form-control" type="text" formControlName="adresse" placeholder="adresse" >
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <input class="form-control" type="text" formControlName="ville" placeholder="ville">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label>
-                  tel
-                </label>
-                <input class="form-control" type="text" formControlName="tel" placeholder="numero telphone">
-              </div>
-
-              <div class="form-group">
-                <label>
-                  numero etudiant
-                </label>
-                <input class="form-control" type="text" formControlName="numetudiant" placeholder="num. étudiant">
-              </div>
-
-            </div>
 
 
-          </div>
+
+    </div>
           <div id="submit">
-            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmitForm()"
-                    [disabled]="!profilForm.valid">S'inscrire
+            <button type="submit" class="btn btn-primary btn-block" >
+                    Ajouter
             </button>
           </div>
 
