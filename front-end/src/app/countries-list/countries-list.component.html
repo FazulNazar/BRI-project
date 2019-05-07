@@ -1,63 +1,19 @@
-<div class="titles">
+<div class="titles" >
   <h1>
     Séjours d'études
   </h1>
   <hr>
   <h4>
-    Veuillez selectionner le pays souhaité
+    Veuillez sélectionner une université
   </h4>
 </div>
 
-
-  <div class="container">
-    <div class="countries-America" routerLink="/university-available">
-      <h3>AMERICA</h3>
-      <hr>
-      <p>Brésil</p>
-      <p>Argentine</p>
-      <p>USA</p>
-      <p>Canada</p>
-    </div>
-
-    <div class="countries-Europe" routerLink="/university-available">
-      <h3>EUROPE</h3>
-      <hr>
-      <p>Allemagne</p>
-      <p>Espagne</p>
-      <p>Italie</p>
-      <p>Belgique</p>
-      <p>Danemark</p>
-      <p>Pologne</p>
-      <p>Portugal</p>
-      <p>Roumanie</p>
-      <p>Royaume-Uni</p>
-
-    </div>
-
-    <div class="countries-Asia" routerLink="/university-available">
-      <h3>ASIA</h3>
-      <hr>
-      <p>Corée</p>
-      <p>Chine</p>
-      <p>Thailand</p>
-      <p>Vietnam</p>
-      <p>Taiwan</p>
-    </div>
-
-    <div class="countries-Africa" routerLink="/university-available">
-      <h3>AFRICA</h3>
-      <hr>
-      <p>Cameroun</p>
-      <p>Maroc</p>
-      <p>Togo</p>
-    </div>
-
+<div class="container">
+  <div class="university-picked">
+    <app-university-preview
+      *ngFor="let university of universityList" [university]="university">
+    </app-university-preview>
   </div>
-
-  <div class="wish-list">
-    <button type="submit" class="btn btn-secondary" routerLink="/auth/menu-student/wish-list">Liste de voeux</button>
-  </div>
-
-
+</div>
 
 
