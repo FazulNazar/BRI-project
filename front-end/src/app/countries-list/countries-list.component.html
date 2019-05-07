@@ -2,6 +2,11 @@
   <div class="container-fluid">
     <h2>Universités</h2>
 
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search by Country"
+          style="width: 300px" [(ngModel)]="searchterm"/>
+    </div>
+
     <div class="table-hover">
       <table class="table">
         <thead>
@@ -12,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor=" let univ of universityList">
+          <tr *ngFor=" let univ of universityList | CountryFilter:searchterm">
             <td>
               <a routerLink="/university-picked/{{univ.id}}">{{univ.name}}</a>
 

@@ -30,6 +30,7 @@ import {UserService} from '../services/user.service';
 import { DocumentComponent } from './document/document.component';
 import { AddUniversityComponent } from './add-university/add-university.component';
 import {UniversityService} from '../services/university.service';
+import {CountryFilterPipe} from './filter.pipe';
 
 
 
@@ -79,7 +80,9 @@ const appRoutes: Routes = [
     AppComponent,
     AddUniversityComponent,
     UniversityPreviewComponent,
-    AgreementHostComponent
+    AgreementHostComponent,
+    CountryFilterPipe
+
   ],
   imports: [
     BrowserModule,
