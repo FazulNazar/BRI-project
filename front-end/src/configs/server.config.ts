@@ -9,3 +9,4 @@ export const httpOptionsBase = {
 export const serverUrl = 'http://localhost:9428/api';
 export const studentsUrl = '/students';
 export const universityUrl = '/university';
+export const wishesUrl = '/wish-list';

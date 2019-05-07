@@ -4,7 +4,7 @@ import {UniversityModel} from '../models/University.model';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {catchError, take, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {httpOptionsBase, serverUrl} from '../configs/server.config';
+import {httpOptionsBase, serverUrl, wishesUrl} from '../configs/server.config';
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
 
@@ -13,17 +13,25 @@ import { Injectable } from '@angular/core';
 })
 export class WishService {
 
-  // selectedWish: WishModel;
-  private wishList: WishModel[] = [];
+  selectedWish: WishModel;
+  public wishList: WishModel[] = [];
   private httpOptions = httpOptionsBase;
-  private url = serverUrl + '/wish-list';
+  private url = serverUrl + wishesUrl;
+  public wish$: BehaviorSubject<WishModel[]> = new BehaviorSubject(this.wishList);
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
-
+    this.selectedWish = new WishModel();
   }
 
   private log(message: string) {
     console.log(message);
+  }
+
+  getWishByHttp() {
+    this.http.get<WishModel[]>(this.url).subscribe(wish => {
+      this.wishList = wish;
+      this.wish$.next(this.wishList);
+    });
   }
 
   getWishList(): Observable<WishModel[]> {
@@ -40,7 +48,12 @@ export class WishService {
   }
 
   postWish(wish: WishModel) {
-
+    this.http.post<WishModel>(this.url, wish, this.httpOptions)
+      .pipe(
+        take(1),
+        catchError((err: HttpErrorResponse) =>
+          this.errorService.handleError<WishModel>(err, 'post /wish'))
+      ).subscribe((wishList) => this.getWishByHttp());
   }
 
 

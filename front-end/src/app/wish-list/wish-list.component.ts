@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WishModel } from '../../models/Wish.model';
 import {WishService} from '../../services/wish.service';
+import {UniversityModel} from '../../models/University.model';
+import {Observable} from 'rxjs';
 
 declare var M: any;
 
@@ -12,17 +14,28 @@ declare var M: any;
 })
 export class WishListComponent implements OnInit {
 
-  constructor(private wishService: WishService) {
+  university$: Observable<WishModel[]>;
+  public wishList: WishModel[] = [];
+
+  constructor(public wishService: WishService) {
   }
 
   ngOnInit() {
+    this.getWishes();
+  }
+
+  getWishes(): void {
+    this.wishService.getWishList()
+      .subscribe(wishes => {
+        this.wishList = wishes;
+      });
   }
 
   editWish() {
 
   }
 
-  deleteWish(id: string) {
+  deleteWish() {
     //   if (confirm('Are you sure you want to delete it?')) {
     //     this.wishService.deleteWish(id)
     //       .subscribe(res => {
@@ -31,4 +44,6 @@ export class WishListComponent implements OnInit {
     //       });
     // }
   }
+
+
 }
