@@ -4,6 +4,7 @@ import {UniversityModel} from '../../models/University.model';
 import {UniversityService} from '../../services/university.service';
 
 
+
 @Component({
   selector: 'app-countries-list',
   templateUrl: './countries-list.component.html',

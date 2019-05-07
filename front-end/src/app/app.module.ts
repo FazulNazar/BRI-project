@@ -1,9 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {RouterModule, Routes} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { PresentationComponent } from './presentation/presentation.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AuthFormComponent } from './auth-form/auth-form.component';
@@ -18,18 +19,14 @@ import {UniversityPickedComponent} from './universities/university-picked/univer
 import {UniversityAvailableComponent} from './universities/university-available/university-available.component' ;
 import { UniversityPreviewComponent } from './universities/university-preview/university-preview.component';
 import { AgreementHostComponent } from './agreement-host/agreement-host.component';
-
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { WishListComponent } from './wish-list/wish-list.component';
-
-
-import { HttpClientModule } from '@angular/common/http';
-
-
-import {UserService} from '../services/user.service';
 import { DocumentComponent } from './document/document.component';
 import { AddUniversityComponent } from './add-university/add-university.component';
+
+import {UserService} from '../services/user.service';
 import {UniversityService} from '../services/university.service';
+import {WishService} from '../services/wish.service';
 import {CountryFilterPipe} from './filter.pipe';
 
 
@@ -39,11 +36,11 @@ const appRoutes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'auth', component: AuthFormComponent},
   { path: '', component: PresentationComponent},
-  { path: 'auth/menu-student', component: MenuStudentComponent},
+  { path: 'menu-student', component: MenuStudentComponent},
   { path: 'menu-admin', component: MenuAdminComponent},
   { path: 'menu-admin/add-university', component: AddUniversityComponent},
-  { path: 'auth/menu-student/countries-list', component: CountriesListComponent},
-  { path: 'auth/menu-student/wish-list', component: WishListComponent},
+  { path: 'menu-student/countries-list', component: CountriesListComponent},
+  { path: 'menu-student/wish-list', component: WishListComponent},
   { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
   { path: '', component: PresentationComponent},
@@ -52,7 +49,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent},
   {path: 'university-picked/:id', component: UniversityPickedComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
-  {path: 'document', component: DocumentComponent},
+  {path: 'menu-student/documents', component: DocumentComponent},
   {path: 'agreement-host/:id', component: AgreementHostComponent}
 ];
 
@@ -95,6 +92,7 @@ const appRoutes: Routes = [
   providers: [
     UserService,
     UniversityService,
+    WishService,
   ],
   bootstrap: [AppComponent]
 

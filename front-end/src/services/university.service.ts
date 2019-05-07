@@ -3,7 +3,7 @@ import {UniversityModel} from '../models/University.model';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {catchError, take, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {httpOptionsBase, serverUrl} from '../configs/server.config';
+import {httpOptionsBase, serverUrl, universityUrl} from '../configs/server.config';
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
 
@@ -16,7 +16,7 @@ export class UniversityService {
   private httpOptions = httpOptionsBase;
   // public selectedUniversity: UniversityModel;
   public universityList: UniversityModel[] = [];
-  private url = serverUrl + '/university';
+  private url = serverUrl + universityUrl;
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
@@ -65,7 +65,7 @@ export class UniversityService {
       .pipe(
         take(1),
         catchError((err: HttpErrorResponse) =>
-          this.errorService.handleError<User>(err, 'post /university'))
+          this.errorService.handleError<UniversityModel>(err, 'post /university'))
       ).subscribe((universityList) => this.getUniversityByHttp());
   }
 
