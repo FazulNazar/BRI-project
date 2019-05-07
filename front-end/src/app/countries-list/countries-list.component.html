@@ -1,19 +1,27 @@
-<div class="titles" >
-  <h1>
-    Séjours d'études
-  </h1>
-  <hr>
-  <h4>
-    Veuillez sélectionner une université
-  </h4>
-</div>
 
-<div class="container">
-  <div class="university-picked">
-    <app-university-preview
-      *ngFor="let university of universityList" [university]="university">
-    </app-university-preview>
+  <div class="container-fluid">
+    <h2>Universités</h2>
+
+    <div class="table-hover">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Université</th>
+          <th>Pays</th>
+          <th>Filieres </th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let univ of universityList">
+            <td> {{univ.name}} </td>
+            <td> {{univ.country}} </td>
+            <td> {{univ.majors}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+
+
 
 

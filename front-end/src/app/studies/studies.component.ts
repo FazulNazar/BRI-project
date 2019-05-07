@@ -9,8 +9,12 @@ import {UserService} from '../../services/user.service';
 })
 export class StudiesComponent implements OnInit {
   public  studiesForm: FormGroup;
+  spec = ['SI', 'ELEC', 'BAT', 'GE', 'GB'];
+  public years = [];
 
-  constructor(public formBuilder: FormBuilder, public studentService: UserService) {
+
+
+constructor(public formBuilder: FormBuilder, public studentService: UserService){
 
     this. studiesForm = this.formBuilder.group({
       mail: new FormControl('', [Validators.email, Validators.required]),
@@ -27,6 +31,9 @@ export class StudiesComponent implements OnInit {
 
 
   ngOnInit() {
+    for (let i =  2000 ; i < 2020; i++) {
+      this.years.push(i);
+    }
   }
 
 }

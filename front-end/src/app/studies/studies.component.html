@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--<div class="container-fluid">
   <div class="row">
     <div class="col-md-4 offset-md-1 ">
   <form [formGroup]="studiesForm">
@@ -31,7 +31,8 @@
 
         <div class="form-group">
           <label for="year">Annéee</label>
-          <input type="date"  id="year" formControlName="year" placeholder="AAAA">
+          <select class="form-control" formControlName="year" id="year" required>
+          </select>
         </div>
 
     </div>
@@ -46,11 +47,7 @@
     <button type="submit" class="btn btn-dark">Ajouter etudes</button>
   </form>
     </div>
-    <div class="col-md-3 ">
-
-
-
-
+    &lt;!&ndash;<div class="col-md-3 ">
       <div class="container-fluid">
         <h2>Table</h2>
         <p>The .table-responsive class creates a responsive table which will scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, there is no difference:</p>
@@ -82,7 +79,163 @@
 
 
 
-    </div>
+    </div>&ndash;&gt;
   </div>
 
+</div> MOI -->
+
+
+
+
+
+
+
+
+
+
+<body class="img-wallpaper wallpaper-animation is-wallpaper-visible" style="background-image: url('../../assets/wallpaper3.jpg')">
+<div class="row ">
+  <div class="col-md-6">
+    <div class="card">
+      <form [formGroup]="studiesForm" (ngSubmit)="onSubmit()">
+        <header class="card-header">
+          <a href="auth" class="float-right btn btn-outline-primary mt-1">Valider</a>
+          <h4 class="card-title mt-2">Parcours universitaire</h4>
+        </header>
+
+        <article class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>
+                  Etablissement
+                </label>
+                <input type="text" class="form-control" formControlName="school" placeholder="Nom de l'ecole">
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>
+                      Pays
+                    </label>
+                    <input type="text" class="form-control" formControlName="country" placeholder="Pays">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label>
+                      Niveau
+                    </label>
+                    <input type="text" class="form-control" formControlName="grade" value="BAC+" placeholder="Années après BAC" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  Année</label>
+                <input type="text" formControlName="year" class="form-control" placeholder="Année">
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="sexe">Sexe</label>
+                    <select class="form-control" formControlName="sexe" id="sexe" required>
+                      <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <label>
+                    <div class="form-group">
+                      <label for="spec">filiere</label>
+                      <select class="form-control" formControlName="spec" id="spec" required>
+                        <option *ngFor="let spek of spec" [value]="spek">{{spek}}</option>
+                      </select>
+                    </div>
+                  </label>
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="col">
+              <div class="form-group">
+                <label>
+                  nationalite
+                </label>
+                <input type="text" class="form-control" formControlName="nationalite" placeholder="nationalité">
+              </div>
+              <div class="form-group">
+                <label>
+                  adresse
+                </label>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <input class="form-control" type="text" formControlName="adresse" placeholder="adresse" >
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="ville" placeholder="ville">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  tel
+                </label>
+                <input class="form-control" type="text" formControlName="tel" placeholder="numero telphone">
+              </div>
+
+              <div class="form-group">
+                <label>
+                  numero etudiant
+                </label>
+                <input class="form-control" type="text" formControlName="numetudiant" placeholder="num. étudiant">
+              </div>
+
+            </div>
+
+
+          </div>
+          <div id="submit">
+            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmitForm()"
+                    [disabled]="!profilForm.valid">S'inscrire
+            </button>
+          </div>
+
+        </article>
+
+
+      </form>
+    </div>
+  </div>
 </div>
+<!--<p>
+  Form Status: {{ profilForm.status }}
+  <br>
+  {{profilForm.getRawValue() | json}}
+  <br>
+  izi:
+  <br>
+  {{profilList | json}}
+
+  <br>
+
+  service:
+  {{this.studentService.getUser() | json}}
+</p>-->
+
+</body>

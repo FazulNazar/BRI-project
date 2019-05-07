@@ -15,7 +15,7 @@ export class UniversityService {
 
   private httpOptions = httpOptionsBase;
   // public selectedUniversity: UniversityModel;
-  private universityList: UniversityModel[] = [];
+  public universityList: UniversityModel[] = [];
   private url = serverUrl + '/university';
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 
@@ -46,6 +46,9 @@ export class UniversityService {
     );
   }
 
+  getUnivs(): Observable<UniversityModel[]> {
+    return this.http.get<UniversityModel[]>(this.url) ;
+  }
 
   getUniversity(id: number): Observable<UniversityModel> {
     const url = `${this.url}/${id}`;
@@ -69,5 +72,9 @@ export class UniversityService {
   getUniversityList() {
     return (this.universityList);
   }
+
+
+
+
 
 }
