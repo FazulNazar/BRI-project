@@ -1,6 +1,6 @@
 import {User} from '../models/User.model';
-import {BehaviorSubject, Subject} from 'rxjs';
-import {catchError, take} from 'rxjs/operators';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
+import {catchError, take, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {ErrorService} from './error';
@@ -17,11 +17,10 @@ import {UniversityModel} from '../models/University.model';
 export class UserService {
 
   private httpOptions = httpOptionsBase;
-  private users: User[] = [];
-  userSubject = new Subject<User[]>();
+  private url = serverUrl + '/students';
 
+  private users: User[] = [];
   public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
-  private url = serverUrl + '/university';
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
 
@@ -32,7 +31,14 @@ export class UserService {
 
   // public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
 
+  getStudents(): Observable<User[]> {
+    this.log(this.users.toString());
+    return this.http.get<User[]>(this.url).pipe(
+      tap(_ => this.log('fetched students')),
+      catchError(this.handleError<User[]>('getStudents', []))
+    );
 
+  }
   getStudentsByHttp() {
 
     this.http.get<User[]>(this.url).subscribe(user => {
@@ -40,16 +46,7 @@ export class UserService {
       this.users$.next(this.users);
     });
   }
-
-    emitUsers() {
-    this.userSubject.next(this.users.slice());
-  }
-
-  addUser(user: User) {
-    this.users.push(user);
-    this.emitUsers();
-  }
-
+// register
   postStudent(user: User) {
     this.http.post<User>(this.url, user, this.httpOptions)
       .pipe(
@@ -63,6 +60,28 @@ export class UserService {
 
   getUser() {
     return(this.users);
+  }
+
+  /** Log a UserService message with the MessageService */
+  private log(message: string) {
+    console.log(message);
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+      // better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+      // let the app keep running by returning an empty result
+      return of(result as T);
+    };
   }
 
 }

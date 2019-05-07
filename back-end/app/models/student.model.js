@@ -3,17 +3,16 @@ const BaseModel = require('../utils/base-model.js');
 
 module.exports = new BaseModel('Student', {
   mail: Joi.string().required(),
-  mdp: Joi.string().required(),
+  password: Joi.string().required(),
   name: Joi.string(),
-  prenom: Joi.string().required(),
+  firstname: Joi.string().required(),
   birthday: Joi.string().required(),
-  sexe: Joi.string().required(),
-  nationalite: Joi.string().required(),
-  adresse: Joi.string().required(),
-  codePostal: Joi.string().required(),
+  gender: Joi.string().required(),
+  nationality: Joi.string().required(),
+  address: Joi.string().required(),
+  zip: Joi.string().required(),
   city: Joi.string().required(),
-  tel: Joi.string().required(),
-  numetudiant: Joi.string().required(),
-  filiere: Joi.string().required(),
+  phone: Joi.string().required(),
+  studentNumber: Joi.string().required(),
+  educationStream: Joi.string().required(),
 });
-// ozoozoz

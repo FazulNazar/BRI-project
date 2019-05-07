@@ -25,7 +25,7 @@
                 <label>
                   mot de passe:
                 </label>
-                <input type="password" class="form-control" formControlName="mdp" placeholder="Mot de passe">
+                <input type="password" class="form-control" formControlName="password" placeholder="Mot de passe">
               </div>
               <div class="row">
                 <div class="col">
@@ -33,15 +33,15 @@
                     <label>
                       nom
                     </label>
-                    <input type="text" class="form-control" formControlName="nom" placeholder="nom">
+                    <input type="text" class="form-control" formControlName="name" placeholder="nom">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label>
-                      prenom:
+                      firstname:
                     </label>
-                    <input type="text" class="form-control" formControlName="prenom" placeholder="prenom">
+                    <input type="text" class="form-control" formControlName="firstname" placeholder="firstname">
                   </div>
                 </div>
               </div>
@@ -56,8 +56,8 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="sexe">Sexe</label>
-                    <select class="form-control" formControlName="sexe" id="sexe" required>
-                      <option *ngFor="let sex of sexe" [value]="sex">{{sex}}</option>
+                    <select class="form-control" formControlName="gender" id="sexe" required>
+                      <option *ngFor="let sex of gender" [value]="sex">{{sex}}</option>
                     </select>
                   </div>
                 </div>
@@ -65,9 +65,9 @@
                 <div class="col">
                   <label>
                     <div class="form-group">
-                      <label for="filiere">filiere</label>
-                      <select class="form-control" formControlName="filiere" id="filiere" required>
-                        <option *ngFor="let fil of filiere" [value]="fil">{{fil}}</option>
+                      <label for="filiere">educationStream</label>
+                      <select class="form-control" formControlName="educationStream" id="filiere" required>
+                        <option *ngFor="let fil of educationStream" [value]="fil">{{fil}}</option>
                       </select>
                     </div>
                   </label>
@@ -82,26 +82,26 @@
             <div class="col">
               <div class="form-group">
                 <label>
-                  nationalite
+                  nationality
                 </label>
-                <input type="text" class="form-control" formControlName="nationalite" placeholder="nationalité">
+                <input type="text" class="form-control" formControlName="nationality" placeholder="nationalité">
               </div>
               <div class="form-group">
                 <label>
-                  adresse
+                  address
                 </label>
                 <div class="row">
                   <div class="col-sm-12">
-                    <input class="form-control" type="text" formControlName="adresse" placeholder="adresse" >
+                    <input class="form-control" type="text" formControlName="address" placeholder="address" >
                   </div>
                   <div class="col">
                     <div class="form-group">
-                      <input class="form-control" type="text" formControlName="ville" placeholder="ville">
+                      <input class="form-control" type="text" formControlName="city" placeholder="ville">
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-group">
-                      <input class="form-control" type="text" formControlName="codePostal" placeholder="Code Postal">
+                      <input class="form-control" type="text" formControlName="zip" placeholder="Code Postal">
                     </div>
                   </div>
                 </div>
@@ -109,16 +109,16 @@
 
               <div class="form-group">
                 <label>
-                  tel
+                  phone
                 </label>
-                <input class="form-control" type="text" formControlName="tel" placeholder="numero telphone">
+                <input class="form-control" type="text" formControlName="phone" placeholder="numero telphone">
               </div>
 
               <div class="form-group">
                 <label>
                   numero etudiant
                 </label>
-                <input class="form-control" type="text" formControlName="numetudiant" placeholder="num. étudiant">
+                <input class="form-control" type="text" formControlName="studentNumber" placeholder="num. étudiant">
               </div>
 
             </div>

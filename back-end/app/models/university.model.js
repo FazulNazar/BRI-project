@@ -5,7 +5,7 @@ module.exports = new BaseModel('University', {
   name: Joi.string().required(),
   city: Joi.string().required(),
   majors: Joi.string().required(),
-  accord: Joi.string().required(),
+  agreements: Joi.string().required(),
   country: Joi.string().required(),
   id: Joi.number().integer().required(),
   universityId: Joi.number().integer().required(),

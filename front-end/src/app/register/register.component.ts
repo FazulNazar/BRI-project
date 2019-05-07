@@ -10,8 +10,8 @@ import {User} from '../../models/User.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  sexe = ['Homme', 'Femme', 'Autre'];
-  filiere = ['SI', 'ELEC', 'BAT', 'GE', 'GB'];
+  gender = ['Homme', 'Femme', 'Autre'];
+  educationStream = ['SI', 'ELEC', 'BAT', 'GE', 'GB'];
 
   public profilForm: FormGroup;
   public profilList: User[] = [];
@@ -24,18 +24,18 @@ export class RegisterComponent implements OnInit {
 
     this.profilForm = this.formBuilder.group({
       mail: new FormControl('', [Validators.email, Validators.required]),
-      mdp: new FormControl(''),
+      password: new FormControl(''),
       name: new FormControl(''),
-      prenom: new FormControl(''),
+      firstname: new FormControl(''),
       birthday: new FormControl(''),
-      sexe: new FormControl(''),
-      nationalite: new FormControl(''),
-      adresse: new FormControl(''),
+      gender: new FormControl(''),
+      nationality: new FormControl(''),
+      address: new FormControl(''),
+      zip: new FormControl(''),
       city: new FormControl(''),
-      codePostal: new FormControl(''),
-      tel: new FormControl(''),
-      numetudiant: new FormControl('', [Validators.pattern('[0-9]*')]),
-      filiere: new FormControl(''),
+      phone: new FormControl(''),
+      studentNumber: new FormControl('', [Validators.pattern('[0-9]*')]),
+      educationStream: new FormControl(''),
     });
     // this.studentService.userSubject.
   }

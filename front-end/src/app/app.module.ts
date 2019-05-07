@@ -31,6 +31,7 @@ import { DocumentComponent } from './document/document.component';
 import { AddUniversityComponent } from './add-university/add-university.component';
 import {UniversityService} from '../services/university.service';
 import {CountryFilterPipe} from './filter.pipe';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 
 
@@ -91,6 +92,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    StorageServiceModule,
   ],
   providers: [
     UserService,
