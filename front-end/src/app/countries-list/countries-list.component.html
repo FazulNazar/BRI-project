@@ -13,7 +13,10 @@
         </thead>
         <tbody>
           <tr *ngFor=" let univ of universityList">
-            <td> {{univ.name}} </td>
+            <td>
+              <a routerLink="/university-picked/{{univ.id}}">{{univ.name}}</a>
+
+            </td>
             <td> {{univ.country}} </td>
             <td> {{univ.majors}} </td>
           </tr>

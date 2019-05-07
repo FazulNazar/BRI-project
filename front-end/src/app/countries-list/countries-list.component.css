@@ -1,19 +1,7 @@
-.titles, .wish-list{
-  text-align: center;
+.table{
+  border: solid deepskyblue 2px;
 }
-
-.container{
-  background-size: cover;
-  text-align: center;
-  border: 1px solid black;
-  margin: 25px auto;
-  padding: 20px 20px;
-  font: 18px sans-serif;
-}
-
-
-
-.container p:hover {
+.td:hover {
   -webkit-transform:scale(1.4);transform:scale(1.4);
   text-shadow: 3px 3px 2px gray;
   cursor: pointer;
