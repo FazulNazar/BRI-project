@@ -11,12 +11,13 @@ import { MenuStudentComponent } from './menu-student/menu-student.component';
 import { StudiesComponent } from './studies/studies.component';
 import { RegisterComponent } from './register/register.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UpdateprofileComponent} from './update-profile/update_profile.component';
 import {ProfileComponent} from './profile/profile.component';
 import {UniversityPickedComponent} from './universities/university-picked/university-picked.component' ;
 import {UniversityAvailableComponent} from './universities/university-available/university-available.component' ;
 import { UniversityPreviewComponent } from './universities/university-preview/university-preview.component';
+import { AgreementHostComponent } from './agreement-host/agreement-host.component';
 
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { WishListComponent } from './wish-list/wish-list.component';
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent},
   {path: 'university-picked/:id', component: UniversityPickedComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
-  {path: 'document', component: DocumentComponent}
+  {path: 'document', component: DocumentComponent},
+  {path: 'agreement-host/:id', component: AgreementHostComponent}
 ];
 
 @NgModule({
@@ -77,6 +79,7 @@ const appRoutes: Routes = [
     AppComponent,
     AddUniversityComponent,
     UniversityPreviewComponent,
+    AgreementHostComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     UserService,

@@ -1,0 +1,101 @@
+
+<div class="titles">
+  <h1>
+    Contrat d'étude
+    <br>
+  </h1>
+  <hr>
+  <h4>
+  </h4>
+</div>
+<div class="card">
+  <p> Nom de l'établissement:     {{university.name}}
+  </p>
+  <p> Ville:  {{university.city}}</p>
+  <p> Pays:  {{university.country}}</p>
+  <p> Accord:  {{university.accord}}</p>
+  <div class="form-group">
+    <label for="sel1">Période d'étude prévue:</label>
+    <select class="form-control" id="sel1">
+      <option>Semestre 1 </option>
+      <option>Semestre 2</option>
+      <option>Année complète</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="sel1">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
+    <select class="form-control" id="sel2">
+      <option>Ingenieur en science informatique </option>
+      <option>Le reste</option>
+    </select>
+  </div>
+
+
+</div>
+
+
+<h1>
+  Programme d’études pendant le séjour à l’étranger
+  <br>
+</h1>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Titre du cours</th>
+    <th>Code du cours</th>
+    <th>Nombre de crédits</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let field of fieldArray; let i = index">
+    <td>
+      <input [(ngModel)]="field.code" class="form-control" type="text" name="{{field.code}}" />
+    </td>
+    <td>
+      <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
+    </td>
+    <td>
+      <input [(ngModel)]="field.price" class="form-control" type="text" name="{{field.price}}" />
+    </td>
+    <td>
+      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Supprimer le cours</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input class="form-control" type="text" id="newAttributeTitle" [(ngModel)]="newAttribute.code" name="newAttributeTitle" />
+    </td>
+    <td>
+      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.name" name="newAttributeCode" />
+    </td>
+    <td>
+      <input class="form-control" type="text" id="newAttributeCredits" [(ngModel)]="newAttribute.price" name="newAttributeCredits" />
+    </td>
+    <td>
+      <button class="btn btn-default" type="button" (click)="addFieldValue()">Ajouter le cours</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h1>
+  Documents à joindre
+  <br>
+</h1>
+
+<P>Lettre de motivation - Destinée à la commission de sélection de votre composante</P>
+<input type="file"  class="form-control-file border">
+<br>
+<P>Budget prévisionnel</P>
+<input type="file"  class="form-control-file border">
+<br>
+<P>Certificat de langue</P>
+<input type="file"  class="form-control-file border">
+
+<div class="wish-list">
+  <button type="submit" class="btn btn-secondary" routerLink="/auth/menu-student/wish-list">Sélectionner cette université</button>
+</div>
+
+
+
