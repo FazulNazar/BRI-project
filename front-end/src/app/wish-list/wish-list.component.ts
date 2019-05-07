@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WishModel } from '../../models/wish.model';
+import { WishModel } from '../../models/Wish.model';
 import {WishService} from '../../services/wish.service';
 
 declare var M: any;

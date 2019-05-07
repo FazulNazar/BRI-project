@@ -1,35 +1,54 @@
+import { WishModel } from '../models/Wish.model';
+import {User} from '../models/User.model';
+import {UniversityModel} from '../models/University.model';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {catchError, take, tap} from 'rxjs/operators';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {httpOptionsBase, serverUrl} from '../configs/server.config';
+import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { WishModel } from '../models/wish.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishService {
 
-  selectedWish: WishModel;
-  wishes: WishModel[];
+  // selectedWish: WishModel;
+  private wishList: WishModel[] = [];
+  private httpOptions = httpOptionsBase;
+  private url = serverUrl + '/wish-list';
 
-  readonly URL_API = 'http://localhost:3000/api/wishes';
+  constructor(public http: HttpClient, private errorService: ErrorService) {
 
-  constructor(private http: HttpClient) {
-    this.selectedWish = new WishModel();
+  }
+
+  private log(message: string) {
+    console.log(message);
+  }
+
+  getWishList(): Observable<WishModel[]> {
+    return this.http.get<WishModel[]>(this.url).pipe(
+      tap(_ => this.log('fetched wishes'))
+    );
+  }
+
+  getWish(id: number): Observable<WishModel> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<WishModel>(url).pipe(
+      tap(_ => this.log(`fetched wish id=${id}`))
+    );
   }
 
   postWish(wish: WishModel) {
-    return this.http.post(this.URL_API, wish);
+
   }
 
-  getWishes() {
-    return this.http.get(this.URL_API);
-  }
 
   putWish(wish: WishModel) {
-    return this.http.put(this.URL_API + `/${wish.id}`, wish);
+
   }
 
   deleteWish(id: string) {
-    return this.http.delete(this.URL_API + `/${id}`);
+
   }
 }

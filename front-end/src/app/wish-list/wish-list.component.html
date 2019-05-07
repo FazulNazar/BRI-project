@@ -17,10 +17,10 @@
       </tr>
       </thead>
       <tbody>
-      <!--<tr *ngFor="let wish of wishService.wishes" >-->
+      <!--<tr *ngFor="let wish of wishService.wishList" >-->
         <!--<td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>-->
           <!--<button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>-->
-      <tr *ngFor="let wish of wishService.wishes">
+      <tr *ngFor="let wish of wishService.wishList">
         <th scope="row"><div class="btn-group"><button class="btn-info" (click)="editInfo()" >EDITER</button>
           <button class="btn-danger" (click)="deleteInfo()" >SUPRIMER</button></div></th>
         <td>{{ wish.university }}</td>
