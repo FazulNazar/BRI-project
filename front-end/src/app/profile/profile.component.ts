@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../models/User.model';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,12 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  user: User;
 
 
-  constructor() {
+  constructor(private sessionService: SessionService) {
   }
 
   ngOnInit() {
+    this.user = this.sessionService.getCurrentUserModel();
+  }
+
+  logout() {
+    this.sessionService.flushCurrentUser();
+    this.user = this.sessionService.getCurrentUserModel();
+
   }
 
 

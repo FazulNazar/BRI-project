@@ -1,7 +1,7 @@
-import { Inject, Injectable, OnDestroy } from '@angular/core';
-import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
+import {Inject, Injectable, OnDestroy} from '@angular/core';
+import {SESSION_STORAGE, StorageService} from 'angular-webstorage-service';
 
-import { User } from '../../models/User.model';
+import {User} from '../../models/User.model';
 
 // key that is used to access the data in local storage
 const STORAGE_KEY = 'currentUser';
@@ -12,7 +12,8 @@ const STORAGE_KEY = 'currentUser';
 
 export class SessionService implements OnDestroy {
 
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService) {}
+  constructor(@Inject(SESSION_STORAGE) private storage: StorageService) {
+  }
 
   public storeCurrentUser(user: User): void {
     let currentUser: string;
@@ -27,6 +28,10 @@ export class SessionService implements OnDestroy {
 
   public getCurrentUser() {
     return sessionStorage.getItem(STORAGE_KEY) || '';
+  }
+
+  public getCurrentUserModel() {
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || '';
   }
 
   public isLoggedIn(): boolean {

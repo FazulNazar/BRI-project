@@ -13,6 +13,7 @@ export class ConnexionComponent implements OnInit {
   login: string;
   password: string;
   user: User[];
+  currentUser: User;
 
 
   constructor(private userService: UserService, private sessionService: SessionService) {
@@ -22,12 +23,15 @@ export class ConnexionComponent implements OnInit {
   }
 
 
-
+  /** Fonction permettant de stocker les utilisateur (du back) dans la liste user [] */
   getUser(): void {
     this.userService.getStudents()
       .subscribe(user => this.user = user);
   }
   ngOnInit() {
+    if (this.sessionService.getCurrentUserModel()) {
+      window.location.href = '/profile';
+    }
     this.getUser();
   }
 
@@ -35,6 +39,7 @@ export class ConnexionComponent implements OnInit {
     this.user.forEach(student => {
       if (student.studentNumber === this.login && student.password === this.password) {
         this.sessionService.storeCurrentUser(student);
+        this.currentUser = this.sessionService.getCurrentUserModel();
         window.location.href = '/menu-student';
       }
     });

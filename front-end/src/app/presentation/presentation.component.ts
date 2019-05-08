@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-presentation',
@@ -8,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class PresentationComponent implements OnInit {
 
   title = 'Séjour au gaidjin';
+  isConnected: boolean;
 
-  constructor() { }
+
+  constructor(private sessionService: SessionService) {
+  }
 
   ngOnInit() {
+    this.isConnected = this.sessionService.isLoggedIn();
+
   }
+
+  logout() {
+    this.sessionService.flushCurrentUser();
+    this.isConnected = false;
+  }
+
 
 }
