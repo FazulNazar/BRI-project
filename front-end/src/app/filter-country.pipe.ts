@@ -7,13 +7,14 @@ import {UniversityModel} from '../models/University.model';
 
 export class CountryFilterPipe implements PipeTransform {
 
-  transform(universityList: UniversityModel[], searchTerm: string): UniversityModel[] {
+  transform(universityList: UniversityModel[], Country: string): UniversityModel[] {
     console.log('Test Pipe');
-    if (!universityList || !searchTerm) {
+    if (!universityList || !Country) {
       return universityList;
     }
 
     return universityList.filter(university =>
-      university.country.toLowerCase().includes(searchTerm.toLowerCase()));
+      university.country.toLowerCase().includes(Country.toLowerCase()));
   }
 }
+

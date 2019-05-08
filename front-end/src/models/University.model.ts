@@ -15,12 +15,12 @@
 
 export class UniversityModel {
 
-  constructor( name = '', city = '', majors = '', accord = '', country = '', id = 0, universityId = 1, exchangeStudents = 0, note = ''
+  constructor( name = '', city = '', majors = '', agreements = '', country = '', id = 0, universityId = 1, exchangeStudents = 0, note = ''
   ) {
       this.name = name;
       this.city = city;
       this.majors = majors;
-      this.accord = accord;
+      this.agreements = agreements;
       this.country = country;
       this.id = id;
       this.universityId = universityId;
@@ -30,7 +30,7 @@ export class UniversityModel {
     public name: string;
     public city: string;
     public majors: string;
-    public accord: string;
+    public agreements: string;
     public country: string;
     public id: number;
     public universityId: number;

@@ -1,12 +1,46 @@
 
   <div class="container-fluid">
-    <h2>Universités</h2>
+    <div class="row ">
+      <p class="lead">Veuillez choisir une université</p>
 
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search by Country"
-          style="width: 300px" [(ngModel)]="searchterm"/>
+
+
     </div>
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-2">
+        <div class="container-fluid">
+          <div class="form-group">
+            <p>Rechercher une université</p>
+            <input type="text" class="form-control" placeholder="Nom de l'université"
+                   style="width: 300px" [(ngModel)]="Name"/>
+            <hr>
 
+            <p>Rechercher par pays</p>
+            <input type="text" class="form-control" placeholder="Pays"
+                   style="width: 300px" [(ngModel)]="Country"/>
+
+            <hr>
+
+            <p>Rechercher par filières</p>
+            <input type="text" class="form-control" placeholder="Filière"
+                   style="width: 300px" [(ngModel)]="Major"/>
+
+            <hr>
+
+            <p>Rechercher par accords</p>
+            <input type="text" class="form-control" placeholder="Accords"
+                   style="width: 300px" [(ngModel)]="Agreement"/>
+
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="col-sm-9 col-md-6 col-lg-8 offset-lg-1">
     <div class="table-hover">
       <table class="table">
         <thead>
@@ -14,20 +48,26 @@
           <th>Université</th>
           <th>Pays</th>
           <th>Filieres </th>
+          <th>Accords </th>
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor=" let univ of universityList | CountryFilter:searchterm">
+          <tr *ngFor=" let univ of universityList | CountryFilter:Country | NameFilter:Name | MajorFilter:Major | AgreementFilter:Agreement ">
             <td>
               <a routerLink="/university-picked/{{univ.id}}">{{univ.name}}</a>
 
             </td>
             <td> {{univ.country}} </td>
             <td> {{univ.majors}} </td>
+            <td> {{univ.agreements}} </td>
           </tr>
         </tbody>
       </table>
     </div>
+  </div>
+  </div>
+
+    
   </div>
 
 
