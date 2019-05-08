@@ -16,7 +16,11 @@ export class CountriesListComponent implements OnInit {
   university$: Observable<UniversityModel[]>;
   // @Input() university: UniversityModel;
   public universityList: UniversityModel[];
-  searchterm: string;
+  Country: string;
+  Name: string;
+  Major: string;
+  Agreement: string;
+
 
   constructor(public universityService: UniversityService) {
     // this.universityService.university$.subscribe((university) => {

@@ -27,8 +27,11 @@ import { AddUniversityComponent } from './add-university/add-university.componen
 import {UserService} from '../services/user.service';
 import {UniversityService} from '../services/university.service';
 import {WishService} from '../services/wish.service';
-import {CountryFilterPipe} from './filter.pipe';
+import {CountryFilterPipe} from './filter-country.pipe';
 import { StorageServiceModule } from 'angular-webstorage-service';
+import {NameFilterPipe} from './filter-name.pipe';
+import {MajorFilterPipe} from './filter-major.pipe';
+import {AgreementFilterPipe} from './filter-agreement.pipe';
 
 
 
@@ -79,7 +82,10 @@ const appRoutes: Routes = [
     AddUniversityComponent,
     UniversityPreviewComponent,
     AgreementHostComponent,
-    CountryFilterPipe
+    CountryFilterPipe,
+    NameFilterPipe,
+    MajorFilterPipe,
+    AgreementFilterPipe
 
   ],
   imports: [
