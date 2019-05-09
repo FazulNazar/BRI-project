@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.row-2{
+  font-weight: 700;
+  font-size: 35px;
+  background-color: darkblue;
+  color: white;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+
+.btn-info{
+  color: white;
+  background-color: darkblue;
+}
+
+.btn-secondary{
+  color: white;
+  background-color: darkblue;
+}
+
+
+.carousel-inner img{
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-caption{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+}
+.carousel-caption h1{
+  font-size: 500%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000000;
+}
+.carousel-caption h3{
+  font-size: 200%;
+  font-weight: 500;
+  text-shadow: 1px 1px 10px #000000;
+}
+
+.btn-primary{
+  background-color: #563d7c;
+  border: 1px solid #563d7c;
+}
+.btn-primary:hover{
+  background-color:#42A948;
+  border: 1px solid #563d7c;
+}
+.padding{
+  padding-bottom: 2rem;
+}
+.welcome{
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+
+
+.container div{
+  display: inline-block;
+  margin: auto 7%;
+  vertical-align: middle;
+}
+
+
+
+.card{
+  width: 100%;
+  border: 1px solid black;
+  margin: 25px auto;
+  padding: 0.5rem;
+  font: 18px sans-serif;
+  background-color: aliceblue;
+}
+
+.rounded {
+  border-radius:.25rem!important
+}

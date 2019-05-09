@@ -1,13 +1,67 @@
 
-<div class="titles">
-  <h1>
-    Contrat d'étude
-    <br>
-  </h1>
-  <hr>
-  <h4>
-  </h4>
+<div class="row-2  ">
+
+  <p class="text-center">Contrat d'études</p>
+
 </div>
+<div class="container-fluid padding">
+  <br>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic">
+      Informations Personnelles
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+
+</div>
+
+
+<div class="container-fluid">
+
+
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+      <div class="card">
+        <p>Nom : </p>
+        <p>Prénom :</p>
+        <p>Date de naissance :</p>
+        <p>Adresse mail :</p>
+        <p>Adresse :</p>
+        <p>Numéro de téléphone :</p>
+        <div class="col text-center">
+          <button class="btn btn-info" style="width: 30%" routerLink="/update-profile"> Modifier </button>
+
+        </div>
+
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+
+<div class="container-fluid padding">
+  <br>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic">
+      Université d'acceuil
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+
+</div>
+
+<div class="container-fluid">
+
+
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
 <div class="card">
   <p> Nom de l'établissement:     {{university.name}}
   </p>
@@ -32,13 +86,33 @@
   </form>
 
 </div>
+</div>
+</div>
+</div>
 
 
-<h1>
-  Programme d’études pendant le séjour à l’étranger
+
+<div class="container-fluid padding">
   <br>
-</h1>
-<table class="table table-striped table-bordered">
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic">
+      Programme d’études pendant le séjour à l’étranger
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <br>
+
+</div>
+
+
+<div class="container-fluid">
+
+
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+<table class="table  table-bordered" style="background-color: aliceblue">
   <thead>
   <tr>
     <th>Titre du cours</th>
@@ -77,24 +151,53 @@
   </tr>
   </tbody>
 </table>
+    </div>
+    </div>
+    </div>
 
-<h1>
-  Documents à joindre
+<div class="container-fluid padding">
   <br>
-</h1>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic">
+      Documents à joindre
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
 
-<P>Lettre de motivation - Destinée à la commission de sélection de votre composante</P>
-<input type="file"  class="form-control-file border">
-<br>
-<P>Budget prévisionnel</P>
-<input type="file"  class="form-control-file border">
-<br>
-<P>Certificat de langue</P>
-<input type="file"  class="form-control-file border">
-
-<div id="submit">
-  <button type="submit" class="btn btn-secondary" (click)="addWish()" routerLink="/menu-student/wish-list">Ajouter à la liste de voeux</button>
 </div>
+
+<div class="container-fluid">
+
+
+
+  <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+    <div class="card">
+      <P>Lettre de motivation </P>
+      <input type="file"  class="form-control-file border">
+      <br>
+      <P>Budget prévisionnel</P>
+      <input type="file"  class="form-control-file border">
+      <br>
+      <P>Certificat de langue</P>
+      <input type="file"  class="form-control-file border">
+
+      <br>
+
+
+
+    </div>
+
+    <div class="col text-center">
+      <div id="submit">
+        <button type="submit" class="btn btn-secondary" (click)="addWish()" routerLink="/menu-student/wish-list">Ajouter à la liste de voeux</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
 
 
 
