@@ -75,9 +75,12 @@
   </div>
 
   <!-- Lorsque l'utilisateur est déconnecté (centre le bouton nidhou)-->
-  <div class="col-sm-14 col-md-14 ">
+  <div class="col-lg-6 col-sm-12 col-md-6 ">
     <a href="#" *ngIf="isConnected" class="btn btn-primary" (click)="logout()" routerLink="/connexion">Se
       deconnecter</a>
+  </div>
+  <div class="col-sm-14 col-md-6">
+    <a href="#" *ngIf="isConnected" class="btn btn-primary" routerLink="/menu-student">Menu Principal</a>
   </div>
 </div>
 

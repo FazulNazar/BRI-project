@@ -20,7 +20,9 @@ export class WishService {
   public wish$: BehaviorSubject<WishModel[]> = new BehaviorSubject(this.wishList);
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
-    this.selectedWish = new WishModel();
+  //  this.selectedWish;
+  //   this.wish$ = new BehaviorSubject(this.wishList);
+  //   this.wish$.next(this.wishList);
   }
 
   private log(message: string) {
@@ -47,21 +49,36 @@ export class WishService {
     );
   }
 
-  postWish(wish: WishModel) {
-    this.http.post<WishModel>(this.url, wish, this.httpOptions)
+  postWish(wish: WishModel): Observable<WishModel> {
+    return this.http.post<WishModel>(this.url, wish, this.httpOptions)
       .pipe(
         take(1),
         catchError((err: HttpErrorResponse) =>
-          this.errorService.handleError<WishModel>(err, 'post /wish'))
-      ).subscribe((wishList) => this.getWishByHttp());
+          this.errorService.handleError<WishModel>(err, 'post /wish-list'))
+      );
   }
+
+  // postWish(wish: WishModel): Observable<WishModel> {
+  //   return this.http.post<WishModel>(this.url, wish, httpOptionsBase).pipe(
+  //     tap((newWish: WishModel) => this.log(`added Wish w/ id=${newWish.id}`))
+  //     );
+  // }
+
+  // postWish(wish: WishModel) {
+  //   this.http.post<WishModel>(this.url, wish, this.httpOptions)
+  //     .subscribe((wishes) => this.getWishList());
+  // }
 
 
   putWish(wish: WishModel) {
 
   }
 
-  deleteWish(id: string) {
-
+  deleteWish(id: number): Observable<WishModel> {
+    const newUrl = `${this.url}/${id}`;
+    return this.http.delete<WishModel>(newUrl, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted internship id=${id}`)));
   }
+
 }
+

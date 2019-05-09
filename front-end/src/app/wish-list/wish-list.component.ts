@@ -14,7 +14,7 @@ declare var M: any;
 })
 export class WishListComponent implements OnInit {
 
-  university$: Observable<WishModel[]>;
+  wish$: Observable<WishModel[]>;
   public wishList: WishModel[] = [];
 
   constructor(public wishService: WishService) {
@@ -35,7 +35,11 @@ export class WishListComponent implements OnInit {
 
   }
 
-  deleteWish() {
+  deleteWish(id: number) {
+    this.wishService.deleteWish(id)
+      .subscribe(wishes => {
+        this.getWishes();
+      });
     //   if (confirm('Are you sure you want to delete it?')) {
     //     this.wishService.deleteWish(id)
     //       .subscribe(res => {

@@ -1,11 +1,17 @@
 const { Router } = require('express');
-const { Wish } = require('../../models');
+const { Wish, University } = require('../../models');
 
 const router = new Router();
-router.get('/', (req, res) => res.status(200).json(Wish.get()));
+
+function attachUniversity(wish) {
+  wish.university = University.getById(wish.universityId);
+  return wish;
+}
+
+router.get('/', (req, res) => res.status(200).json(Wish.get().map(wish => attachUniversity(wish))));
 
 router.get('/:id', (req, res) => res.status(200)
-  .json(Wish.getById(req.params.id)));
+  .json(attachUniversity(Wish.getById(req.params.id))));
 
 router.post('/', (req, res) => {
   try {

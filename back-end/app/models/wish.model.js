@@ -4,6 +4,6 @@ const BaseModel = require('../utils/base-model.js');
 module.exports = new BaseModel('Wish', {
   id: Joi.number().integer().required(),
   universityId: Joi.number().integer().required(),
-  semester:Joi.number().integer().required(),
+  semester:Joi.string().required(),
   agreementCompleted: Joi.boolean(),
 });

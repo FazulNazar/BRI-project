@@ -2,15 +2,17 @@ import {UniversityModel} from './University.model';
 
 export class WishModel {
 
-  constructor( id = 0, university = new UniversityModel(), semester = 0, agreementCompleted = false
+  constructor( id, universityId, university, semester, agreementCompleted
   ) {
       this.id = id;
+      this.universityId = universityId;
       this.university = university;
       this.semester = semester;
       this.agreementCompleted = agreementCompleted;
   }
   public id: number;
-  public university: UniversityModel;
-  public semester: number;
+  public universityId: number;
+  public university?: UniversityModel;
+  public semester: string;
   public agreementCompleted?: boolean;
 }

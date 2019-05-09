@@ -13,24 +13,23 @@
   </p>
   <p> Ville:  {{university.city}}</p>
   <p> Pays:  {{university.country}}</p>
-  <p> Accord:  {{university.accord}}</p>
-  <div class="form-group">
-    <label for="sel1">Période d'étude prévue:</label>
-    <select class="form-control" id="sel1">
-      <option>Semestre 1 </option>
-      <option>Semestre 2</option>
-      <option>Année complète</option>
-    </select>
-  </div>
+  <p> Accord:  {{university.agreements}}</p>
+  <form [formGroup]="agreementForm">
+    <div class="form-group">
+      <label for="semestre">Période d'étude prévue:</label>
+      <select class="form-control" formControlName="semester" id="semestre" required>
+        <option *ngFor="let value of semester" [value]="value">{{value}}</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="sel1">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
-    <select class="form-control" id="sel2">
-      <option>Ingenieur en science informatique </option>
-      <option>Le reste</option>
-    </select>
-  </div>
-
+    <div class="form-group">
+      <label for="sel2">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
+      <select class="form-control" id="sel2">
+        <option>Ingenieur en science informatique </option>
+        <option>Le reste</option>
+      </select>
+    </div>
+  </form>
 
 </div>
 
@@ -93,8 +92,8 @@
 <P>Certificat de langue</P>
 <input type="file"  class="form-control-file border">
 
-<div class="wish-list">
-  <button type="submit" class="btn btn-secondary" routerLink="/menu-student/wish-list">Ajouter à la liste de voeux</button>
+<div id="submit">
+  <button type="submit" class="btn btn-secondary" (click)="addWish()" routerLink="/menu-student/wish-list">Ajouter à la liste de voeux</button>
 </div>
 
 

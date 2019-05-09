@@ -6,7 +6,7 @@
     <div class="card">
       <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
         <header class="card-header">
-          <a href="auth" class="float-right btn btn-outline-primary mt-1">Deja inscrit?</a>
+          <a routerLink="/connexion" class="float-right btn btn-outline-primary mt-1">Deja inscrit?</a>
           <h4 class="card-title mt-2">Inscription</h4>
         </header>
 
@@ -23,15 +23,15 @@
 
               <div class="form-group">
                 <label>
-                  mot de passe:
+                  Mot de passe:
                 </label>
-                <input type="password" class="form-control" formControlName="password" placeholder="Mot de passe">
+                <input type="password" class="form-control" formControlName="password" placeholder="mot de passe">
               </div>
               <div class="row">
                 <div class="col">
                   <div class="form-group">
                     <label>
-                      nom
+                      Nom:
                     </label>
                     <input type="text" class="form-control" formControlName="name" placeholder="nom">
                   </div>
@@ -39,17 +39,17 @@
                 <div class="col">
                   <div class="form-group">
                     <label>
-                      firstname:
+                      Prénom:
                     </label>
-                    <input type="text" class="form-control" formControlName="firstname" placeholder="firstname">
+                    <input type="text" class="form-control" formControlName="firstname" placeholder="prenom">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label>
-                  date de naissance</label>
-                <input type="text" formControlName="birthday" class="form-control" placeholder="Date de naissance">
+                  Date de naissance</label>
+                <input type="text" formControlName="birthday" class="form-control" placeholder="date de naissance">
               </div>
 
               <div class="row">
@@ -65,7 +65,7 @@
                 <div class="col">
                   <label>
                     <div class="form-group">
-                      <label for="filiere">educationStream</label>
+                      <label for="filiere">Filière</label>
                       <select class="form-control" formControlName="educationStream" id="filiere" required>
                         <option *ngFor="let fil of educationStream" [value]="fil">{{fil}}</option>
                       </select>
@@ -82,17 +82,17 @@
             <div class="col">
               <div class="form-group">
                 <label>
-                  nationality
+                  Nationalité
                 </label>
                 <input type="text" class="form-control" formControlName="nationality" placeholder="nationalité">
               </div>
               <div class="form-group">
                 <label>
-                  address
+                  Adresse
                 </label>
                 <div class="row">
                   <div class="col-sm-12">
-                    <input class="form-control" type="text" formControlName="address" placeholder="address" >
+                    <input class="form-control" type="text" formControlName="address" placeholder="adresse" >
                   </div>
                   <div class="col">
                     <div class="form-group">
@@ -101,7 +101,7 @@
                   </div>
                   <div class="col">
                     <div class="form-group">
-                      <input class="form-control" type="text" formControlName="zip" placeholder="Code Postal">
+                      <input class="form-control" type="text" formControlName="zip" placeholder="code postal">
                     </div>
                   </div>
                 </div>
@@ -109,14 +109,14 @@
 
               <div class="form-group">
                 <label>
-                  phone
+                  Numéro de téléphone
                 </label>
-                <input class="form-control" type="text" formControlName="phone" placeholder="numero telphone">
+                <input class="form-control" type="text" formControlName="phone" placeholder="num. telephone">
               </div>
 
               <div class="form-group">
                 <label>
-                  numero etudiant
+                  Numéro d'étudiant
                 </label>
                 <input class="form-control" type="text" formControlName="studentNumber" placeholder="num. étudiant">
               </div>
@@ -126,7 +126,7 @@
 
           </div>
           <div id="submit">
-            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmitForm()"
+            <button type="submit" class="btn btn-primary btn-block" (click)="onSubmitForm()" routerLink="/connexion"
                     [disabled]="!profilForm.valid">S'inscrire
             </button>
           </div>
