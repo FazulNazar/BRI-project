@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-menu-student',
@@ -8,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class MenuStudentComponent implements OnInit {
 
   title = 'SEJOUR D\'ETUDES';
+  isConnected: boolean;
 
-  constructor() { }
+  constructor(private sessionService: SessionService) { }
   ngOnInit() {
+    this.isConnected = this.sessionService.isLoggedIn();
+  }
+
+  logout() {
+    this.sessionService.flushCurrentUser();
+    this.isConnected = false;
   }
 
 }
