@@ -11,4 +11,7 @@ module.exports = new BaseModel('University', {
   universityId: Joi.number().integer().required(),
   exchangeStudents: Joi.number().integer(),
   note: Joi.string(),
+  website: Joi.string(),
+  image: Joi.string(),
+  description: Joi.string(),
 });
