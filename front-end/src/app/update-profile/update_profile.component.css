@@ -10,3 +10,33 @@ form {
   position: center;
 
 }
+
+.row-2{
+  font-weight: 700;
+  font-size: 35px;
+  background-color: darkblue;
+  color: white;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.card{
+  width: 100%;
+  border: 1px solid black;
+  margin: 25px auto;
+  padding: 0.5rem;
+  font: 18px sans-serif;
+  background-color: aliceblue;
+}
+
+.rounded {
+  border-radius:.25rem!important
+}
+
+.btn-info{
+  background-color: darkblue;
+}
+
+.btn-secondary{
+  background-color: #a94442;
+}

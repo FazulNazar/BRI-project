@@ -24,12 +24,12 @@
 
     <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
       <div class="card">
-        <p>Nom : </p>
-        <p>Prénom :</p>
-        <p>Date de naissance :</p>
-        <p>Adresse mail :</p>
-        <p>Adresse :</p>
-        <p>Numéro de téléphone :</p>
+        <p>Nom : {{user.name}}</p>
+        <p>Prénom :{{user.firstname}}</p>
+        <p>Date de naissance : {{user.birthday}} </p>
+        <p>Adresse mail : {{user.mail}} </p>
+        <p>Adresse : {{user.address}}</p>
+        <p>Numéro de téléphone {{user.phone}} :</p>
         <div class="col text-center">
           <button class="btn btn-info" style="width: 30%" routerLink="/update-profile"> Modifier </button>
 

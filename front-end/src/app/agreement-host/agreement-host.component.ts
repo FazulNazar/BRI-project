@@ -6,6 +6,9 @@ import {WishService} from '../../services/wish.service';
 import {WishModel} from '../../models/Wish.model';
 import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {User} from '../../models/User.model';
+import {SessionService} from '../../services/session/session.service';
+
 
 @Component({
   selector: 'app-agreement-host',
@@ -19,11 +22,12 @@ export class AgreementHostComponent implements OnInit {
   private wishList: WishModel[] = [];
   semester = ['semestre 1', 'semestre 2', 'toute l\'année'];
   university: UniversityModel;
+  user: User;
 
   public agreementForm: FormGroup;
 
   constructor(private route: ActivatedRoute, public formBuilder: FormBuilder,
-              private universityService: UniversityService, private wishService: WishService) {
+              private universityService: UniversityService, private wishService: WishService,private sessionService: SessionService) {
     this.agreementForm = this.formBuilder.group({
       semester: new FormControl(''),
     });
@@ -31,6 +35,7 @@ export class AgreementHostComponent implements OnInit {
 
   ngOnInit() {
     this.getUniversity();
+    this.user = this.sessionService.getCurrentUserModel();
   }
 
   getUniversity(): void {
