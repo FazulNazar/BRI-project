@@ -54,7 +54,7 @@ export class WishService {
       .pipe(
         take(1),
         catchError((err: HttpErrorResponse) =>
-          this.errorService.handleError<WishModel>(err, 'post /wish-list'))
+          this.errorService.handleError<WishModel>(err, 'post wish'))
       );
   }
 
@@ -70,14 +70,16 @@ export class WishService {
   // }
 
 
-  putWish(wish: WishModel) {
-
+  putWish(wish: WishModel): Observable<WishModel> {
+    const newUrl = `${this.url}/${wish.id}`;
+    return this.http.put<WishModel>(newUrl, this.httpOptions).pipe(
+      tap(_ => this.log(`put wish id=${wish.id}`)));
   }
 
   deleteWish(id: number): Observable<WishModel> {
     const newUrl = `${this.url}/${id}`;
     return this.http.delete<WishModel>(newUrl, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted internship id=${id}`)));
+      tap(_ => this.log(`deleted wish id=${id}`)));
   }
 
 }

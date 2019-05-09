@@ -22,6 +22,7 @@ export class AgreementHostComponent implements OnInit {
   private wishList: WishModel[] = [];
   semester = ['semestre 1', 'semestre 2', 'toute l\'année'];
   university: UniversityModel;
+  // private isNewWish = false;
   user: User;
 
   public agreementForm: FormGroup;
@@ -63,6 +64,20 @@ export class AgreementHostComponent implements OnInit {
   //  this.wishService.getWishByHttp();
 
   }
+
+  // editWish(isNew: boolean) {
+  //   //   this.isNewWish = isNew;
+  //   //   const bool = true;
+  //   //   const semesterValue = '2';
+  //   //   const id = +this.route.snapshot.paramMap.get('id');
+  //   //   this.wishService.putWish(
+  //   //     {
+  //   //       id: 1,
+  //   //       universityId: id,
+  //   //       semester: semesterValue,
+  //   //       agreementCompleted: bool
+  //   //     } as WishModel).subscribe();
+  //   // }
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);

@@ -31,22 +31,23 @@ export class WishListComponent implements OnInit {
       });
   }
 
-  editWish() {
-
-  }
-
-  deleteWish(id: number) {
+  editWish(id: number) {
     this.wishService.deleteWish(id)
       .subscribe(wishes => {
         this.getWishes();
+        //  M.toast({html: 'Deleted successfully'});
       });
-    //   if (confirm('Are you sure you want to delete it?')) {
-    //     this.wishService.deleteWish(id)
-    //       .subscribe(res => {
-    //         // this.getWishes();
-    //         M.toast({html: 'Deleted successfully'});
-    //       });
-    // }
+  }
+
+
+  deleteWish(id: number) {
+    if (confirm('Vous êtes sûr de vouloir le supprimer ?')) {
+      this.wishService.deleteWish(id)
+        .subscribe(wishes => {
+          this.getWishes();
+        //  M.toast({html: 'Deleted successfully'});
+        });
+    }
   }
 
 

@@ -30,7 +30,7 @@
         <!--<td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>-->
           <!--<button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>-->
       <tr *ngFor="let wish of wishList">
-        <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>
+        <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
           <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
         <td>{{ wish.university.name }}</td>
         <td>{{ wish.university.country }}</td>
@@ -40,5 +40,13 @@
       </tr>
       </tbody>
     </table>
+  </div>
+  <div class="row text-center ">
+    <div class="col-lg-6 col-sm-12 col-md-6 ">
+      <a class="btn btn-primary" routerLink="/menu-student/countries-list">Ajouter une université</a>
+    </div>
+    <div class="col-sm-14 col-md-6">
+      <a class="btn btn-dark" style="color: white">VALIDER ET ENVOYER</a>
+    </div>
   </div>
 </div>
