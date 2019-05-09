@@ -32,6 +32,7 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import {NameFilterPipe} from './filter-name.pipe';
 import {MajorFilterPipe} from './filter-major.pipe';
 import {AgreementFilterPipe} from './filter-agreement.pipe';
+import {ContactComponent} from './Contact/Contact-component';
 
 
 
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
   {path: 'university-picked/:id', component: UniversityPickedComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
   {path: 'menu-student/documents', component: DocumentComponent},
-  {path: 'agreement-host/:id', component: AgreementHostComponent}
+  {path: 'agreement-host/:id', component: AgreementHostComponent},
+  {path: 'contact', component: ContactComponent}
 ];
 
 @NgModule({
@@ -85,7 +87,8 @@ const appRoutes: Routes = [
     CountryFilterPipe,
     NameFilterPipe,
     MajorFilterPipe,
-    AgreementFilterPipe
+    AgreementFilterPipe,
+    ContactComponent
 
   ],
   imports: [

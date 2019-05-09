@@ -3,3 +3,13 @@
   padding: 20px 20px;
   font: 18px sans-serif;
 }
+
+
+.row-2{
+  font-weight: 700;
+  font-size: 35px;
+  background-color: darkblue;
+  color: white;
+  margin-left: -30px;
+  margin-right: -30px;
+}
