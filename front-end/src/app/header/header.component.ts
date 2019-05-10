@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionService} from '../../services/session/session.service';
 
 
 @Component({
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isConnected: boolean;
+  constructor(private sessionService: SessionService) {}
 
   ngOnInit() {
+    this.isConnected = this.sessionService.isLoggedIn();
   }
 
 }

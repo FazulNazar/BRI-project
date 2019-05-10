@@ -17,8 +17,9 @@ export class MenuStudentComponent implements OnInit {
   }
 
   logout() {
-    this.sessionService.flushCurrentUser();
     this.isConnected = false;
+    this.sessionService.flushCurrentUser();
+    window.location.href = '/presentation';
   }
 
 }

@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   logout() {
     this.sessionService.flushCurrentUser();
     this.user = this.sessionService.getCurrentUserModel();
+    window.location.href = '/presentation';
 
   }
 
