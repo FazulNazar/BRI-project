@@ -16,7 +16,7 @@
       <div class="col-sm-4 col-md-4 col-lg-4 offset-4">
         <div class="card">
 
-        <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="profilForm" (ngSubmit)="update()">
     <div id="leftForm">
 
 
@@ -26,7 +26,8 @@
         mot de passe:
       </label>
       <br />
-      <input type="password" style="margin-left: -25%" class="inputPassword" formControlName="password">
+      <input type="password" style="margin-left: -25%" class="inputPassword" formControlName="password"
+             onfocus="this.value='';">
     </div>
 
     <div class="form-group text-center">
@@ -36,7 +37,8 @@
       </label>
       <br />
 
-      <input type="text" style="margin-left: -25%" formControlName="mail">
+      <input type="text" style="margin-left: -25%" formControlName="mail" value="{{currentUser.mail}}"
+             onfocus="this.value='';">
     </div>
 
 
@@ -49,7 +51,8 @@
         address
       </label>
       <br />
-      <input type="text" style="margin-left: -25%" formControlName="address">
+      <input style="margin-left: -25%" type="text" formControlName="address" placeholder="adresse"
+             onfocus="this.value='';">
     </div>
 
     <div class="form-group text-center">
@@ -57,7 +60,7 @@
         ville
       </label>
       <br />
-      <input type="text" style="margin-left: -25%" formControlName="ville">
+      <input type="text" style="margin-left: -25%" formControlName="city">
     </div>
 
     <div class="form-group text-center">
@@ -82,11 +85,16 @@
   <br />
   <br />
   <div class="wrapper">
-    <button class="btn btn-info">Valider</button>
+    <button class="btn btn-info" (click)="update()">Valider</button>
   </div>
 
 </form>
 
+          {{this.currentUser.id }}merce
+          <br>
+          {{profilForm.getRawValue() | json}}
+          <br>
+          {{test}}
 
 
 

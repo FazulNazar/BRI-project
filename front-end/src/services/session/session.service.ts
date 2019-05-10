@@ -39,7 +39,7 @@ export class SessionService implements OnDestroy {
     return sessionStorage.getItem(STORAGE_KEY) || '';
   }
 
-  public getCurrentUserModel() {
+  public getCurrentUserModel(): User {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || '';
   }
 

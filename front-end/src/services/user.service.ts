@@ -5,6 +5,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {ErrorService} from './error';
 import {httpOptionsBase, serverUrl} from '../configs/server.config';
+import {SessionService} from './session/session.service';
 
 // import { Subject } from 'rxjs/Subject';
 
@@ -22,7 +23,7 @@ export class UserService {
   public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
 
 
-  constructor(public http: HttpClient, private errorService: ErrorService) {
+  constructor(public http: HttpClient, private errorService: ErrorService, private sessionService: SessionService) {
 
     this.url = ' http://localhost:9428/api/students';
     this.getStudentsByHttp();
@@ -71,6 +72,15 @@ export class UserService {
   getUser() {
     return (this.users);
   }
+
+  /**   Modifier son profil
+   */
+  updateStudent(user: User) {
+    const urlWithId = this.url + '/' + user.id;
+    this.log(user.id);
+    this.http.put<User>(urlWithId, user, this.httpOptions);
+  }
+
 
   /** Log a UserService message with the MessageService */
   private log(message: string) {
