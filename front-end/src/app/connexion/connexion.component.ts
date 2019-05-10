@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/User.model';
 import {UserService} from '../../services/user.service';
 import {SessionService} from '../../services/session/session.service';
@@ -14,6 +14,8 @@ export class ConnexionComponent implements OnInit {
   password: string;
   user: User[];
   currentUser: User;
+  adminPassword = 'briadmin';
+  admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', '0');
 
 
   constructor(private userService: UserService, private sessionService: SessionService) {
@@ -28,6 +30,7 @@ export class ConnexionComponent implements OnInit {
     this.userService.getStudents()
       .subscribe(user => this.user = user);
   }
+
   ngOnInit() {
     if (this.sessionService.getCurrentUserModel()) {
       window.location.href = '/profile';
@@ -36,6 +39,12 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSubmitForm() {
+
+    if (this.login === 'admin' && this.password === this.adminPassword) {
+      this.sessionService.storeCurrentUser(this.admin);
+      this.currentUser = this.sessionService.getCurrentUserModel();
+      window.location.href = '/menu-admin';
+    }
     this.user.forEach(student => {
       if (student.studentNumber === this.login && student.password === this.password) {
         this.sessionService.storeCurrentUser(student);
@@ -47,5 +56,6 @@ export class ConnexionComponent implements OnInit {
       console.log('log in error');
     }
   }
+
 
 }

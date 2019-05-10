@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SessionService} from '../../services/session/session.service';
 
 @Component({
   selector: 'app-menu-admin',
@@ -6,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-admin.component.css']
 })
 export class MenuAdminComponent implements OnInit {
-  title =  'DOSSIERS';
+  title = 'DOSSIERS';
+  isAdmin: boolean;
 
-  constructor() { }
+  constructor(private sessionService: SessionService) {
+  }
 
   ngOnInit() {
+
+    this.isAdmin = this.sessionService.isAdmin();
   }
 
 }

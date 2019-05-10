@@ -5,7 +5,6 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {ErrorService} from './error';
 import {httpOptionsBase, serverUrl} from '../configs/server.config';
-import {UniversityModel} from '../models/University.model';
 
 // import { Subject } from 'rxjs/Subject';
 
@@ -21,6 +20,7 @@ export class UserService {
 
   private users: User[] = [];
   public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
+
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
 
@@ -49,9 +49,6 @@ export class UserService {
   }
 
 
-
-
-
   getStudentsByHttp() {
 
     this.http.get<User[]>(this.url).subscribe(user => {
@@ -59,6 +56,7 @@ export class UserService {
       this.users$.next(this.users);
     });
   }
+
 // register
   postStudent(user: User) {
     this.http.post<User>(this.url, user, this.httpOptions)
@@ -70,9 +68,8 @@ export class UserService {
   }
 
 
-
   getUser() {
-    return(this.users);
+    return (this.users);
   }
 
   /** Log a UserService message with the MessageService */

@@ -2,6 +2,7 @@ import {Inject, Injectable, OnDestroy} from '@angular/core';
 import {SESSION_STORAGE, StorageService} from 'angular-webstorage-service';
 
 import {User} from '../../models/User.model';
+import {Router} from '@angular/router';
 
 // key that is used to access the data in local storage
 const STORAGE_KEY = 'currentUser';
@@ -12,8 +13,10 @@ const STORAGE_KEY = 'currentUser';
 
 export class SessionService implements OnDestroy {
 
-  constructor(@Inject(SESSION_STORAGE) private storage: StorageService) {
+
+  constructor(@Inject(SESSION_STORAGE) private storage: StorageService, private router: Router) {
   }
+
 
   public storeCurrentUser(user: User): void {
     let currentUser: string;
@@ -24,6 +27,12 @@ export class SessionService implements OnDestroy {
 
   public flushCurrentUser() {
     sessionStorage.setItem(STORAGE_KEY, '');
+  }
+
+  public logOut() {
+    this.flushCurrentUser();
+    this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() =>
+      this.router.navigate(['/connexion']));
   }
 
   public getCurrentUser() {
@@ -39,7 +48,17 @@ export class SessionService implements OnDestroy {
     return !!currentUser;
   }
 
+
   ngOnDestroy() {
     sessionStorage.clear();
   }
+
+  isAdmin(): boolean {
+    if (this.isLoggedIn()) {
+      return this.getCurrentUserModel().studentNumber === 'admin';
+    }
+    return false;
+  }
+
+
 }

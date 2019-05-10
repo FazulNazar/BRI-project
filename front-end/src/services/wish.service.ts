@@ -19,6 +19,7 @@ export class WishService {
   private url = serverUrl + wishesUrl;
   public wish$: BehaviorSubject<WishModel[]> = new BehaviorSubject(this.wishList);
 
+
   constructor(public http: HttpClient, private errorService: ErrorService) {
   //  this.selectedWish;
   //   this.wish$ = new BehaviorSubject(this.wishList);
