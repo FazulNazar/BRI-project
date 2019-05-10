@@ -32,9 +32,12 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import {NameFilterPipe} from './filter-name.pipe';
 import {MajorFilterPipe} from './filter-major.pipe';
 import {AgreementFilterPipe} from './filter-agreement.pipe';
+import {AdminNameFilterPipe} from './filter-admin-name.pipe';
 import {ContactComponent} from './Contact/Contact-component';
-import { ApplicationsComponent} from "./admin/applications/applications.component";
-import { UserPickedComponent} from "./admin/user/user-picked/user-picked.component";
+import { ApplicationsComponent} from './admin/applications/applications.component';
+import { UserPickedComponent} from './admin/user/user-picked/user-picked.component';
+import {AdminNumberFilterPipe} from './filter-admin-NumEtu.pipe';
+import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -93,7 +96,10 @@ const appRoutes: Routes = [
     AgreementFilterPipe,
     ContactComponent,
     UserPickedComponent,
-    ApplicationsComponent
+    ApplicationsComponent,
+    AdminNameFilterPipe,
+    AdminNumberFilterPipe,
+    AdminMajorFilterPipe
 
   ],
   imports: [

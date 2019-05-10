@@ -12,6 +12,10 @@ export class ApplicationsComponent implements OnInit {
 
   students$: Observable<User[]>;
   public userList: User[];
+  FirstName: string;
+  LastName: string;
+  Filiere: string;
+  NumEtu: string;
 
 
   constructor(public userService: UserService) { }
