@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+  <h2>Demandes de mobilités à valider</h2>
+
+
+
+  <div class="table-hover">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Filiere</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor=" let user of userList ">
+
+        <td><a routerLink="/user-picked/{{user.id}}">{{user.name}}</a></td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.educationStream}}</td>
+
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
