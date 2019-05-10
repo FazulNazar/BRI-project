@@ -1,27 +1,70 @@
-<div class="titles">
-  <h1>
-    Etudiant
-  </h1>
-</div>
-<div class="card">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md">
-  <p> Nom : {{user.name}}</p>
-  <p> Prenom : {{user.firstname}} </p>
 
+
+<div class="row-2  ">
+
+  <p class="text-center">{{user.name}} {{user.firstname}}</p>
+
+
+</div>
+
+
+<div class="container-fluid padding">
+  <br>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+      Informations Personnelles
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+
+</div>
+
+
+
+<div class="container-fluid">
+
+
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+      <div class="card">
+        <p>Nom : {{user.name}}</p>
+        <p>Prénom : {{user.firstname}}</p>
+        <p>Date de naissance : {{user.birthday}} </p>
+        <p>Adresse mail : {{user.mail}} </p>
+        <p>Adresse : {{user.address}}</p>
+        <p>Numéro de téléphone : {{user.phone}} </p>
         <p> Filiere : {{user.educationStream}} </p>
 
         <p> Numero Etudiant : {{user.studentNumber}} </p>
+        <div class="col text-center">
+          <button class="btn btn-info" style="width: 30%" > Modifier </button>
 
-      </div>
-      <div class="col-md">
-        <p> Mail@ : {{user.mail}}</p>
-        <p> Telephone : {{user.phone}}</p>
+        </div>
+
+        <br>
       </div>
     </div>
+  </div>
 </div>
+
+
+
+<div class="container-fluid padding">
+  <br>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div >
+    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+      Détails de la demande de séjour
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+
 </div>
+
+
+
 
 
 
