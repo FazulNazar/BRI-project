@@ -33,8 +33,8 @@ import {NameFilterPipe} from './filter-name.pipe';
 import {MajorFilterPipe} from './filter-major.pipe';
 import {AgreementFilterPipe} from './filter-agreement.pipe';
 import {ContactComponent} from './Contact/Contact-component';
-
-
+import { ApplicationsComponent} from "./admin/applications/applications.component";
+import { UserPickedComponent} from "./admin/user/user-picked/user-picked.component";
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -56,7 +56,10 @@ const appRoutes: Routes = [
   {path: 'university-available', component: UniversityAvailableComponent},
   {path: 'menu-student/documents', component: DocumentComponent},
   {path: 'agreement-host/:id', component: AgreementHostComponent},
-  {path: 'contact', component: ContactComponent}
+  {path: 'contact', component: ContactComponent},
+  {path: 'applications', component: ApplicationsComponent},
+  {path: 'user-picked/:id', component: UserPickedComponent}
+
 ];
 
 @NgModule({
@@ -88,7 +91,9 @@ const appRoutes: Routes = [
     NameFilterPipe,
     MajorFilterPipe,
     AgreementFilterPipe,
-    ContactComponent
+    ContactComponent,
+    UserPickedComponent,
+    ApplicationsComponent
 
   ],
   imports: [

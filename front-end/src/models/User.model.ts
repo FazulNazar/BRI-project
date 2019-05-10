@@ -13,5 +13,7 @@ export class User {
     public phone: string,
     public studentNumber: string,
     public educationStream: string,
+    public status: string,
+    public id: string,
   ) {}
 }

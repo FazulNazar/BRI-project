@@ -27,6 +27,7 @@ export class UserService {
     this.url = ' http://localhost:9428/api/students';
     this.getStudentsByHttp();
     this.users$ = new BehaviorSubject(this.users);
+
   }
 
   // public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
@@ -39,6 +40,18 @@ export class UserService {
     );
 
   }
+
+  getUserById(id: number): Observable<User> {
+    const url = `${this.url}/${id}`;
+    return this.http.get<User>(url).pipe(
+      tap(_ => this.log(`fetched university id=${id}`))
+    );
+  }
+
+
+
+
+
   getStudentsByHttp() {
 
     this.http.get<User[]>(this.url).subscribe(user => {
