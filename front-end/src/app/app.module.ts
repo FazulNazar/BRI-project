@@ -38,6 +38,7 @@ import { ApplicationsComponent} from './admin/applications/applications.componen
 import { UserPickedComponent} from './admin/user/user-picked/user-picked.component';
 import {AdminNumberFilterPipe} from './filter-admin-NumEtu.pipe';
 import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
+import { AcceptedComponent } from './admin/accepted/accepted.component';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -99,7 +100,8 @@ const appRoutes: Routes = [
     ApplicationsComponent,
     AdminNameFilterPipe,
     AdminNumberFilterPipe,
-    AdminMajorFilterPipe
+    AdminMajorFilterPipe,
+    AcceptedComponent
 
   ],
   imports: [
