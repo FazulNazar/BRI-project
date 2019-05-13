@@ -44,8 +44,8 @@ export class UpdateprofileComponent implements OnInit {
   update() {
 
     const user = this.profilForm.getRawValue();
-    user.id = this.currentUser.id;
-    this.studentService.updateStudent(user);
+    //  user.id = this.currentUser.id;
+    this.studentService.updateStudent(user, this.currentUser.id);
     window.location.href = '/profile';
 
   }

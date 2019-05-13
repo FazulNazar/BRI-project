@@ -80,7 +80,10 @@
       deconnecter</a>
   </div>
   <div class="col-sm-14 col-md-6">
-    <a href="#" *ngIf="isConnected" class="btn btn-primary" routerLink="/menu-student">Menu Principal</a>
+    <a href="#" *ngIf="isConnected && !isAdmin" class="btn btn-primary" routerLink="/menu-student">Menu Principal</a>
+  </div>
+  <div class="col-sm-14 col-md-6">
+    <a href="#" *ngIf="isConnected && isAdmin" class="btn btn-primary" routerLink="/menu-admin">Menu Principal</a>
   </div>
 </div>
 

@@ -75,10 +75,15 @@ export class UserService {
 
   /**   Modifier son profil
    */
-  updateStudent(user: User) {
-    const urlWithId = this.url + '/' + user.id;
+  updateStudent(user: User, id: string) {
+    const urlWithId = this.url + '/' + id;
     this.log(user.id);
-    this.http.put<User>(urlWithId, user, this.httpOptions);
+    // this.http.put<User>(urlWithId, user, this.httpOptions);
+    this.http.put<User>(urlWithId, user, this.httpOptions)
+      .pipe(
+        catchError(this.handleError('updateUser', user))
+      );
+
   }
 
 

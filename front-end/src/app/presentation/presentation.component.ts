@@ -10,6 +10,7 @@ export class PresentationComponent implements OnInit {
 
   title = 'Séjour au gaidjin';
   isConnected: boolean;
+  isAdmin: boolean;
 
 
   constructor(private sessionService: SessionService) {
@@ -17,6 +18,7 @@ export class PresentationComponent implements OnInit {
 
   ngOnInit() {
     this.isConnected = this.sessionService.isLoggedIn();
+    this.isAdmin = this.sessionService.isAdmin();
 
   }
 

@@ -1,4 +1,3 @@
-
 <div class="row-2  ">
 
   <p class="text-center">Contrat d'études</p>
@@ -7,7 +6,7 @@
 <div class="container-fluid padding">
   <br>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
+  <div>
     <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
       Informations Personnelles
     </p>
@@ -31,7 +30,7 @@
         <p>Adresse : {{user.address}}</p>
         <p>Numéro de téléphone : {{user.phone}} </p>
         <div class="col text-center">
-          <button class="btn btn-info" style="width: 30%" routerLink="/update-profile"> Modifier </button>
+          <button class="btn btn-info" style="width: 30%" routerLink="/update-profile"> Modifier</button>
 
         </div>
 
@@ -47,7 +46,7 @@
 <div class="container-fluid padding">
   <br>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
+  <div>
     <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
       Université d'accueil
     </p>
@@ -56,110 +55,103 @@
 
 </div>
 
+<form [formGroup]="agreementForm">
 <div class="container-fluid">
 
 
   <div class="row">
 
     <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
-<div class="card">
-  <p> Nom de l'établissement:     {{university.name}}
-  </p>
-  <p> Ville:  {{university.city}}</p>
-  <p> Pays:  {{university.country}}</p>
-  <p> Accord:  {{university.agreements}}</p>
-  <form [formGroup]="agreementForm">
-    <div class="form-group">
-      <label for="semestre">Période d'étude prévue:</label>
-      <select class="form-control" formControlName="semester" id="semestre" required>
-        <option value="" hidden>Veuillez choisir une option</option>
-        <option *ngFor="let value of semester" [value]="value">{{value}}</option>
-      </select>
+      <div class="card">
+        <p> Nom de l'établissement: {{university.name}}
+        </p>
+        <p> Ville: {{university.city}}</p>
+        <p> Pays: {{university.country}}</p>
+        <p> Accord: {{university.agreements}}</p>
+        <div class="form-group">
+          <label for="semestre">Période d'étude prévue:</label>
+          <select class="form-control" formControlName="semester" id="semestre" required>
+            <option value="" hidden>Veuillez choisir une option</option>
+            <option *ngFor="let value of semester" [value]="value">{{value}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="diplome">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
+          <select class="form-control" formControlName="diploma" id="diplome" required>
+            <option value="" hidden>Veuillez choisir une option</option>
+            <option *ngFor="let value of diploma" [value]="value">{{value}}</option>
+          </select>
+        </div>
+
+      </div>
     </div>
-
-    <div class="form-group">
-      <label for="diplome">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
-      <select class="form-control" formControlName="diploma" id="diplome" required>
-        <option value="" hidden>Veuillez choisir une option</option>
-        <option *ngFor="let value of diploma" [value]="value">{{value}}</option>
-      </select>
-    </div>
-  </form>
-
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div class="container-fluid padding">
-  <br>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
-    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
-      Programme d’études pendant le séjour à l’étranger
-    </p>
   </div>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <br>
-
 </div>
 
 
-<div class="container-fluid">
+  <div class="container-fluid padding">
+    <br>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <div>
+      <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+        Programme d’études pendant le séjour à l’étranger
+      </p>
+    </div>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <br>
+
+  </div>
 
 
-  <div class="row">
+  <div class="container-fluid">
 
-    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
-<table class="table  table-bordered" style="background-color: aliceblue">
-  <thead>
-  <tr>
-    <th>Titre du cours</th>
-    <th>Code du cours</th>
-    <th>Nombre de crédits</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let field of fieldArray; let i = index">
-    <td>
-      <input [(ngModel)]="field.code" class="form-control" type="text" name="{{field.code}}" />
-    </td>
-    <td>
-      <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
-    </td>
-    <td>
-      <input [(ngModel)]="field.price" class="form-control" type="text" name="{{field.price}}" />
-    </td>
-    <td>
-      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Supprimer le cours</button>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <input class="form-control" type="text" id="newAttributeTitle" [(ngModel)]="newAttribute.code" name="newAttributeTitle" />
-    </td>
-    <td>
-      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newAttribute.name" name="newAttributeCode" />
-    </td>
-    <td>
-      <input class="form-control" type="text" id="newAttributeCredits" [(ngModel)]="newAttribute.price" name="newAttributeCredits" />
-    </td>
-    <td>
-      <button class="btn btn-default" type="button" (click)="addFieldValue()">Ajouter le cours</button>
-    </td>
-  </tr>
-  </tbody>
-</table>
+
+    <div class="row">
+
+      <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+        <table class="table  table-bordered" style="background-color: aliceblue">
+          <thead>
+          <tr>
+            <th>Titre du cours</th>
+            <th>Code du cours</th>
+            <th>Nombre de crédits</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr formArrayName="courses"
+              *ngFor="let course of agreementForm.get('courses').controls; let i = index;">
+            <div [formGroupName]="i">
+              <td>
+                <input formControlName="cours" class="form-control" type="text" placeholder="Item name">
+              </td>
+              <td>
+                <input formControlName="code" placeholder="Item description" class="form-control" type="text">
+              </td>
+              <td>
+                <input formControlName="credit" placeholder="Item price" class="form-control" type="text">
+              </td>
+            </div>
+
+            <button class="btn btn-default" type="button" (click)="deleteCourse(i)">Supprimer ce cours</button>
+          </tr>
+
+          <button class="btn btn-default" type="button" (click)="addCourse()">Ajouter le cours</button>
+
+          </tbody>
+        </table>
+
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
+
+</form>
 
 <div class="container-fluid padding">
   <br>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
+  <div>
     <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
       Documents à joindre
     </p>
@@ -171,20 +163,18 @@
 <div class="container-fluid">
 
 
-
   <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
     <div class="card">
       <P>Lettre de motivation </P>
-      <input type="file"  class="form-control-file border">
+      <input type="file" class="form-control-file border">
       <br>
       <P>Budget prévisionnel</P>
-      <input type="file"  class="form-control-file border">
+      <input type="file" class="form-control-file border">
       <br>
       <P>Certificat de langue</P>
-      <input type="file"  class="form-control-file border">
+      <input type="file" class="form-control-file border">
 
       <br>
-
 
 
     </div>
@@ -192,14 +182,14 @@
     <div class="col text-center">
       <div id="submit">
         <button type="submit" class="btn btn-secondary" (click)="addWish()" [disabled]="!agreementForm.valid"
-                routerLink="/menu-student/wish-list">Ajouter à la liste de voeux</button>
+                routerLink="/menu-student/wish-list">Ajouter à la liste de voeux
+        </button>
       </div>
 
     </div>
 
   </div>
+  Form Status: {{ agreementForm.status }}
+  <br>
+  {{agreementForm.getRawValue() | json}}
 </div>
-
-
-
-
