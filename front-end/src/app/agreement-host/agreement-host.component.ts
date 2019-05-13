@@ -55,6 +55,7 @@ export class AgreementHostComponent implements OnInit {
   addWish() {
     if (this.agreementForm.valid) {
       const id = +this.route.snapshot.paramMap.get('id');
+      const studentId = parseInt(this.user.id, 10);
       const formValue = this.agreementForm.value;
       const jsonCourses = JSON.stringify(formValue.courses ? formValue.courses : []);
       this.wishService.postWish({
@@ -65,7 +66,8 @@ export class AgreementHostComponent implements OnInit {
         // courses: [{title: 'titre1', code: 1, credits: 5},
         //           {title: 'titre2', code: 2, credits: 3}],
         agreementCompleted: false,
-        courses: jsonCourses
+        courses: jsonCourses,
+        studentID: studentId
       } as WishModel).subscribe(newWish => {
         this.wishList.push(newWish);
       });
