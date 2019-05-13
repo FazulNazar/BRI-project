@@ -3,15 +3,15 @@ import {CourseModel} from './Course.model';
 
 export class WishModel {
 
-  constructor(id, universityId, university, semester, diploma, agreementCompleted, courses,
+  constructor(id, universityId, university, semester, diploma, agreementCompleted, courses
   ) {
     this.id = id;
     this.universityId = universityId;
     this.university = university;
     this.semester = semester;
     this.diploma = diploma;
-    this.courses = courses;
     this.agreementCompleted = agreementCompleted;
+    this.courses = courses;
   }
 
   public id: number;
@@ -19,6 +19,7 @@ export class WishModel {
   public university?: UniversityModel;
   public semester: string;
   public diploma: string;
-  public courses: Array<CourseModel>;
   public agreementCompleted?: boolean;
+  // public courses?: Array<CourseModel>;
+  public courses: string;
 }

@@ -124,13 +124,13 @@
               *ngFor="let course of agreementForm.get('courses').controls; let i = index;">
             <div [formGroupName]="i">
               <td>
-                <input formControlName="cours" class="form-control" type="text" placeholder="Item name">
+                <input formControlName="cours" class="form-control" type="text" placeholder="Nom">
               </td>
               <td>
-                <input formControlName="code" placeholder="Item description" class="form-control" type="text">
+                <input formControlName="code" placeholder="Code" class="form-control" type="text">
               </td>
               <td>
-                <input formControlName="credit" placeholder="Item price" class="form-control" type="text">
+                <input formControlName="credit" placeholder="Credits" class="form-control" type="text">
               </td>
             </div>
 
