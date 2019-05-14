@@ -1,7 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {UserService} from "../../../../services/user.service";
-import {User} from "../../../../models/User.model";
+import {UserService} from '../../../../services/user.service';
+import {User} from '../../../../models/User.model';
+import {WishModel} from '../../../../models/Wish.model';
+import {WishService} from '../../../../services/wish.service';
 
 @Component({
   selector: 'app-user-picked',
@@ -11,11 +13,13 @@ import {User} from "../../../../models/User.model";
 export class UserPickedComponent implements OnInit {
 
   user: User;
+  public wishList: WishModel[] = [];
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {}
+  constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService) {}
 
   ngOnInit() {
     this.getUserById();
+    this.getWishes();
   }
 
   getUserById(): void {
@@ -23,5 +27,12 @@ export class UserPickedComponent implements OnInit {
     console.log(id);
     this.userService.getUserById(id)
       .subscribe(user => this.user = user);
+  }
+
+  getWishes(): void {
+    this.wishService.getWishList()
+      .subscribe(wishes => {
+        this.wishList = wishes;
+      });
   }
 }

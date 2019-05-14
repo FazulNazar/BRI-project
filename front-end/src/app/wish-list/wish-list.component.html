@@ -1,17 +1,8 @@
 <div class="container-fluid">
   <div class="row-2  ">
-
     <p class="text-center">Liste de voeux</p>
-
-
-
   </div>
-
-
-
-
 <hr>
-
 <div class="container">
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -26,18 +17,19 @@
       </tr>
       </thead>
       <tbody>
-      <!--<tr *ngFor="let wish of wishService.wishList" >-->
-        <!--<td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish()" >EDITER</button>-->
-          <!--<button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>-->
-      <tr *ngFor="let wish of wishList">
-        <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
-          <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
-        <td>{{ wish.university.name }}</td>
-        <td>{{ wish.university.country }}</td>
-        <td>{{ wish.university.city }}</td>
-        <td>{{ wish.diploma }}</td>
-        <td>{{ wish.semester }}</td>
-      </tr>
+        <!--<ng-container *ngFor="let wish of wishList">-->
+          <!--<tr *ngIf="user.id == wish.studentID">-->
+          <tr *ngFor="let wish of wishList">
+            <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
+              <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
+            <td>{{ wish.university.name }}</td>
+            <td>{{ wish.university.country }}</td>
+            <td>{{ wish.university.city }}</td>
+            <td>{{ wish.diploma }}</td>
+            <td>{{ wish.semester }}</td>
+          </tr>
+          <!--</tr>-->
+        <!--</ng-container>-->
       </tbody>
     </table>
   </div>

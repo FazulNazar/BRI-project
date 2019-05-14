@@ -61,11 +61,34 @@
   </div>
 
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <p class="text-center">
-    Contrat d'étude ici
-  </p>
-
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Accord</th>
+          <th scope="col">Université</th>
+          <th scope="col">Pays</th>
+          <th scope="col">Diplôme visé</th>
+          <th scope="col">Semestre</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let wish of wishList">
+        <tr *ngIf="user.id == wish.studentID">
+            <td>{{ wish.university.agreements }}</td>
+            <td>{{ wish.university.name }}</td>
+            <td>{{ wish.university.country }}</td>
+            <td>{{ wish.diploma }}</td>
+            <td>{{ wish.semester }}</td>
+        </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
 
 
 <hr style="width: 30%; border-top: 2px solid #b4b4b4">

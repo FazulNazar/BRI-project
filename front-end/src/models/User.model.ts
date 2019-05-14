@@ -1,3 +1,5 @@
+import {WishModel} from './Wish.model';
+
 export class User {
   constructor(
     public mail: string,
@@ -15,5 +17,7 @@ export class User {
     public educationStream: string,
     public status: string,
     public id: string,
+    // public wishListId: number
+    // public wishList?: Array<WishModel>,
   ) {}
 }

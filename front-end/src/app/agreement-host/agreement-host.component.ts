@@ -9,6 +9,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 import {User} from '../../models/User.model';
 import {SessionService} from '../../services/session/session.service';
 import {CourseModel} from '../../models/Course.model';
+import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -71,8 +72,15 @@ export class AgreementHostComponent implements OnInit {
       } as WishModel).subscribe(newWish => {
         this.wishList.push(newWish);
       });
+      // this.addWishToStudent();
     }
   }
+
+  // addWishToStudent() {
+  //   this.userService.updateStudent({
+  //     wishList: this.wishList
+  //   } as User, this.user.id);
+  // }
 
 
   createCourse(): FormGroup {

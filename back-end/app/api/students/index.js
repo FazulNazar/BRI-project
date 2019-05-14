@@ -14,6 +14,11 @@ function getStudentSafely(studentId) {
   }
 }
 
+// function attachWishList(list) {
+//   list.wishList = WishModel.getById(list.wishListId);
+//   return list;
+// }
+
 const attachStudents = ticket => Object.assign({}, ticket, {
   students: ticket.studentIds.map(studentId => getStudentSafely(studentId)),
 });
