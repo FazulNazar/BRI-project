@@ -121,23 +121,34 @@
           <tbody>
 
           <tr formArrayName="courses"
-              *ngFor="let course of agreementForm.get('courses').controls; let i = index;">
+              *ngFor="let course of agreementForm.get('courses').controls let i = index;">
+
             <div [formGroupName]="i">
               <td>
                 <input formControlName="cours" class="form-control" type="text" placeholder="Nom">
               </td>
-              <td>
-                <input formControlName="code" placeholder="Code" class="form-control" type="text">
-              </td>
-              <td>
-                <input formControlName="credit" placeholder="Credits" class="form-control" type="text">
-              </td>
             </div>
 
-            <button class="btn btn-default" type="button" (click)="deleteCourse(i)">Supprimer ce cours</button>
+              <td>
+                <div [formGroupName]="i">
+
+                <input formControlName="code" placeholder="Code" class="form-control" type="text">
+            </div>
+              </td>
+
+              <td>
+                <div [formGroupName]="i">
+                <input formControlName="credit" placeholder="Credits" class="form-control" type="text">
+                </div>
+              </td>
+
+
+
+            <button class="btn btn-default" type="button" (click)="deleteCourse(i)">Supprimer</button>
+            <button class="btn btn-default" type="button" (click)="addCourse()">Ajouter</button>
           </tr>
 
-          <button class="btn btn-default" type="button" (click)="addCourse()">Ajouter le cours</button>
+
 
           </tbody>
         </table>
