@@ -16,7 +16,7 @@ export class User {
     public studentNumber: string,
     public educationStream: string,
     public status: string,
-    public id: string,
+    public id: number,
     // public wishListId: number
     // public wishList?: Array<WishModel>,
   ) {}

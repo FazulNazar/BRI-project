@@ -75,9 +75,9 @@ export class UserService {
 
   /**   Modifier son profil
    */
-  updateStudent(user: User, id: string) {
+  updateStudent(user: User, id: number) {
     const urlWithId = this.url + '/' + id;
-    this.log(user.id);
+    this.log('' + user.id);
     // this.http.put<User>(urlWithId, user, this.httpOptions);
     this.http.put<User>(urlWithId, user, this.httpOptions)
       .pipe(

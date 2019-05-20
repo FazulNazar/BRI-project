@@ -15,7 +15,7 @@ export class ConnexionComponent implements OnInit {
   user: User[];
   currentUser: User;
   adminPassword = 'briadmin';
-  admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', '0');
+  admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', 0);
 
 
   constructor(private userService: UserService, private sessionService: SessionService) {
