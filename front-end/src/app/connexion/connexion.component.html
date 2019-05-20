@@ -14,7 +14,7 @@
   <br>
   <br>
   <div class="card bg-light mb-8 ">
-    <div class="card-header">Connexion</div>
+    <div class="card-header" style="font-weight: bold; font-size: large">Connexion</div>
     <div class="card-body">
       <form>
 
@@ -22,26 +22,33 @@
 
           <div class="col-sm">
             <div class="form-group">
-              <label class="card-title">Numero étudiant:</label>
+              <p class="text-center " style="font-style: italic; font-weight: bold">
+              <label class="card-title ">Numero étudiant:</label>
+              </p>
+
               <div class="login">
-                <input [(ngModel)]="login" class="form-control" [ngModelOptions]="{standalone: true}"
-                       placeholder="Num étudiant"/><br>
+                <input [(ngModel)]="login" class="form-control text-center" style="width: 50%; margin-left: 25%" [ngModelOptions]="{standalone: true}"
+                       placeholder="Num étudiant"/>
+
               </div>
+
             </div>
+
           </div>
-
-
-          <div class="col-sm">
-            <div class="mdp ">
-<p class="card-title">mot de passe: </p>
-<input [(ngModel)]="password" class="form-control" type="password" [ngModelOptions]="{standalone: true}"
-       placeholder="mot de passe"/>
-</div>
 </div>
 
-<button class="button" class="btn btn-primary btn-block" (click)="onSubmitForm()">Se connecter</button>
-</div>
+
+        <div class="col-sm">
+          <div class="mdp ">
+            <p class="card-title text-center" style="font-style: italic; font-weight: bold">Mot de passe: </p>
+            <input [(ngModel)]="password" class="form-control text-center" style="width: 50%; margin-left: 25%" type="password" [ngModelOptions]="{standalone: true}"
+                   placeholder="mot de passe"/>
+          </div>
+        </div>
 </form>
+          <br>
+
+      <button class="button" class="btn btn-primary btn-block" style="width: 30%; margin-left: 35%" (click)="onSubmitForm()">Se connecter</button>
 </div>
 </div>
 </div>

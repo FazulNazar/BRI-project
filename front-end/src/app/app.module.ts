@@ -39,6 +39,7 @@ import { UserPickedComponent} from './admin/user/user-picked/user-picked.compone
 import {AdminNumberFilterPipe} from './filter-admin-NumEtu.pipe';
 import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
 import { AcceptedComponent } from './admin/accepted/accepted.component';
+import { AdminPinnaComponent } from './admin-pinna/admin-pinna.component';
 
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
   {path: 'agreement-host/:id', component: AgreementHostComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'applications', component: ApplicationsComponent},
-  {path: 'user-picked/:id', component: UserPickedComponent}
+  {path: 'user-picked/:id', component: UserPickedComponent},
+  {path: 'admin-pinna', component: AdminPinnaComponent}
 
 ];
 
@@ -101,7 +103,8 @@ const appRoutes: Routes = [
     AdminNameFilterPipe,
     AdminNumberFilterPipe,
     AdminMajorFilterPipe,
-    AcceptedComponent
+    AcceptedComponent,
+    AdminPinnaComponent
 
   ],
   imports: [

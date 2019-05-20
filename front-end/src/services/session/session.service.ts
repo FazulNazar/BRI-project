@@ -55,7 +55,7 @@ export class SessionService implements OnDestroy {
 
   isAdmin(): boolean {
     if (this.isLoggedIn()) {
-      return this.getCurrentUserModel().studentNumber === 'admin';
+      return (this.getCurrentUserModel().studentNumber === 'admin' || this.getCurrentUserModel().studentNumber === 'AMPinna');
     }
     return false;
   }

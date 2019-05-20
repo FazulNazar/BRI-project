@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    return this.currentUser.studentNumber === 'admin';
+    return (this.currentUser.studentNumber === 'admin' || this.currentUser.studentNumber === 'AMPinna');
   }
 
 }

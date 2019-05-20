@@ -15,8 +15,9 @@ export class ConnexionComponent implements OnInit {
   user: User[];
   currentUser: User;
   adminPassword = 'briadmin';
+  adminPassword2 = 'ampinna';
   admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', 0);
-
+  AMPinna: User = new User('', this.adminPassword2, '', '', '', '', '', '', '', '', '', 'AMPinna', '', '', 1);
 
   constructor(private userService: UserService, private sessionService: SessionService) {
     this.userService.users$.subscribe((user) => {
@@ -39,6 +40,12 @@ export class ConnexionComponent implements OnInit {
   }
 
   onSubmitForm() {
+
+    if (this.login === 'AMPinna' && this.password === this.adminPassword2) {
+      this.sessionService.storeCurrentUser(this.AMPinna);
+      this.currentUser = this.sessionService.getCurrentUserModel();
+      window.location.href = '/admin-pinna';
+    }
 
     if (this.login === 'admin' && this.password === this.adminPassword) {
       this.sessionService.storeCurrentUser(this.admin);
