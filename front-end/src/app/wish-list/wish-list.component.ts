@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {User} from '../../models/User.model';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../services/user.service';
+import {SessionService} from '../../services/session/session.service';
 
 declare var M: any;
 
@@ -17,22 +18,24 @@ declare var M: any;
 export class WishListComponent implements OnInit {
 
   wish$: Observable<WishModel[]>;
-  user: User;
+  currentUser: User;
   public wishList: WishModel[] = [];
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService) {
+  constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService,
+              private sessionService: SessionService) {
   }
 
   ngOnInit() {
     this.getWishes();
     this.getUserById();
+    this.currentUser = this.sessionService.getCurrentUserModel();
   }
 
   getUserById(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.userService.getUserById(id)
-      .subscribe(user => this.user = user);
+      .subscribe(user => this.currentUser = user);
   }
 
   getWishes(): void {

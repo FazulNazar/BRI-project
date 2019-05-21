@@ -17,9 +17,9 @@
       </tr>
       </thead>
       <tbody>
-        <!--<ng-container *ngFor="let wish of wishList">-->
-          <!--<tr *ngIf="user.id == wish.studentID">-->
-          <tr *ngFor="let wish of wishList">
+        <ng-container *ngFor="let wish of wishList">
+          <tr *ngIf="currentUser.id == wish.studentID">
+          <!--<tr *ngFor="let wish of wishList">-->
             <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
               <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
             <td>{{ wish.university.name }}</td>
@@ -27,9 +27,9 @@
             <td>{{ wish.university.city }}</td>
             <td>{{ wish.diploma }}</td>
             <td>{{ wish.semester }}</td>
-          </tr>
           <!--</tr>-->
-        <!--</ng-container>-->
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
@@ -61,7 +61,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Vous avez envoyé votre dossier au bureau des relations internationales, vous allez êtrer redirigé vers le menu principal.
+        Vous avez envoyé votre dossier au bureau des relations internationales, vous allez être redirigé vers le menu principal.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" routerLink="/menu-student" data-dismiss="modal">Fermer</button>
