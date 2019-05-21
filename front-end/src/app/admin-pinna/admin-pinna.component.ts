@@ -13,7 +13,7 @@ export class AdminPinnaComponent implements OnInit {
   constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.isAdmin = this.sessionService.isAdmin();
+    this.isAdmin = this.sessionService.isAdminPinna();
   }
 
 }

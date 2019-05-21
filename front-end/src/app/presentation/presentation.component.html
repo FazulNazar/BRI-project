@@ -3,12 +3,10 @@
     <div class="overlay "style="background-image:url(http://unice.fr/polytechnice/fr/international/pns-et-linternational/leadImage_extra-full)">
     <p class="">
       Nous  exigeons de nos élèves qu’ils aient tous "une expérience significative à l’étranger" durant leur cursus. Cette exigence est obligatoire pour prétendre à l'obtention du diplôme d'ingénieur.
-
       Nous offrons la possibilité de valider l'expérience à l'international en effectuant des séjours d’études à l’étranger dans le cadre d’un échange académique (un ou deux semestres dans une université partenaire) ou lors d'un stage en entreprise, de préférence dans le domaine d'études de l'élève ingénieur.
     </p>
     </div>
   </div>
-
   <button class="btn btn-info" routerLink="/auth"> Se connecter </button>
 </div> -->
 <!-- Les images avec les slides -->
@@ -16,68 +14,68 @@
 <body>
 
 <div id="slides" class="carousel slide" data-ride="carousel">
-<ul class="carousel-indicators">
-  <li data-target="#slides" data-slide-to="0" class="active"></li>
-  <li data-target="#slides" data-slide-to="1"></li>
-  <li data-target="#slides" data-slide-to="2"></li>
-</ul>
-<div class="carousel-inner">
-  <div class="carousel-item active">
-    <img src="../../assets/Observances_2019v2.png">
-    <div class="carousel-caption">
-      <h1 class="display-2"> Mobilité à l'international</h1>
-      <h3>Polytech</h3>
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0" class="active"></li>
+    <li data-target="#slides" data-slide-to="1"></li>
+    <li data-target="#slides" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/Observances_2019v2.png">
+      <div class="carousel-caption">
+        <h1 class="display-2"> Mobilité à l'international</h1>
+        <h3>Polytech</h3>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../../assets/Observances_2019v2.png">
+    </div>
+    <div class="carousel-item">
+      <img src="../../assets/Observances_2019v2.png">
     </div>
   </div>
-  <div class="carousel-item">
-    <img src="../../assets/Observances_2019v2.png">
-  </div>
-  <div class="carousel-item">
-    <img src="../../assets/Observances_2019v2.png">
-  </div>
-</div>
 </div>
 <hr class="my-4">
 
 <!-- Le message d'acceuil -->
 <div class="container-fluid padding">
-<div class="row welcome text-center">
-  <div class="col-12">
-    <h1 class="display-4"> Partir à l'étranger.</h1>
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <h1 class="display-4"> Partir à l'étranger.</h1>
+    </div>
+    <hr>
+    <div >
+      <p class="lead">
+        Nous  exigeons de nos élèves qu’ils aient tous "une expérience significative
+        à l’étranger" durant leur cursus. Cette exigence est obligatoire
+        pour prétendre à l'obtention du diplôme d'ingénieur.
+        Nous offrons la possibilité de valider l'expérience à l'international en effectuant des
+        séjours d’études à l’étranger dans le cadre d’un échange académique (un ou deux semestres
+        dans une université partenaire) ou lors d'un stage en entreprise, de préférence dans le domaine
+        d'études de l'élève ingénieur.
+      </p>
+    </div>
   </div>
-  <hr>
-  <div >
-    <p class="lead">
-      Nous  exigeons de nos élèves qu’ils aient tous "une expérience significative
-      à l’étranger" durant leur cursus. Cette exigence est obligatoire
-      pour prétendre à l'obtention du diplôme d'ingénieur.
-      Nous offrons la possibilité de valider l'expérience à l'international en effectuant des
-      séjours d’études à l’étranger dans le cadre d’un échange académique (un ou deux semestres
-      dans une université partenaire) ou lors d'un stage en entreprise, de préférence dans le domaine
-      d'études de l'élève ingénieur.
-    </p>
-  </div>
-</div>
 </div>
 
 <!-- La ligne claire -->
 <hr class="my-4">
 <div class="container-fluid padding">
-<div class="row text-center ">
-  <div class="col-lg-6 col-sm-12 col-md-6">
+  <div class="row text-center ">
+    <div class="col-lg-6 col-sm-12 col-md-6">
 
 
-    <a href="#" *ngIf="!isConnected" class="btn btn-primary" routerLink="/connexion">Se connecter</a>
-    <a href="#" *ngIf="isConnected" class="btn btn-primary" (click)="logout()" routerLink="/connexion">Se deconnecter</a>
+      <a href="#" *ngIf="!isConnected" class="btn btn-primary" routerLink="/connexion">Se connecter</a>
+      <a href="#" *ngIf="isConnected" class="btn btn-primary" (click)="logout()" routerLink="/connexion">Se deconnecter</a>
+    </div>
+    <div class="col-sm-14 col-md-6">
+      <a href="#" *ngIf="isConnected && !isAdmin" class="btn btn-primary" routerLink="/menu-student">Menu Principal</a>
+      <a href="#" *ngIf="isConnected && isAdmin" class="btn btn-primary" routerLink="/menu-admin">Menu Principal</a>
+      <a href="#" *ngIf="!isConnected" class="btn btn-primary" routerLink="/register">Créer un compte</a>
+    </div>
+
+
   </div>
-  <div class="col-sm-14 col-md-6">
-    <a href="#" *ngIf="isConnected && !isAdmin" class="btn btn-primary" routerLink="/menu-student">Menu Principal</a>
-    <a href="#" *ngIf="isConnected && isAdmin" class="btn btn-primary" routerLink="/menu-admin">Menu Principal</a>
-    <a href="#" *ngIf="!isConnected" class="btn btn-primary" routerLink="/register">Créer un compte</a>
-  </div>
-
-
-</div>
 
 </div>
 
@@ -85,24 +83,23 @@
 
 <!-- Footer -->
 <footer>
-<div class="container-fluid padding">
-<div class="row text-center">
-  <div class="col-md-12">
+  <div class="container-fluid padding">
+    <div class="row text-center">
+      <div class="col-md-12">
 
-    <hr class="light">
-    <p>Bureau des relations internationales</p>
-    <hr class="light">
-    <p>Anne-Marie.PINNA@univ-cotedazur.fr</p>
-    <p>Laboratoire I3S - CNRS - URA 1376
-      Bâtiment ESSI
-      </p>
-    <p>01 32 14 59 63</p>
-    <P></P>
+        <hr class="light">
+        <p>Bureau des relations internationales</p>
+        <hr class="light">
+        <p>Anne-Marie.PINNA@univ-cotedazur.fr</p>
+        <p>Laboratoire I3S - CNRS - URA 1376
+          Bâtiment ESSI
+        </p>
+        <p>01 32 14 59 63</p>
+        <P></P>
+      </div>
+
+    </div>
   </div>
-
-</div>
-</div>
 </footer>
 </body>
 </html>
-

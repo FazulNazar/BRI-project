@@ -8,19 +8,32 @@
   <div class="collapse navbar-collapse" id="ResponsiveExpand">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a *ngIf="isConnected && !isAdmin(); else notConnected" class="nav-item nav-link  active"
+        <a *ngIf="isConnected && !isAdmin(); else admin" class="nav-item nav-link  active"
            routerLink="menu-student">Menu Etudiant<span class="sr-only">(current)</span></a>
+
+        <ng-template #admin>
+          <a *ngIf="isConnected && sessionService.isAdmin(); else isPinna" class="nav-item nav-link" routerLink="menu-admin">Menu Admin</a>
+        </ng-template>
+
+        <ng-template #isPinna>
+          <a *ngIf="isConnected && sessionService.isAdminPinna(); else notConnected" class="nav-item nav-link" routerLink="admin-pinna">Menu Admin</a>
+        </ng-template>
+
         <ng-template #notConnected>
           <a class="nav-item nav-link  active" routerLink="presentation">Accueil<span class="sr-only">(current)</span></a>
         </ng-template>
+
       </li>
       <li class="nav-item ">
         <a class="nav-item nav-link" routerLink="contact">Contact</a>
       </li>
 
-      <li class="nav-item ">
-        <a *ngIf="sessionService.isAdmin()" class="nav-item nav-link" routerLink="menu-admin">Admin</a>
-      </li>
+      <!--<li class="nav-item ">-->
+        <!--<a *ngIf="sessionService.isAdmin(); else isPinna" class="nav-item nav-link" routerLink="menu-admin">Admin</a>-->
+      <!--</li>-->
+      <!--<ng-template #isPinna>-->
+        <!--<a class="nav-item nav-link" routerLink="admin-pinna">Admin</a>-->
+      <!--</ng-template>-->
 
     </ul>
     </div>

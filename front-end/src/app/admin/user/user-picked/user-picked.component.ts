@@ -4,6 +4,7 @@ import {UserService} from '../../../../services/user.service';
 import {User} from '../../../../models/User.model';
 import {WishModel} from '../../../../models/Wish.model';
 import {WishService} from '../../../../services/wish.service';
+import {SessionService} from '../../../../services/session/session.service';
 
 @Component({
   selector: 'app-user-picked',
@@ -14,12 +15,19 @@ export class UserPickedComponent implements OnInit {
 
   user: User;
   public wishList: WishModel[] = [];
+  private isAdmin: boolean;
+  private isAdminPinna: boolean;
+  private isConnected: boolean;
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService) {}
+  constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService,
+              private sessionService: SessionService) {}
 
   ngOnInit() {
     this.getUserById();
     this.getWishes();
+    this.isAdmin = this.sessionService.isAdmin();
+    this.isAdminPinna = this.sessionService.isAdminPinna();
+    this.isConnected = this.sessionService.isLoggedIn();
   }
 
   getUserById(): void {
