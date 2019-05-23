@@ -1,3 +1,5 @@
+<div id="content" #content >
+
 
 
 <div class="row-2  ">
@@ -117,12 +119,12 @@
 </p>
 <ng-template #anotherAdmin>
   <p class="text-center">
-    <button class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le dossier </button>
+    <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le dossier </button>
   </p>
 </ng-template>
 
 
-
+</div>
 
 
 
