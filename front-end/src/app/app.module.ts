@@ -40,7 +40,7 @@ import {AdminNumberFilterPipe} from './filter-admin-NumEtu.pipe';
 import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
 import { AcceptedComponent } from './admin/accepted/accepted.component';
 import { AdminPinnaComponent } from './admin-pinna/admin-pinna.component';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
   { path: 'connexion', component: ConnexionComponent },
@@ -115,11 +115,13 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     StorageServiceModule,
+    PdfViewerModule,
   ],
   providers: [
     UserService,
     UniversityService,
     WishService,
+    PdfViewerModule,
   ],
   bootstrap: [AppComponent]
 
