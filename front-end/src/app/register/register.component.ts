@@ -17,10 +17,9 @@ export class RegisterComponent implements OnInit {
   public profilList: User[] = [];
 
 
-  constructor(public formBuilder: FormBuilder, public studentService: UserService) {
-    this.studentService.users$.subscribe((user) => {
-      this.profilList = user;
-    });
+  constructor(public formBuilder: FormBuilder, public userService: UserService) {
+    this.userService.students$.subscribe((students) => this.profilList = students);
+    // this.userService.getStudent();
 
     this.profilForm = this.formBuilder.group({
       mail: new FormControl('', [Validators.email, Validators.required]),
@@ -43,9 +42,9 @@ export class RegisterComponent implements OnInit {
   onSubmitForm() {
     if (this.profilForm.valid) {
       const user = this.profilForm.getRawValue();
-      this.studentService.postStudent(user);
-      this.studentService.getStudentsByHttp();
-      this.profilList = this.studentService.getUser();
+      this.userService.addStudent(user as User);
+      this.userService.getStudent();
+      this.userService.students$.subscribe((students) => this.profilList = students);
     }
   }
 

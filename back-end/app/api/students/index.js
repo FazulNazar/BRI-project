@@ -2,32 +2,29 @@ const { Router } = require('express');
 const { Student } = require('../../models');
 
 const router = new Router();
-
-function getStudentSafely(studentId) {
+router.get('/', (req, res) => {
   try {
-    return Student.getById(studentId);
-  } catch (err) {
-    if (err.name === 'NotFoundError') {
-      return null;
+    if (req.query.q) {
+      res.status(200).json(Student.search(req.query.q));
+    } else {
+      res.status(200).json(Student.get());
     }
-    throw err;
+  } catch (err) {
+    res.status(500).json(err);
   }
-}
-
-// function attachWishList(list) {
-//   list.wishList = WishModel.getById(list.wishListId);
-//   return list;
-// }
-
-const attachStudents = ticket => Object.assign({}, ticket, {
-  students: ticket.studentIds.map(studentId => getStudentSafely(studentId)),
 });
 
-router.get('/', (req, res) => res.status(200)
-  .json(Student.get()));
-
-router.get('/:studentId', (req, res) => res.status(200)
-  .json(Student.getById(req.params.studentId)));
+router.get('/:id', (req, res) => {
+  try {
+    res.status(200).json(Student.getById(req.params.id));
+  } catch (err) {
+    if (err.name === 'NotFoundError') {
+      res.status(404).end();
+    } else {
+      res.status(500).json(err);
+    }
+  }
+});
 
 router.post('/', (req, res) => {
   try {
@@ -45,28 +42,23 @@ router.post('/', (req, res) => {
   }
 });
 
-router.put('/:studentID', (req, res) => {
+router.put('/:id', (req, res) => {
   try {
-    res.status(200)
-      .json(attachStudents(Student.update(req.params.studentID, req.body)));
+    res.status(200).json(Student.update(req.params.id, req.body));
   } catch (err) {
     if (err.name === 'NotFoundError') {
-      res.status(404)
-        .end();
+      res.status(404).end();
     } else if (err.name === 'ValidationError') {
-      res.status(400)
-        .json(err.extra);
+      res.status(400).json(err.extra);
     } else {
-      res.status(500)
-        .json(err);
+      res.status(500).json(err);
     }
   }
 });
 
-
-router.delete('/:studentId', (req, res) => {
+router.delete('/:id', (req, res) => {
   try {
-    Student.delete(req.params.studentId);
+    Student.delete(req.params.id);
     res.status(204).end();
   } catch (err) {
     if (err.name === 'NotFoundError') {
@@ -77,9 +69,6 @@ router.delete('/:studentId', (req, res) => {
   }
 });
 
-router.delete('/:studentId', (req, res) => res.status(204)
-  .json(Student.delete(req.params.studentId)));
-router.put('/:studentId', (req, res) => res.status(201)
-  .json(Student.update(req.params.studentId, req.body)));
+// router.use('/:studentId/tickets', TicketRouter);
 
 module.exports = router;

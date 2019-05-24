@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {User} from "../../../models/User.model";
-import {UserService} from "../../../services/user.service";
+import {Observable} from 'rxjs';
+import {User} from '../../../models/User.model';
+import {UserService} from '../../../services/user.service';
 
 @Component({
   selector: 'app-applications',
@@ -9,6 +9,8 @@ import {UserService} from "../../../services/user.service";
   styleUrls: ['./applications.component.css']
 })
 export class ApplicationsComponent implements OnInit {
+
+  public studentList: User[];
 
   students$: Observable<User[]>;
   public userList: User[];
@@ -18,17 +20,21 @@ export class ApplicationsComponent implements OnInit {
   NumEtu: string;
 
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {
+    // this.userService.getStudent();
+    // this.userService.students$.subscribe((students) => this.studentList = students);
+  }
 
   ngOnInit() {
     this.getUsers();
   }
 
   getUsers(): void {
-     this.userService.getStudents()
+    this.userService.getStudentsByObservable()
       .subscribe(user => {
         this.userList = user;
       });
   }
-
 }
+
+

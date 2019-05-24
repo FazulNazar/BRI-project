@@ -34,7 +34,7 @@ export class WishListComponent implements OnInit {
   getUserById(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.userService.getUserById(id)
+    this.userService.getStudentById(id)
       .subscribe(user => this.currentUser = user);
   }
 

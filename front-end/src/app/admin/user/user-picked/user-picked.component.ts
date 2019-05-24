@@ -26,6 +26,7 @@ export class UserPickedComponent implements OnInit {
   ngOnInit() {
     this.getUserById();
     this.getWishes();
+    this.user = this.sessionService.getCurrentUserModel();
     this.isAdmin = this.sessionService.isAdmin();
     this.isAdminPinna = this.sessionService.isAdminPinna();
     this.isConnected = this.sessionService.isLoggedIn();
@@ -34,8 +35,9 @@ export class UserPickedComponent implements OnInit {
   getUserById(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
-    this.userService.getUserById(id)
-      .subscribe(user => this.user = user);
+    this.userService.getStudentById(id)
+    .subscribe(user => this.user = user);
+      // .subscribe(user => this.user = user);
   }
 
   getWishes(): void {

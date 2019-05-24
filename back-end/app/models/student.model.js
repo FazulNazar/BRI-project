@@ -4,7 +4,7 @@ const BaseModel = require('../utils/base-model.js');
 module.exports = new BaseModel('Student', {
   mail: Joi.string().required(),
   password: Joi.string().required(),
-  name: Joi.string(),
+  name: Joi.string().required(),
   firstname: Joi.string().required(),
   birthday: Joi.string().required(),
   gender: Joi.string().required(),
@@ -15,5 +15,6 @@ module.exports = new BaseModel('Student', {
   phone: Joi.string().required(),
   studentNumber: Joi.string().required(),
   educationStream: Joi.string().required(),
+  // id: Joi.number().integer(),
   // wishList: Joi.array().items(Joi.object(WishModel))
 });

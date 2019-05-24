@@ -26,8 +26,7 @@
         mot de passe:
       </label>
       <br />
-      <input type="password" style="margin-left: -25%" class="inputPassword" formControlName="password"
-             onfocus="this.value='';">
+      <input type="password" style="margin-left: -25%" class="inputPassword" formControlName="password" value="{{currentUser.password}}">
     </div>
 
     <div class="form-group text-center">
@@ -37,8 +36,7 @@
       </label>
       <br />
 
-      <input type="text" style="margin-left: -25%" formControlName="mail" value="{{currentUser.mail}}"
-             onfocus="this.value='';">
+      <input type="text" style="margin-left: -25%" formControlName="mail" value="{{currentUser.mail}}">
     </div>
 
 
@@ -51,8 +49,7 @@
         address
       </label>
       <br />
-      <input style="margin-left: -25%" type="text" formControlName="address" placeholder="adresse"
-             onfocus="this.value='';">
+      <input style="margin-left: -25%" type="text" formControlName="address" placeholder="adresse" value="{{currentUser.address}}">
     </div>
 
     <div class="form-group text-center">
@@ -60,7 +57,7 @@
         ville
       </label>
       <br />
-      <input type="text" style="margin-left: -25%" formControlName="city">
+      <input type="text" style="margin-left: -25%" formControlName="city" value="{{currentUser.city}}">
     </div>
 
     <div class="form-group text-center">
@@ -68,7 +65,7 @@
         code postal
       </label>
       <br />
-      <input type="text" style="margin-left: -25%" formControlName="zip">
+      <input type="text" style="margin-left: -25%" formControlName="zip" value="{{currentUser.zip}}">
     </div>
 
     <div class="form-group text-center">
@@ -76,7 +73,7 @@
         phone
       </label>
       <br />
-      <input type="text" style="margin-left: -25%" formControlName="phone">
+      <input type="text" style="margin-left: -25%" formControlName="phone" value="{{currentUser.phone}}">
     </div>
 
 
@@ -85,7 +82,7 @@
   <br />
   <br />
   <div class="wrapper">
-    <button class="btn btn-info" (click)="update()">Valider</button>
+    <button class="btn btn-info" (click)="update()" routerLink="/profile">Valider</button>
   </div>
 
 </form>

@@ -3,6 +3,8 @@ import {SessionService} from '../../services/session/session.service';
 import {User} from '../../models/User.model';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {ActivatedRoute} from '@angular/router';
+import {async} from '@angular/core/testing';
 
 @Component({
   selector: 'app-update-profile',
@@ -16,7 +18,8 @@ export class UpdateprofileComponent implements OnInit {
   test: string;
 
 
-  constructor(public formBuilder: FormBuilder, private sessionService: SessionService, private studentService: UserService) {
+  constructor(private route: ActivatedRoute, public formBuilder: FormBuilder,
+              private sessionService: SessionService, private studentService: UserService) {
 
     this.currentUser = this.sessionService.getCurrentUserModel();
     this.profilForm = this.formBuilder.group({
@@ -33,22 +36,35 @@ export class UpdateprofileComponent implements OnInit {
       phone: new FormControl(this.currentUser.phone),
       studentNumber: new FormControl(this.currentUser.studentNumber, [Validators.pattern('[0-9]*')]),
       educationStream: new FormControl(this.currentUser.educationStream),
+      id: this.currentUser.id,
     });
   }
 
   ngOnInit() {
     this.currentUser = this.sessionService.getCurrentUserModel();
-
+    // this.getUserById();
   }
 
   update() {
 
-    const user = this.profilForm.getRawValue();
-    //  user.id = this.currentUser.id;
-    this.studentService.updateStudent(user, this.currentUser.id);
-    window.location.href = '/profile';
-
+    // const id = this.currentUser.id;
+    // const id = +this.route.snapshot.paramMap.get('id');
+    if (this.profilForm.valid) {
+      const user = this.profilForm.getRawValue();
+      this.studentService.updateStudent(user as User);
+      this.sessionService.storeCurrentUser(user);
+      this.currentUser = this.sessionService.getCurrentUserModel();
+    }
+    // window.location.href = '/profile';
   }
+
+  // getUserById(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   console.log(id);
+  //   this.studentService.getStudentById(id);
+  //   this.studentService.studentViewed$.subscribe((student) => this.currentUser = student);
+  //   // .subscribe(user => this.currentUser = user);
+  // }
 
 
 }

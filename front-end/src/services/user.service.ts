@@ -1,112 +1,100 @@
-import {User} from '../models/User.model';
-import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
-import {catchError, take, tap} from 'rxjs/operators';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ErrorService} from './error';
-import {httpOptionsBase, serverUrl} from '../configs/server.config';
-import {SessionService} from './session/session.service';
-
-// import { Subject } from 'rxjs/Subject';
-
+import { Injectable } from '@angular/core';
+import {BehaviorSubject, Observable} from 'rxjs/index';
+import { User } from '../models/User.model';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {catchError, filter, take, tap} from 'rxjs/internal/operators';
+import { ErrorService } from './error';
+import { httpOptionsBase, serverUrl } from '../configs/server.config';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class UserService {
+  /**
+   * Services Documentation:
+   * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
+   */
+  private studentList: User[] = [];
 
-  private httpOptions = httpOptionsBase;
   private url = serverUrl + '/students';
 
-  private users: User[] = [];
-  public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
+  private httpOptions = httpOptionsBase;
 
+  /**
+   * Observable which contains the list of the tickets.
+   * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
+   */
+  public students$: BehaviorSubject<User[]> = new BehaviorSubject(this.studentList);
 
-  constructor(public http: HttpClient, private errorService: ErrorService, private sessionService: SessionService) {
+  /**
+   * StudentViewed: Observable which stores the current student viewed (student details).
+   * {BehaviorSubject<Student>}
+   */
+  public studentViewed$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
-    this.url = ' http://localhost:9428/api/students';
-    this.getStudentsByHttp();
-    this.users$ = new BehaviorSubject(this.users);
-
+  constructor(public http: HttpClient, private errorService: ErrorService) {
   }
 
-  // public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
+  getStudent() {
+    this.http.get<User[]>(this.url)
+      .pipe(
+        take(1),
+        catchError((err: HttpErrorResponse) => this.errorService.handleError<User[]>(err, 'get /students', [])))
+      .subscribe((students: User[]) => {
+        this.students$.next(students);
+        this.studentList = students;
+      });
+  }
 
-  getStudents(): Observable<User[]> {
-    this.log(this.users.toString());
+  getStudentsByObservable(): Observable<User[]> {
+    this.log(this.studentList.toString());
     return this.http.get<User[]>(this.url).pipe(
-      tap(_ => this.log('fetched students')),
-      catchError(this.handleError<User[]>('getStudents', []))
+      tap(_ => this.log('fetched students'))
     );
-
   }
 
-  getUserById(id: number): Observable<User> {
+  getStudentById(id: number): Observable<User> {
     const url = `${this.url}/${id}`;
     return this.http.get<User>(url).pipe(
       tap(_ => this.log(`fetched university id=${id}`))
     );
   }
 
-
-  getStudentsByHttp() {
-
-    this.http.get<User[]>(this.url).subscribe(user => {
-      this.users = user;
-      this.users$.next(this.users);
-    });
+  updateStudent(student: User) {
+    const urlWithId = this.url + '/' + student.id.toString();
+    this.http.put<User>(urlWithId, student, this.httpOptions)
+      .pipe(
+        take(1),
+        catchError((err: HttpErrorResponse) =>
+          this.errorService.handleError<User>(err, 'put /students by id=${student.id}'))
+      ).subscribe((newStudent) => this.getStudent());
   }
 
-// register
-  postStudent(user: User) {
-    this.http.post<User>(this.url, user, this.httpOptions)
+  addStudent(student: User) {
+    this.http.post<User>(this.url, student, this.httpOptions)
       .pipe(
         take(1),
         catchError((err: HttpErrorResponse) =>
           this.errorService.handleError<User>(err, 'post /students'))
-      ).subscribe((users) => this.getStudentsByHttp());
+      ).subscribe((newStudent) => this.getStudent());
   }
 
+  deleteStudent(student: User) {
+    const urlWithId = this.url + '/' + student.id;
+    this.http.delete<User>(urlWithId, this.httpOptions)
+      .pipe(
+        take(1),
+        catchError((err: HttpErrorResponse) =>
+          this.errorService.handleError<User>(err, `delete /students by id=${student.id}`))
+      ).subscribe((newStudent) => this.getStudent());
+  }
 
   getUser() {
-    return (this.users);
+    return this.studentList;
   }
-
-  /**   Modifier son profil
-   */
-  updateStudent(user: User, id: number) {
-    const urlWithId = this.url + '/' + id;
-    this.log('' + user.id);
-    // this.http.put<User>(urlWithId, user, this.httpOptions);
-    this.http.put<User>(urlWithId, user, this.httpOptions)
-      .pipe(
-        catchError(this.handleError('updateUser', user))
-      );
-
-  }
-
 
   /** Log a UserService message with the MessageService */
   private log(message: string) {
     console.log(message);
   }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      // send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-      // better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-      // let the app keep running by returning an empty result
-      return of(result as T);
-    };
-  }
-
 }

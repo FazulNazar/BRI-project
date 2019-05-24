@@ -20,16 +20,15 @@ export class ConnexionComponent implements OnInit {
   AMPinna: User = new User('', this.adminPassword2, '', '', '', '', '', '', '', '', '', 'AMPinna', '', '', 1);
 
   constructor(private userService: UserService, private sessionService: SessionService) {
-    this.userService.users$.subscribe((user) => {
-      this.user = user;
-    });
+    this.userService.students$.subscribe((students) => this.user = students);
+    this.userService.getStudent();
   }
 
 
   /** Fonction permettant de stocker les utilisateur (du back) dans la liste user [] */
   getUser(): void {
-    this.userService.getStudents()
-      .subscribe(user => this.user = user);
+    this.userService.students$.subscribe((students) => this.user = students);
+    this.userService.getStudent();
   }
 
   ngOnInit() {
