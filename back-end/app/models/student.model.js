@@ -16,5 +16,4 @@ module.exports = new BaseModel('Student', {
   studentNumber: Joi.string().required(),
   educationStream: Joi.string().required(),
   // id: Joi.number().integer(),
-  // wishList: Joi.array().items(Joi.object(WishModel))
 });

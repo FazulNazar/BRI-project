@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+  <div class="row-2  ">
+    <p class="text-center">Modifier les informations personnelles</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 col-md-4 col-lg-4 offset-4">
+      <div class="card">
+
+        <form [formGroup]="profilForm" (ngSubmit)="update()">
+          <div id="leftForm">
+            <div class="form-group text-center" >
+              <label>
+                mot de passe:
+              </label>
+              <br />
+              <input type="password" style="margin-left: -25%" class="inputPassword" formControlName="password" value="{{currentUser.password}}">
+            </div>
+
+            <div class="form-group text-center">
+              <label>
+                e-mail:
+
+              </label>
+              <br />
+
+              <input type="text" style="margin-left: -25%" formControlName="mail" value="{{currentUser.mail}}">
+            </div>
+          </div>
+
+
+          <div id="rightForm">
+            <div class="form-group text-center">
+              <label>
+                address
+              </label>
+              <br />
+              <input style="margin-left: -25%" type="text" formControlName="address" placeholder="adresse" value="{{currentUser.address}}">
+            </div>
+
+            <div class="form-group text-center">
+              <label>
+                ville
+              </label>
+              <br />
+              <input type="text" style="margin-left: -25%" formControlName="city" value="{{currentUser.city}}">
+            </div>
+
+            <div class="form-group text-center">
+              <label>
+                code postal
+              </label>
+              <br />
+              <input type="text" style="margin-left: -25%" formControlName="zip" value="{{currentUser.zip}}">
+            </div>
+
+            <div class="form-group text-center">
+              <label>
+                phone
+              </label>
+              <br />
+              <input type="text" style="margin-left: -25%" formControlName="phone" value="{{currentUser.phone}}">
+            </div>
+
+          </div>
+          <br />
+          <br />
+          <div class="wrapper">
+            <button class="btn btn-info" (click)="update()" routerLink="/profile">Valider</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+

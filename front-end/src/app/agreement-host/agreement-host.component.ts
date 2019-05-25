@@ -1,15 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {UniversityModel} from '../../models/University.model';
 import {UniversityService} from '../../services/university.service';
 import {WishService} from '../../services/wish.service';
 import {WishModel} from '../../models/Wish.model';
-import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../models/User.model';
 import {SessionService} from '../../services/session/session.service';
-import {CourseModel} from '../../models/Course.model';
-import {UserService} from '../../services/user.service';
 
 
 @Component({
@@ -22,14 +19,11 @@ export class AgreementHostComponent implements OnInit {
 
   semester = ['semestre 1', 'semestre 2', 'toute l\'année'];
   diploma = ['Ingenieur en science informatique', 'Ingenieur en génie électrique', 'Ingenieur en génie de l\'eau',
-    'Ingenieur en génie du bâtiment', 'Ingenieur en biologie'];
+              'Ingenieur en génie du bâtiment', 'Ingenieur en biologie'];
   university: UniversityModel;
-  // private isNewWish = false;
   user: User;
-  private wishList: WishModel[] = [];
-
+  public wishList: WishModel[] = [];
   public agreementForm: FormGroup;
-
   courses: FormArray;
 
   constructor(private route: ActivatedRoute, public formBuilder: FormBuilder, private universityService: UniversityService,
@@ -64,24 +58,14 @@ export class AgreementHostComponent implements OnInit {
         universityId: id,
         semester: formValue.semester,
         diploma: formValue.diploma,
-        // courses: [{title: 'titre1', code: 1, credits: 5},
-        //           {title: 'titre2', code: 2, credits: 3}],
         agreementCompleted: false,
         courses: jsonCourses,
         studentID: this.user.id,
       } as WishModel).subscribe(newWish => {
         this.wishList.push(newWish);
       });
-      // this.addWishToStudent();
     }
   }
-
-  // addWishToStudent() {
-  //   this.userService.updateStudent({
-  //     wishList: this.wishList
-  //   } as User, this.user.id);
-  // }
-
 
   createCourse(): FormGroup {
     return this.formBuilder.group({

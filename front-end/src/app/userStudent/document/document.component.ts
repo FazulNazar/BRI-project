@@ -20,7 +20,7 @@ export class DocumentComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.pdfSrc = e.target.result;
-      }
+      };
       reader.readAsArrayBuffer(img.files[0]);
     }
   }

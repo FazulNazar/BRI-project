@@ -1,13 +1,8 @@
 <div class="row-2  ">
-
   <p class="text-center">Bureau des relations internationales</p>
-
-
-
 </div>
 
-
-
+<!--menu pour l'admin AMPinna-->
 <div class="container-perso">
   <div class="container">
 
@@ -17,12 +12,11 @@
     <br><br>
     <button type="submit" class="btn btn-primary btn-block" routerLink="/menu-student/countries-list">Liste des universités</button>
     <br><br>
-
     <!--<button type="submit" class="btn btn-primary btn-block" routerLink="/menu-admin/add-university">Ajouter une université</button>-->
     <!--<br><br>-->
+
     <a href="#" *ngIf="sessionService.isLoggedIn()" class="btn btn-primary btn-block"
        style="background-color: #a94442; border-color: darkred"
        (click)="sessionService.logOut()">Se déconnecter</a>
   </div>
-  <!--<td><img class="students" src="../../assets/students.jpg"></td>-->
 </div>

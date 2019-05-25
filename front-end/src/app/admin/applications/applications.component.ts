@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
 import {User} from '../../../models/User.model';
 import {UserService} from '../../../services/user.service';
 
@@ -10,20 +9,14 @@ import {UserService} from '../../../services/user.service';
 })
 export class ApplicationsComponent implements OnInit {
 
-  public studentList: User[];
-
-  students$: Observable<User[]>;
   public userList: User[];
-  FirstName: string;
-  LastName: string;
-  Filiere: string;
-  NumEtu: string;
+  private FirstName: string;
+  private LastName: string;
+  private Filiere: string;
+  private NumEtu: string;
 
 
-  constructor(public userService: UserService) {
-    // this.userService.getStudent();
-    // this.userService.students$.subscribe((students) => this.studentList = students);
-  }
+  constructor(public userService: UserService) {}
 
   ngOnInit() {
     this.getUsers();

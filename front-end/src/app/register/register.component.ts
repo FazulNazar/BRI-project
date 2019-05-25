@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from '../../services/user.service';
-import {assertNumber} from '@angular/core/src/render3/assert';
 import {User} from '../../models/User.model';
 
 @Component({
@@ -19,7 +18,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.userService.students$.subscribe((students) => this.profilList = students);
-    // this.userService.getStudent();
 
     this.profilForm = this.formBuilder.group({
       mail: new FormControl('', [Validators.email, Validators.required]),
@@ -36,7 +34,6 @@ export class RegisterComponent implements OnInit {
       studentNumber: new FormControl('', [Validators.pattern('[0-9]*')]),
       educationStream: new FormControl(''),
     });
-    // this.studentService.userSubject.
   }
 
   onSubmitForm() {

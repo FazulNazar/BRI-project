@@ -1,128 +1,108 @@
 <div id="content" #content >
-
-
-
-<div class="row-2  ">
-
-  <p class="text-center">{{user.name}} {{user.firstname}}</p>
-
-
-</div>
-
-
-<div class="container-fluid padding">
-  <br>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
-    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
-      Informations Personnelles
-    </p>
+  <div class="row-2  ">
+    <p class="text-center">{{user.name}} {{user.firstname}}</p>
   </div>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
 
-</div>
+  <div class="container-fluid padding">
+    <br>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <div >
+      <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+        Informations Personnelles
+      </p>
+    </div>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  </div>
 
-
-
-<div class="container-fluid">
-
-
-  <div class="row">
-
-    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
-      <div class="card">
-        <p>Nom : {{user.name}}</p>
-        <p>Prénom : {{user.firstname}}</p>
-        <p>Date de naissance : {{user.birthday}} </p>
-        <p>Adresse mail : {{user.mail}} </p>
-        <p>Adresse : {{user.address}}</p>
-        <p>Numéro de téléphone : {{user.phone}} </p>
-        <p> Filiere : {{user.educationStream}} </p>
-
-        <p> Numero Etudiant : {{user.studentNumber}} </p>
-
-        <br>
+  <!--informations de l'étudiant-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+        <div class="card">
+          <p>Nom : {{user.name}}</p>
+          <p>Prénom : {{user.firstname}}</p>
+          <p>Date de naissance : {{user.birthday}} </p>
+          <p>Adresse mail : {{user.mail}} </p>
+          <p>Adresse : {{user.address}}</p>
+          <p>Numéro de téléphone : {{user.phone}} </p>
+          <p> Filiere : {{user.educationStream}} </p>
+          <p> Numero Etudiant : {{user.studentNumber}} </p>
+          <br>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <div class="container-fluid padding">
+    <br>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <div >
+      <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+        Détails de la demande de séjour
+      </p>
+    </div>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
 
-
-<div class="container-fluid padding">
-  <br>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
-    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
-      Détails de la demande de séjour
-    </p>
-  </div>
-
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div class="container">
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th scope="col">Accord</th>
-          <th scope="col">Université</th>
-          <th scope="col">Pays</th>
-          <th scope="col">Diplôme visé</th>
-          <th scope="col">Semestre</th>
-        </tr>
-        </thead>
-        <tbody>
-        <ng-container *ngFor="let wish of wishList">
-        <tr *ngIf="user.id == wish.studentID">
-            <td>{{ wish.university.agreements }}</td>
-            <td>{{ wish.university.name }}</td>
-            <td>{{ wish.university.country }}</td>
-            <td>{{ wish.diploma }}</td>
-            <td>{{ wish.semester }}</td>
-        </tr>
-        </ng-container>
-        </tbody>
-      </table>
+    <!--table des demandes envoyées par l'étudiant-->
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Accord</th>
+            <th scope="col">Université</th>
+            <th scope="col">Pays</th>
+            <th scope="col">Diplôme visé</th>
+            <th scope="col">Semestre</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-container *ngFor="let wish of wishList">
+          <tr *ngIf="user.id == wish.studentID">
+              <td>{{ wish.university.agreements }}</td>
+              <td>{{ wish.university.name }}</td>
+              <td>{{ wish.university.country }}</td>
+              <td>{{ wish.diploma }}</td>
+              <td>{{ wish.semester }}</td>
+          </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container-fluid padding">
-  <br>
-  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <div >
-    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
-      Documents joints au dossier
+  <div class="container-fluid padding">
+    <br>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <div >
+      <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+        Documents joints au dossier
+      </p>
+    </div>
+    <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+    <p class="text-center" style="font-style: italic; font-size: 20px">
+      Lettre de motivation
+      <br>
+      Curriculum vitæ
+      <br>
+      Relevés de notes
+      <br>
+      Budget prévisionnel
     </p>
   </div>
+
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-  <p class="text-center" style="font-style: italic; font-size: 20px">
-    Lettre de motivation
-    <br>
-    Curriculum vitæ
-    <br>
-    Relevés de notes
-    <br>
-    Budget prévisionnel
-
-
-
+  <!--actions selon l'admin connecté-->
+  <p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
+    <button class="btn btn-primary text-center" style="background-color: #4CAF50">Valider le dossier </button>
+    <button class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px">Refuser le dossier </button>
   </p>
-
-</div>
-
-
-<hr style="width: 30%; border-top: 2px solid #b4b4b4">
-<p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
-<button class="btn btn-primary text-center" style="background-color: #4CAF50">Valider le dossier </button>
-<button class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px">Refuser le dossier </button>
-</p>
-<ng-template #anotherAdmin>
-  <p class="text-center">
-    <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le dossier </button>
-  </p>
-</ng-template>
-
+  <ng-template #anotherAdmin>
+    <p class="text-center">
+      <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le dossier </button>
+    </p>
+  </ng-template>
 
 </div>
 

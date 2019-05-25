@@ -10,10 +10,7 @@ import { httpOptionsBase, serverUrl } from '../configs/server.config';
   providedIn: 'root'
 })
 export class UserService {
-  /**
-   * Services Documentation:
-   * https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
-   */
+
   private studentList: User[] = [];
 
   private url = serverUrl + '/students';
@@ -21,14 +18,13 @@ export class UserService {
   private httpOptions = httpOptionsBase;
 
   /**
-   * Observable which contains the list of the tickets.
-   * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
+   * Observable which contains the list of the students.
    */
   public students$: BehaviorSubject<User[]> = new BehaviorSubject(this.studentList);
 
   /**
    * StudentViewed: Observable which stores the current student viewed (student details).
-   * {BehaviorSubject<Student>}
+   * {BehaviorSubject<User>}
    */
   public studentViewed$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
@@ -89,9 +85,6 @@ export class UserService {
       ).subscribe((newStudent) => this.getStudent());
   }
 
-  getUser() {
-    return this.studentList;
-  }
 
   /** Log a UserService message with the MessageService */
   private log(message: string) {

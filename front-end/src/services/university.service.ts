@@ -1,4 +1,3 @@
-import {User} from '../models/User.model';
 import {UniversityModel} from '../models/University.model';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {catchError, take, tap} from 'rxjs/operators';
@@ -7,37 +6,24 @@ import {httpOptionsBase, serverUrl, universityUrl} from '../configs/server.confi
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
 
-// import { Subject } from 'rxjs/Subject';
 @Injectable({
   providedIn: 'root'
 })
 export class UniversityService {
 
   private httpOptions = httpOptionsBase;
-  // public selectedUniversity: UniversityModel;
   public universityList: UniversityModel[] = [];
   private url = serverUrl + universityUrl;
   public university$: BehaviorSubject<UniversityModel[]> = new BehaviorSubject(this.universityList);
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
-
-  //   this.url = 'http://localhost:9428/api/university';
-  //   this.getUniversityByHttp();
-  //   this.university$ = new BehaviorSubject(this.universityList);
   }
 
-  //
-  // emitUsers() {
-  //   //this.universitySubject.next(this.universityList.slice());
-  // }
-  //
   getUniversityByHttp() {
-
     this.http.get<UniversityModel[]>(this.url).subscribe(university => {
       this.universityList = university;
       this.university$.next(this.universityList);
     });
-
   }
 
   getUniversities(): Observable<UniversityModel[]> {
@@ -56,9 +42,6 @@ export class UniversityService {
       tap(_ => this.log(`fetched university id=${id}`))
     );
   }
-  private log(message: string) {
-    console.log(message);
-  }
 
   postUniversity(university: UniversityModel) {
     this.http.post<UniversityModel>(this.url, university, this.httpOptions)
@@ -69,12 +52,8 @@ export class UniversityService {
       ).subscribe((universityList) => this.getUniversityByHttp());
   }
 
-  getUniversityList() {
-    return (this.universityList);
+  private log(message: string) {
+    console.log(message);
   }
-
-
-
-
 
 }

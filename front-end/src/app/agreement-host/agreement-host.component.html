@@ -1,8 +1,7 @@
 <div class="row-2  ">
-
   <p class="text-center">Contrat d'études</p>
-
 </div>
+
 <div class="container-fluid padding">
   <br>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
@@ -12,15 +11,11 @@
     </p>
   </div>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-
 </div>
 
-
+<!--détails de l'étudiant-->
 <div class="container-fluid">
-
-
   <div class="row">
-
     <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
       <div class="card">
         <p>Nom : {{user.name}}</p>
@@ -31,18 +26,15 @@
         <p>Numéro de téléphone : {{user.phone}} </p>
         <div class="col text-center">
           <button class="btn btn-info" style="width: 30%" routerLink="/update-profile"> Modifier</button>
-
         </div>
-
         <br>
+
       </div>
     </div>
   </div>
 </div>
 
 <br>
-
-
 <div class="container-fluid padding">
   <br>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
@@ -52,44 +44,40 @@
     </p>
   </div>
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-
 </div>
 
 <form [formGroup]="agreementForm">
-<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
 
+        <!--détails de l'université-->
+        <div class="card">
+          <p> Nom de l'établissement: {{university.name}}</p>
+          <p> Ville: {{university.city}}</p>
+          <p> Pays: {{university.country}}</p>
+          <p> Accord: {{university.agreements}}</p>
+          <p> Site internet: {{university.website}}</p>
+          <div class="form-group">
+            <label for="semestre">Période d'étude prévue:</label>
+            <select class="form-control" formControlName="semester" id="semestre" required>
+              <option value="" hidden>Veuillez choisir une option</option>
+              <option *ngFor="let value of semester" [value]="value">{{value}}</option>
+            </select>
+          </div>
 
-  <div class="row">
+          <div class="form-group">
+            <label for="diplome">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
+            <select class="form-control" formControlName="diploma" id="diplome" required>
+              <option value="" hidden>Veuillez choisir une option</option>
+              <option *ngFor="let value of diploma" [value]="value">{{value}}</option>
+            </select>
+          </div>
 
-    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
-      <div class="card">
-        <p> Nom de l'établissement: {{university.name}}
-        </p>
-        <p> Ville: {{university.city}}</p>
-        <p> Pays: {{university.country}}</p>
-        <p> Accord: {{university.agreements}}</p>
-        <p> Site internet: {{university.website}}</p>
-        <div class="form-group">
-          <label for="semestre">Période d'étude prévue:</label>
-          <select class="form-control" formControlName="semester" id="semestre" required>
-            <option value="" hidden>Veuillez choisir une option</option>
-            <option *ngFor="let value of semester" [value]="value">{{value}}</option>
-          </select>
         </div>
-
-        <div class="form-group">
-          <label for="diplome">Diplôme de l’UNS qui sera préparé pendant l’année d’échange:</label>
-          <select class="form-control" formControlName="diploma" id="diplome" required>
-            <option value="" hidden>Veuillez choisir une option</option>
-            <option *ngFor="let value of diploma" [value]="value">{{value}}</option>
-          </select>
-        </div>
-
       </div>
     </div>
   </div>
-</div>
-
 
   <div class="container-fluid padding">
     <br>
@@ -101,22 +89,19 @@
         Vous pouvez consulter le site internet de l'université pour découvrir les cours proposés
         <br>
         <p class="text-center"  style="color: darkblue; font-size: 20px; font-style: italic; font-weight: bold ">
-      {{university.website}}
-
-      </p>
+        {{university.website}}
+        </p>
     </div>
     <hr style="width: 30%; border-top: 2px solid #b4b4b4">
     <br>
 
   </div>
 
-
   <div class="container-fluid">
-
-
     <div class="row">
-
       <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+
+        <!--interface pour ajouter les cours-->
         <table class="table  table-bordered" style="background-color: aliceblue">
           <thead>
           <tr>
@@ -138,24 +123,19 @@
 
               <td>
                 <div [formGroupName]="i">
-
-                <input formControlName="code" placeholder="Code" class="form-control" type="text">
-            </div>
+                  <input formControlName="code" placeholder="Code" class="form-control" type="text">
+                 </div>
               </td>
 
               <td>
                 <div [formGroupName]="i">
-                <input formControlName="credit" placeholder="Credits" class="form-control" type="text">
+                  <input formControlName="credit" placeholder="Credits" class="form-control" type="text">
                 </div>
               </td>
-
-
 
             <button class="btn btn-default" type="button" (click)="deleteCourse(i)">Supprimer</button>
             <button class="btn btn-default" type="button" (click)="addCourse()">Ajouter</button>
           </tr>
-
-
 
           </tbody>
         </table>
@@ -179,8 +159,6 @@
 </div>
 
 <div class="container-fluid">
-
-
   <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
     <div class="card">
       <P>Lettre de motivation </P>
@@ -191,10 +169,7 @@
       <br>
       <P>Certificat de langue</P>
       <input type="file" class="form-control-file border">
-
       <br>
-
-
     </div>
 
     <div class="col text-center">
@@ -203,9 +178,6 @@
                 routerLink="/menu-student/wish-list">Ajouter à la liste de voeux
         </button>
       </div>
-
     </div>
-
   </div>
-
 </div>

@@ -37,7 +37,6 @@ export class UserPickedComponent implements OnInit {
     console.log(id);
     this.userService.getStudentById(id)
     .subscribe(user => this.user = user);
-      // .subscribe(user => this.user = user);
   }
 
   getWishes(): void {

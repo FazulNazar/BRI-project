@@ -1,18 +1,18 @@
-
 <div class="container-fluid">
-  <div class="row-2  ">
+  <div class="row-2 ">
     <p class="text-center">Dossiers reçus</p>
   </div>
 
   <hr class="my-4">
   <div class="row">
+
+    <!--filtres de recherche-->
     <div class="col-sm-3 col-md-3 col-lg-3">
       <div class="container-fluid-filtre">
         <div class="row-1">
           <div class="text-center">
             <p>Préférences de recherche</p>
           </div>
-
         </div>
 
         <div class="form-group">
@@ -35,20 +35,12 @@
           </div>
           <input type="text" class="form-control text-center offset-2" placeholder="Filière"
                  style="width: 285px" [(ngModel)]="Filiere"/>
-
-
-
-
           <br>
-
-
-
         </div>
-
       </div>
-
     </div>
 
+    <!--table d'étudiants-->
     <div class="col-sm-9 col-md-6 col-lg-9">
       <div class="table-hover">
         <table class="table table-striped">
@@ -68,20 +60,12 @@
             <td>{{user.educationStream}}</td>
             <td>{{user.studentNumber.toString()}}</td>
 
-
-
           </tr>
           </tbody>
         </table>
       </div>
-
     </div>
-
-
   </div>
-
-
-
 </div>
 
 

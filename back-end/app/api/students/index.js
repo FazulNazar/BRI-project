@@ -69,6 +69,4 @@ router.delete('/:id', (req, res) => {
   }
 });
 
-// router.use('/:studentId/tickets', TicketRouter);
-
 module.exports = router;

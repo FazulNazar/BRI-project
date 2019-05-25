@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { WishModel } from '../../models/Wish.model';
-import {WishService} from '../../services/wish.service';
-import {UniversityModel} from '../../models/University.model';
-import {Observable} from 'rxjs';
-import {User} from '../../models/User.model';
+import { WishModel } from '../../../models/Wish.model';
+import {WishService} from '../../../services/wish.service';
+import {User} from '../../../models/User.model';
 import {ActivatedRoute} from '@angular/router';
-import {UserService} from '../../services/user.service';
-import {SessionService} from '../../services/session/session.service';
-
-declare var M: any;
+import {UserService} from '../../../services/user.service';
+import {SessionService} from '../../../services/session/session.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -17,7 +13,6 @@ declare var M: any;
 })
 export class WishListComponent implements OnInit {
 
-  wish$: Observable<WishModel[]>;
   currentUser: User;
   public wishList: WishModel[] = [];
 
@@ -49,7 +44,6 @@ export class WishListComponent implements OnInit {
     this.wishService.deleteWish(id)
       .subscribe(wishes => {
         this.getWishes();
-        //  M.toast({html: 'Deleted successfully'});
       });
   }
 
@@ -59,7 +53,6 @@ export class WishListComponent implements OnInit {
       this.wishService.deleteWish(id)
         .subscribe(wishes => {
           this.getWishes();
-        //  M.toast({html: 'Deleted successfully'});
         });
     }
   }

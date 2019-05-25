@@ -1,6 +1,4 @@
 import { WishModel } from '../models/Wish.model';
-import {User} from '../models/User.model';
-import {UniversityModel} from '../models/University.model';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {catchError, take, tap} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
@@ -13,7 +11,6 @@ import { Injectable } from '@angular/core';
 })
 export class WishService {
 
-  selectedWish: WishModel;
   public wishList: WishModel[] = [];
   private httpOptions = httpOptionsBase;
   private url = serverUrl + wishesUrl;
@@ -21,9 +18,6 @@ export class WishService {
 
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
-  //  this.selectedWish;
-  //   this.wish$ = new BehaviorSubject(this.wishList);
-  //   this.wish$.next(this.wishList);
   }
 
   private log(message: string) {
@@ -59,19 +53,7 @@ export class WishService {
       );
   }
 
-  // postWish(wish: WishModel): Observable<WishModel> {
-  //   return this.http.post<WishModel>(this.url, wish, httpOptionsBase).pipe(
-  //     tap((newWish: WishModel) => this.log(`added Wish w/ id=${newWish.id}`))
-  //     );
-  // }
-
-  // postWish(wish: WishModel) {
-  //   this.http.post<WishModel>(this.url, wish, this.httpOptions)
-  //     .subscribe((wishes) => this.getWishList());
-  // }
-
-
-  putWish(wish: WishModel): Observable<WishModel> {
+  updateWish(wish: WishModel): Observable<WishModel> {
     const newUrl = `${this.url}/${wish.id}`;
     return this.http.put<WishModel>(newUrl, this.httpOptions).pipe(
       tap(_ => this.log(`put wish id=${wish.id}`)));

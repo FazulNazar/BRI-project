@@ -9,10 +9,26 @@ function attachUniversityStudent(wish) {
   return wish;
 }
 
-router.get('/', (req, res) => res.status(200).json(Wish.get().map(wish => attachUniversityStudent(wish))));
+router.get('/', (req, res) => {
+  try {
+    res.status(200).json(Wish.get().map(wish => attachUniversityStudent(wish)))
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-router.get('/:id', (req, res) => res.status(200)
-  .json(attachUniversityStudent(Wish.getById(req.params.id))));
+
+router.get('/:id', (req, res) => {
+  try {
+    res.status(200).json(attachUniversityStudent(Wish.getById(req.params.id)));
+  } catch (err) {
+    if (err.name === 'NotFoundError') {
+      res.status(404).end();
+    } else {
+      res.status(500).json(err);
+    }
+  }
+});
 
 router.post('/', (req, res) => {
   try {
@@ -27,7 +43,30 @@ router.post('/', (req, res) => {
   }
 });
 
-router.delete('/:id', (req, res) => res.status(204).json(Wish.delete(req.params.id)));
-router.put('/:id', (req, res) => res.status(201).json(Wish.update(req.params.id, req.body)));
+router.put('/:id', (req, res) => {
+  try {
+    res.status(200).json(Wish.update(req.params.id, req.body));
+  } catch (err) {
+    if (err.name === 'NotFoundError') {
+      res.status(404).end();
+    } else if (err.name === 'ValidationError') {
+      res.status(400).json(err.extra);
+    } else {
+      res.status(500).json(err);
+    }
+  }
+});
+
+router.delete('/:id', (req, res) => {
+  try {
+    res.status(204).json(Wish.delete(req.params.id));
+  } catch (err) {
+    if (err.name === 'NotFoundError') {
+      res.status(404).end();
+    } else {
+      res.status(500).json(err);
+    }
+  }
+});
 
 module.exports = router;

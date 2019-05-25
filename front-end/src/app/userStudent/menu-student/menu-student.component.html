@@ -1,0 +1,17 @@
+<div class="row-2  ">
+  <p class="text-center">Séjour d'études</p>
+</div>
+
+<div class="container-perso">
+  <div class="container">
+    <button type="submit" class="btn btn-primary btn-block" routerLink="/menu-student/documents">Constituer son dossier </button>
+    <br><br>
+
+    <button type="submit" class="btn btn-primary btn-block" routerLink="/profile">Données personnelles</button>
+    <br><br>
+
+    <a href="#" *ngIf="isConnected" class="btn btn-primary btn-block" style="background-color: #a94442; border-color: darkred"
+       (click)="logout()">Se déconnecter</a>
+  </div>
+</div>
+

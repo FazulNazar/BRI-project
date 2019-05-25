@@ -3,6 +3,8 @@
     <p class="text-center">Liste de voeux</p>
   </div>
 <hr>
+
+<!--table contenant les voeux de l'étudiant  -->
 <div class="container">
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -19,7 +21,6 @@
       <tbody>
         <ng-container *ngFor="let wish of wishList">
           <tr *ngIf="currentUser.id == wish.studentID">
-          <!--<tr *ngFor="let wish of wishList">-->
             <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
               <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
             <td>{{ wish.university.name }}</td>
@@ -27,7 +28,6 @@
             <td>{{ wish.university.city }}</td>
             <td>{{ wish.diploma }}</td>
             <td>{{ wish.semester }}</td>
-          <!--</tr>-->
           </tr>
         </ng-container>
       </tbody>
@@ -38,6 +38,7 @@
       <a class="btn btn-primary" routerLink="/menu-student/countries-list">Ajouter une université</a>
     </div>
     <div class="col-sm-14 col-md-6">
+
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
         VALIDER ET ENVOYER
@@ -46,8 +47,6 @@
   </div>
 </div>
 </div>
-
-
 
 
 <!-- Modal -->
@@ -65,7 +64,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" routerLink="/menu-student" data-dismiss="modal">Fermer</button>
-
       </div>
     </div>
   </div>
