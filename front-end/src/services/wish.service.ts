@@ -5,6 +5,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl, wishesUrl} from '../configs/server.config';
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,28 @@ export class WishService {
       tap(_ => this.log(`deleted wish id=${id}`)));
   }
 
+  parseCourses(course: string): string[] {
+    // Changement de format
+    course = course.replace('[', '');
+    course = course.replace(']', '');
+    course = course.replace(/{/g, '');
+    course = course.replace(/"/g, '');
+    course = course.replace(/cours:/g, '');
+    course = course.replace(/code:/g, '');
+    course = course.replace(/credit:/g, '');
+
+    // on split les different cours
+    let courseTab;
+    courseTab = course.split('},');
+
+    // on split les données de chaques cours
+
+    for (let i = 0; i < courseTab.length; i++) {
+      courseTab[i] = courseTab[i].replace('}', '').split(',');
+    }
+
+
+    return courseTab;
+  }
 }
 

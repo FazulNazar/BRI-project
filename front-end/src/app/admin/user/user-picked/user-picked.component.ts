@@ -61,4 +61,8 @@ export class UserPickedComponent implements OnInit {
     });
     doc.save('test.pdf');
   }
+
+  public parseCourse( course: string) {
+    return this.wishService.parseCourses(course);
+  }
 }

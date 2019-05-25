@@ -1,4 +1,4 @@
-<div id="content" #content >
+<div id="content" #content>
   <div class="row-2  ">
     <p class="text-center">{{user.name}} {{user.firstname}}</p>
   </div>
@@ -6,7 +6,7 @@
   <div class="container-fluid padding">
     <br>
     <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-    <div >
+    <div>
       <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
         Informations Personnelles
       </p>
@@ -36,7 +36,7 @@
   <div class="container-fluid padding">
     <br>
     <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-    <div >
+    <div>
       <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
         Détails de la demande de séjour
       </p>
@@ -58,13 +58,40 @@
           </thead>
           <tbody>
           <ng-container *ngFor="let wish of wishList">
-          <tr *ngIf="user.id == wish.studentID">
+            <tr *ngIf="user.id == wish.studentID">
               <td>{{ wish.university.agreements }}</td>
               <td>{{ wish.university.name }}</td>
               <td>{{ wish.university.country }}</td>
               <td>{{ wish.diploma }}</td>
               <td>{{ wish.semester }}</td>
-          </tr>
+
+            </tr>
+
+            <div class="container"> Liste de cours :
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+
+                    <th scope="col">Cours</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Credit</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <ng-container *ngFor="let course of parseCourse(wish.courses)">
+                    <tr>
+                      <td>{{course[0]}}</td>
+                      <td>{{course[1]}}</td>
+                      <td>{{course[2]}}</td>
+                    </tr>
+                  </ng-container>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
           </ng-container>
           </tbody>
         </table>
@@ -75,7 +102,7 @@
   <div class="container-fluid padding">
     <br>
     <hr style="width: 30%; border-top: 2px solid #b4b4b4">
-    <div >
+    <div>
       <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
         Documents joints au dossier
       </p>
@@ -95,12 +122,16 @@
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
   <!--actions selon l'admin connecté-->
   <p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
-    <button class="btn btn-primary text-center" style="background-color: #4CAF50">Valider le dossier </button>
-    <button class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px">Refuser le dossier </button>
+    <button class="btn btn-primary text-center" style="background-color: #4CAF50">Valider le dossier</button>
+    <button class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px">Refuser le
+      dossier
+    </button>
   </p>
   <ng-template #anotherAdmin>
     <p class="text-center">
-      <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le dossier </button>
+      <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le
+        dossier
+      </button>
     </p>
   </ng-template>
 
