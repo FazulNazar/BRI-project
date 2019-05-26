@@ -28,7 +28,7 @@
         <pdf-viewer [src]="pdfSrc" [render-text]="true" [show-all]="true" style="display: block;">
         </pdf-viewer>
         <br>
-        <P>Relevés de notes</P>
+
         <!-- <input (change)="onFileSelected2()" type="file" id="file2">  -->
         <br>
       </div>
@@ -40,7 +40,7 @@
 <br>
 <div class="col text-center">
   <div id="submit">
-    <button type="submit" class="btn btn-secondary" routerLink="/menu-student/countries-list">Suivant</button>
+    <button type="submit" class="btn btn-secondary" [disabled]="pdfSrc == ''" routerLink="/relevenote">Suivant</button>
   </div>
 </div>
 

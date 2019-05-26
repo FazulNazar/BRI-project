@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./document.component.css']
 })
 export class DocumentComponent implements OnInit {
-  pdfSrc = String;
+  pdfSrc = '';
 
   constructor() { }
 
