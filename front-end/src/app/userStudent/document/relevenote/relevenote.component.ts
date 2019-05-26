@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-document',
-  templateUrl: './document.component.html',
-  styleUrls: ['./document.component.css']
+  selector: 'app-relevenote',
+  templateUrl: './relevenote.component.html',
+  styleUrls: ['./relevenote.component.css']
 })
-export class DocumentComponent implements OnInit {
+export class RelevenoteComponent implements OnInit {
   pdfSrc = '';
 
   constructor() { }
 
-
   ngOnInit() {
-
   }
+
   onFileSelected() {
     const img: any = document.querySelector('#file' );
     if (typeof (FileReader) !== 'undefined') {
@@ -24,4 +23,5 @@ export class DocumentComponent implements OnInit {
       reader.readAsArrayBuffer(img.files[0]);
     }
   }
+
 }
