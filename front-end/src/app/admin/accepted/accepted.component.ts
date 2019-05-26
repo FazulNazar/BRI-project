@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../../../models/User.model";
+import  {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-accepted',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcceptedComponent implements OnInit {
 
-  constructor() { }
+  public userList: User[];
+
+  constructor(public userService: UserService) {
+    this.userService.students$.subscribe((students) => this.userList = students);
+  }
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  getUsers():void {
+    this.userService.getStudentsByObservable()
+      .subscribe(user => {
+        this.userList = user;
+      })
   }
 
 }

@@ -53,7 +53,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor=" let user of userList | AdminNameFilter:LastName | AdminNumberFilter: NumEtu | AdminMajorFilter:Filiere">
+          <tr *ngFor=" let user of userList | notAcceptedFilter | AdminNameFilter:LastName | AdminNumberFilter: NumEtu | AdminMajorFilter:Filiere">
 
             <td><a routerLink="/user-picked/{{user.id}}">{{user.name}}</a></td>
             <td>{{user.firstname}}</td>

@@ -6,13 +6,16 @@ import {WishModel} from '../../../../models/Wish.model';
 import {WishService} from '../../../../services/wish.service';
 import {SessionService} from '../../../../services/session/session.service';
 import * as jsPDF from 'jspdf';
+import {FormGroup} from "@angular/forms";
+
+
 @Component({
   selector: 'app-user-picked',
   templateUrl: './user-picked.component.html',
   styleUrls: ['./user-picked.component.css']
 })
 export class UserPickedComponent implements OnInit {
-  @ViewChild('content')content: ElementRef;
+  @ViewChild('content') content: ElementRef;
 
   user: User;
   public wishList: WishModel[] = [];
@@ -20,8 +23,10 @@ export class UserPickedComponent implements OnInit {
   private isAdminPinna: boolean;
   private isConnected: boolean;
 
+
   constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService,
-              private sessionService: SessionService) {}
+              private sessionService: SessionService) {
+  }
 
   ngOnInit() {
     this.getUserById();
@@ -30,13 +35,14 @@ export class UserPickedComponent implements OnInit {
     this.isAdmin = this.sessionService.isAdmin();
     this.isAdminPinna = this.sessionService.isAdminPinna();
     this.isConnected = this.sessionService.isLoggedIn();
+
   }
 
   getUserById(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.userService.getStudentById(id)
-    .subscribe(user => this.user = user);
+      .subscribe(user => this.user = user);
   }
 
   getWishes(): void {
@@ -46,7 +52,7 @@ export class UserPickedComponent implements OnInit {
       });
   }
 
-  public downloadPDF(){
+  public downloadPDF() {
     const doc = new jsPDF();
     const specialElementHandlers = {
       '#editor'(element, renderer) {
@@ -55,14 +61,69 @@ export class UserPickedComponent implements OnInit {
     };
 
     const content = this.content.nativeElement;
-    doc.fromHTML(content.innerHTML, 15 , 15, {
+    doc.fromHTML(content.innerHTML, 15, 15, {
       width: 190,
       elementHandlers: specialElementHandlers
     });
     doc.save('test.pdf');
   }
 
-  public parseCourse( course: string) {
+  public parseCourse(course: string) {
     return this.wishService.parseCourses(course);
   }
-}
+
+  transferToAccepted() {
+
+
+    if (confirm("Vous êtes sur le point de valider le dossier de " + this.user.name + " " + this.user.firstname + "voulez vous poursuivre ?")) {
+      const tmpUser = new User(this.user.mail,
+        this.user.password,
+        this.user.name,
+        this.user.firstname,
+        this.user.birthday,
+        this.user.gender,
+        this.user.nationality,
+        this.user.address,
+        this.user.zip,
+        this.user.city,
+        this.user.phone,
+        this.user.studentNumber,
+        this.user.educationStream,
+        this.user.status,
+        this.user.id,
+        'true');
+
+      this.userService.updateStudent(tmpUser as User);
+
+    }
+  }
+
+
+    rejectApplication() {
+      if (confirm("Vous êtes sur le point de rejeter le dossier de " + this.user.name + " " + this.user.firstname + "voulez vous poursuivre ? Il ne sera plus accessible")) {
+
+        const tmpUser = new User(this.user.mail,
+          this.user.password,
+          this.user.name,
+          this.user.firstname,
+          this.user.birthday,
+          this.user.gender,
+          this.user.nationality,
+          this.user.address,
+          this.user.zip,
+          this.user.city,
+          this.user.phone,
+          this.user.studentNumber,
+          this.user.educationStream,
+          this.user.status,
+          this.user.id,
+          'rejected');
+
+        this.userService.updateStudent(tmpUser as User);
+
+      }
+    }
+  }
+
+
+

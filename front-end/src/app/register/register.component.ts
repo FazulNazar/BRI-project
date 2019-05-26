@@ -33,17 +33,22 @@ export class RegisterComponent implements OnInit {
       phone: new FormControl(''),
       studentNumber: new FormControl('', [Validators.pattern('[0-9]*')]),
       educationStream: new FormControl(''),
+      accepted: new FormControl('false')
+
     });
   }
 
   onSubmitForm() {
     if (this.profilForm.valid) {
+      //this.profilForm.patchValue({accepted: 'false'});
+
       const user = this.profilForm.getRawValue();
       this.userService.addStudent(user as User);
       this.userService.getStudent();
       this.userService.students$.subscribe((students) => this.profilList = students);
     }
   }
+
 
 
   ngOnInit() {

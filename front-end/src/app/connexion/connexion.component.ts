@@ -16,8 +16,8 @@ export class ConnexionComponent implements OnInit {
   currentUser: User;
   adminPassword = 'briadmin';
   adminPassword2 = 'ampinna';
-  admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', 0);
-  AMPinna: User = new User('', this.adminPassword2, '', '', '', '', '', '', '', '', '', 'AMPinna', '', '', 1);
+  admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', 0, 'false');
+  AMPinna: User = new User('', this.adminPassword2, '', '', '', '', '', '', '', '', '', 'AMPinna', '', '', 1 ,'false');
 
   constructor(private userService: UserService, private sessionService: SessionService) {
     this.userService.students$.subscribe((students) => this.user = students);

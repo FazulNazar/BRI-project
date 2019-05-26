@@ -125,8 +125,8 @@
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
   <!--actions selon l'admin connecté-->
   <p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
-    <button class="btn btn-primary text-center" style="background-color: #4CAF50">Valider le dossier</button>
-    <button class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px">Refuser le
+    <button *ngIf="user.accepted == 'false'" class="btn btn-primary text-center" style="background-color: #4CAF50" (click)="transferToAccepted() " routerLink="/applications">Valider le dossier</button>
+    <button *ngIf="isConnected && isAdminPinna" class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px" (click)="rejectApplication()" routerLink="/applications">Refuser le
       dossier
     </button>
   </p>
