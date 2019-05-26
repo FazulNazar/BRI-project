@@ -16,6 +16,7 @@ export class ConnexionComponent implements OnInit {
   currentUser: User;
   adminPassword = 'briadmin';
   adminPassword2 = 'ampinna';
+  logError = false;
   admin: User = new User('', this.adminPassword, '', '', '', '', '', '', '', '', '', 'admin', '', '', 0);
   AMPinna: User = new User('', this.adminPassword2, '', '', '', '', '', '', '', '', '', 'AMPinna', '', '', 1);
 
@@ -36,6 +37,7 @@ export class ConnexionComponent implements OnInit {
       window.location.href = '/profile';
     }
     this.getUser();
+    this.logError = false;
   }
 
   onSubmitForm() {
@@ -60,6 +62,8 @@ export class ConnexionComponent implements OnInit {
     });
     if (!this.sessionService.isLoggedIn()) {
       console.log('log in error');
+      this.logError = true;
+
     }
   }
 
