@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row-2  ">
+    <p class="text-center">Documents à fournir</p>
+  </div>
+
+  <div class="container-fluid padding">
+    <div class="row welcome">
+      <div class="col-12"></div>
+      <hr>
+      <div>
+        <p class="lead text-center" style="font-weight: bold">
+          Avant de procéder à la constitution du dossier, il est impératif de joindre la liste des documents suivantes
+        </p>
+        <p class="lead text-center" style="font-weight: bold">
+          à votre dossier.
+        </p>
+      </div>
+      <hr>
+    </div>
+  </div>
+
+  <!--interface pour charger les documents géneraux-->
+  <div class="container-fluid">
+    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
+      <div class="card" style="font-weight: bold">
+        <P>Relevés de notes</P>
+        <input (change)="onFileSelected()" type="file" id="file">
+        <pdf-viewer [src]="pdfSrc" [render-text]="true" [show-all]="true" style="display: block;">
+        </pdf-viewer>
+        <br>
+
+        <!-- <input (change)="onFileSelected2()" type="file" id="file2">  -->
+        <br>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<div class="col text-center">
+  <div id="submit">
+    <button type="submit" class="btn btn-secondary" [disabled]="pdfSrc == ''" routerLink="/menu-student/countries-list">Suivant</button>
+  </div>
+</div>
+
