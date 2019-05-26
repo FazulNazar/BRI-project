@@ -69,9 +69,9 @@ export class AgreementHostComponent implements OnInit {
 
   createCourse(): FormGroup {
     return this.formBuilder.group({
-      cours: '',
-      code: '',
-      credit: ''
+      cours: new FormControl('', Validators.required),
+      code: new FormControl('', Validators.required),
+      credit: new FormControl('', [Validators.pattern('[0-9]*'), Validators.required])
     });
   }
 
