@@ -75,7 +75,7 @@ export class UserPickedComponent implements OnInit {
   transferToAccepted() {
 
 
-    if (confirm("Vous êtes sur le point de valider le dossier de " + this.user.name + " " + this.user.firstname + "voulez vous poursuivre ?")) {
+    if (confirm("Vous êtes sur le point de valider le dossier de " + this.user.name.toUpperCase() + " " + this.user.firstname + " voulez vous poursuivre ?")) {
       const tmpUser = new User(this.user.mail,
         this.user.password,
         this.user.name,
@@ -100,7 +100,7 @@ export class UserPickedComponent implements OnInit {
 
 
     rejectApplication() {
-      if (confirm("Vous êtes sur le point de rejeter le dossier de " + this.user.name + " " + this.user.firstname + "voulez vous poursuivre ? Il ne sera plus accessible")) {
+      if (confirm("Vous êtes sur le point de rejeter le dossier de " +  this.user.name.toUpperCase() + " " + this.user.firstname + " voulez vous poursuivre ? Il ne sera plus accessible")) {
 
         const tmpUser = new User(this.user.mail,
           this.user.password,
