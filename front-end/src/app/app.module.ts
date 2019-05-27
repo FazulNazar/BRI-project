@@ -40,6 +40,9 @@ import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
 import { AcceptedComponent } from './admin/accepted/accepted.component';
 import { AdminPinnaComponent } from './admin/admin-pinna/admin-pinna.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import {AcceptedFilterPipe} from "./filter-accepted";
+import {NotAcceptedFilterPipe} from "./filter-notAccepted";
+
 import {RelevenoteComponent} from './userStudent/document/relevenote/relevenote.component';
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
@@ -62,6 +65,7 @@ const appRoutes: Routes = [
   {path: 'agreement-host/:id', component: AgreementHostComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'applications', component: ApplicationsComponent},
+  {path: 'accepted' , component: AcceptedComponent},
   {path: 'user-picked/:id', component: UserPickedComponent},
   {path: 'admin-pinna', component: AdminPinnaComponent},
   {path: 'relevenote', component: RelevenoteComponent}
@@ -102,6 +106,8 @@ const appRoutes: Routes = [
     AdminMajorFilterPipe,
     AcceptedComponent,
     AdminPinnaComponent,
+    AcceptedFilterPipe,
+    NotAcceptedFilterPipe,
     RelevenoteComponent
 
   ],
