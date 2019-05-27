@@ -1,15 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {UniversityModel} from '../../models/University.model';
-import {UniversityService} from '../../services/university.service';
-
-
+import { Component, OnInit } from '@angular/core';
+import {UniversityModel} from '../../../models/University.model';
+import {UniversityService} from '../../../services/university.service';
 
 @Component({
-  selector: 'app-countries-list',
-  templateUrl: './countries-list.component.html',
-  styleUrls: ['./countries-list.component.css'],
+  selector: 'app-universities-list',
+  templateUrl: './universities-list.component.html',
+  styleUrls: ['./universities-list.component.css']
 })
-export class CountriesListComponent implements OnInit {
+export class UniversitiesListComponent implements OnInit {
 
   public universityList: UniversityModel[];
   Country: string;
@@ -32,4 +30,3 @@ export class CountriesListComponent implements OnInit {
   }
 
 }
-

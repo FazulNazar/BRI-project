@@ -15,14 +15,14 @@
 
               <div class="form-group">
                 <label>
-                  e-mail:
+                  e-mail :
                 </label>
                 <input type="text" class="form-control" formControlName="mail" placeholder="e-mail">
               </div>
 
               <div class="form-group">
                 <label>
-                  Mot de passe:
+                  Mot de passe :
                 </label>
                 <input type="password" class="form-control" formControlName="password" placeholder="mot de passe">
               </div>
@@ -30,7 +30,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label>
-                      Nom:
+                      Nom :
                     </label>
                     <input type="text" class="form-control" formControlName="name" placeholder="nom">
                   </div>
@@ -38,7 +38,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label>
-                      Prénom:
+                      Prénom :
                     </label>
                     <input type="text" class="form-control" formControlName="firstname" placeholder="prenom">
                   </div>
@@ -47,14 +47,14 @@
 
               <div class="form-group">
                 <label>
-                  Date de naissance</label>
-                <input type="text" formControlName="birthday" class="form-control" placeholder="date de naissance">
+                  Date de naissance :</label>
+                <input type="text" formControlName="birthday" class="form-control" placeholder="jj/mm/aaaa">
               </div>
 
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="sexe">Sexe</label>
+                    <label for="sexe">Sexe :</label>
                     <select class="form-control" formControlName="gender" id="sexe" required>
                       <option *ngFor="let sex of gender" [value]="sex">{{sex}}</option>
                     </select>
@@ -64,7 +64,7 @@
                 <div class="col">
                   <label>
                     <div class="form-group">
-                      <label for="filiere">Filière</label>
+                      <label for="filiere">Filière :</label>
                       <select class="form-control" formControlName="educationStream" id="filiere" required>
                         <option *ngFor="let fil of educationStream" [value]="fil">{{fil}}</option>
                       </select>
@@ -77,13 +77,13 @@
             <div class="col">
               <div class="form-group">
                 <label>
-                  Nationalité
+                  Nationalité :
                 </label>
                 <input type="text" class="form-control" formControlName="nationality" placeholder="nationalité">
               </div>
               <div class="form-group">
                 <label>
-                  Adresse
+                  Adresse :
                 </label>
                 <div class="row">
                   <div class="col-sm-12">
@@ -104,13 +104,13 @@
 
               <div class="form-group">
                 <label>
-                  Numéro de téléphone
+                  Numéro de téléphone :
                 </label>
                 <input class="form-control" type="text" formControlName="phone" placeholder="num. telephone">
               </div>
               <div class="form-group">
                 <label>
-                  Numéro d'étudiant
+                  Numéro d'étudiant :
                 </label>
                 <input class="form-control" type="text" formControlName="studentNumber" placeholder="num. étudiant">
               </div>

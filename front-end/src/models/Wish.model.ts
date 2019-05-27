@@ -21,7 +21,6 @@ export class WishModel {
   public semester: string;
   public diploma: string;
   public agreementCompleted?: boolean;
-  // public courses?: Array<CourseModel>;
   public courses: string;
   public studentID: number;
 }

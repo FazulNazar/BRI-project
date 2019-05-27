@@ -21,7 +21,7 @@ export class UniversityModel {
     public agreements: string;
     public country: string;
     public id: number;
-    public universityId: number;
+    public universityId?: number;
     public exchangeStudents?: number;
     public note?: string;
     public website?: string;

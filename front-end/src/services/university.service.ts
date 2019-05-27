@@ -5,6 +5,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl, universityUrl} from '../configs/server.config';
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
+import {WishModel} from '../models/Wish.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,6 @@ export class UniversityService {
     );
   }
 
-  getUnivs(): Observable<UniversityModel[]> {
-    return this.http.get<UniversityModel[]>(this.url) ;
-  }
-
   getUniversity(id: number): Observable<UniversityModel> {
     const url = `${this.url}/${id}`;
     return this.http.get<UniversityModel>(url).pipe(
@@ -43,13 +40,19 @@ export class UniversityService {
     );
   }
 
-  postUniversity(university: UniversityModel) {
-    this.http.post<UniversityModel>(this.url, university, this.httpOptions)
+  postUniversity(university: UniversityModel): Observable<UniversityModel> {
+    return this.http.post<UniversityModel>(this.url, university, this.httpOptions)
       .pipe(
         take(1),
         catchError((err: HttpErrorResponse) =>
-          this.errorService.handleError<UniversityModel>(err, 'post /university'))
-      ).subscribe((universityList) => this.getUniversityByHttp());
+          this.errorService.handleError<UniversityModel>(err, 'post university'))
+      );
+  }
+
+  deleteUniversity(id: number): Observable<UniversityModel> {
+    const newUrl = `${this.url}/${id}`;
+    return this.http.delete<UniversityModel>(newUrl, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted university id=${id}`)));
   }
 
   private log(message: string) {

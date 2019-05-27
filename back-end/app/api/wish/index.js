@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   try {
-    res.status(200).json(Wish.update(req.params.id, req.body));
+    res.status(200).json(attachUniversityStudent(Wish.update(req.params.id, req.body)));
   } catch (err) {
     if (err.name === 'NotFoundError') {
       res.status(404).end();

@@ -18,10 +18,10 @@ import {UniversityPickedComponent} from './universities/university-picked/univer
 import {UniversityAvailableComponent} from './universities/university-available/university-available.component' ;
 import { UniversityPreviewComponent } from './universities/university-preview/university-preview.component';
 import { AgreementHostComponent } from './agreement-host/agreement-host.component';
-import { CountriesListComponent } from './countries-list/countries-list.component';
+import { CountriesListComponent } from './userStudent/countries-list/countries-list.component';
 import { WishListComponent } from './userStudent/wish-list/wish-list.component';
 import { DocumentComponent } from './userStudent/document/document.component';
-import { AddUniversityComponent } from './add-university/add-university.component';
+import { AddUniversityComponent } from './admin/add-university/add-university.component';
 
 import {UserService} from '../services/user.service';
 import {UniversityService} from '../services/university.service';
@@ -40,10 +40,12 @@ import {AdminMajorFilterPipe} from './filter-admin-major.pipe';
 import { AcceptedComponent } from './admin/accepted/accepted.component';
 import { AdminPinnaComponent } from './admin/admin-pinna/admin-pinna.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import {AcceptedFilterPipe} from "./filter-accepted";
-import {NotAcceptedFilterPipe} from "./filter-notAccepted";
+import {AcceptedFilterPipe} from './filter-accepted';
+import {NotAcceptedFilterPipe} from './filter-notAccepted';
 
 import {RelevenoteComponent} from './userStudent/document/relevenote/relevenote.component';
+import { UniversitiesListComponent } from './admin/universities-list/universities-list.component';
+import { UniversityDetailsComponent } from './admin/university-details/university-details.component';
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
   { path: 'connexion', component: ConnexionComponent },
@@ -52,14 +54,14 @@ const appRoutes: Routes = [
   { path: 'menu-admin', component: MenuAdminComponent},
   { path: 'menu-admin/add-university', component: AddUniversityComponent},
   { path: 'menu-student/countries-list', component: CountriesListComponent},
+  { path: 'menu-admin/universities-list', component: UniversitiesListComponent},
   { path: 'menu-student/wish-list', component: WishListComponent},
-  { path: '', component: PresentationComponent},
   { path: 'studies', component: StudiesComponent},
-  { path: '', component: PresentationComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateprofileComponent},
   { path: 'profile', component: ProfileComponent},
   {path: 'university-picked/:id', component: UniversityPickedComponent},
+  {path: 'university-details/:id', component: UniversityDetailsComponent},
   {path: 'university-available', component: UniversityAvailableComponent},
   {path: 'menu-student/documents', component: DocumentComponent},
   {path: 'agreement-host/:id', component: AgreementHostComponent},
@@ -90,7 +92,6 @@ const appRoutes: Routes = [
     UniversityPickedComponent,
     UniversityAvailableComponent,
     DocumentComponent,
-    AppComponent,
     AddUniversityComponent,
     UniversityPreviewComponent,
     AgreementHostComponent,
@@ -108,7 +109,9 @@ const appRoutes: Routes = [
     AdminPinnaComponent,
     AcceptedFilterPipe,
     NotAcceptedFilterPipe,
-    RelevenoteComponent
+    RelevenoteComponent,
+    UniversitiesListComponent,
+    UniversityDetailsComponent
 
   ],
   imports: [

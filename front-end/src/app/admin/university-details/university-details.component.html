@@ -27,7 +27,8 @@
   <div class="container rounded" style="width:1500px">
 
     <div class="card-body">
-      <p style="font-size: 25px; font-weight: bold; color: white;"   >  Ville :  {{university.city}}</p>
+      <p style="font-size: 25px; font-weight: bold; color: white;"> Pays :  {{university.country}}</p>
+      <p style="font-size: 25px; font-weight: bold; color: white;"> Ville :  {{university.city}}</p>
       <p style="font-size: 25px; font-weight: bold; color: white;"> Accord :  {{university.agreements}}</p>
       <p style="font-size: 25px; font-weight: bold; color: white;"> Filières :  {{university.majors}}</p>
       <p style="font-size: 25px; font-weight: bold; color: white;"> Site internet : <a [href]="university.website"> {{university.website}} </a> </p>
@@ -40,7 +41,7 @@
 </div>
 
 <div class="wish-list">
-  <button type="submit" class="btn btn-secondary" routerLink="/agreement-host/{{university.id}}">Choisir cet établissement</button>
+  <button type="submit" class="btn btn-danger" (click)="deleteUniversity()" routerLink="/menu-admin/universities-list">Supprimer cet établissement</button>
 </div>
 <br>
 

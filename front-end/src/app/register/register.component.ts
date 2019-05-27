@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmitForm() {
     if (this.profilForm.valid) {
-      //this.profilForm.patchValue({accepted: 'false'});
+      // this.profilForm.patchValue({accepted: 'false'});
 
       const user = this.profilForm.getRawValue();
       this.userService.addStudent(user as User);

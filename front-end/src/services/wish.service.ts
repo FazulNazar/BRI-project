@@ -5,7 +5,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {httpOptionsBase, serverUrl, wishesUrl} from '../configs/server.config';
 import {ErrorService} from './error';
 import { Injectable } from '@angular/core';
-import {forEach} from "@angular/router/src/utils/collection";
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable({
   providedIn: 'root'
@@ -85,7 +85,6 @@ export class WishService {
     for (let i = 0; i < courseTab.length; i++) {
       courseTab[i] = courseTab[i].replace('}', '').split(',');
     }
-
 
     return courseTab;
   }
