@@ -48,6 +48,7 @@ import {NotAcceptedFilterPipe} from './filter-notAccepted';
 import {RelevenoteComponent} from './userStudent/document/relevenote/relevenote.component';
 import { UniversitiesListComponent } from './admin/universities-list/universities-list.component';
 import { UniversityDetailsComponent } from './admin/university-details/university-details.component';
+import {OrderModule} from 'ngx-order-pipe';
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
   { path: 'connexion', component: ConnexionComponent },
@@ -125,6 +126,7 @@ const appRoutes: Routes = [
     FormsModule,
     StorageServiceModule,
     PdfViewerModule,
+    OrderModule,
 
   ],
   providers: [

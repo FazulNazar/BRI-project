@@ -60,7 +60,7 @@
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor=" let univ of universityList | CountryFilter:Country | NameFilter:Name | MajorFilter:Major | AgreementFilter:Agreement ">
+            <tr *ngFor=" let univ of universityList| CountryFilter:Country | NameFilter:Name | MajorFilter:Major | AgreementFilter:Agreement ">
               <td>
                 <a routerLink="/university-picked/{{univ.id}}">{{univ.name}}</a>
 

@@ -32,6 +32,7 @@
     "ng": "0.0.0",
     "ng-bootstrap": "^1.6.3",
     "ng2-pdf-viewer": "^5.2.4",
+    "ngx-order-pipe": "^2.0.2",
     "popper.js": "^1.14.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
