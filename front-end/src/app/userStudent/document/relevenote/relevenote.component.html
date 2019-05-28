@@ -24,7 +24,7 @@
     <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
       <div class="card" style="font-weight: bold">
         <P>Relevés de notes</P>
-        <input (change)="onFileSelected()" type="file" id="file">
+        <input (change)="onFileSelected()" type="file" accept="application/pdf" id="file">
         <pdf-viewer [src]="pdfSrc" [render-text]="true" [show-all]="true" style="display: block;">
         </pdf-viewer>
         <br>
