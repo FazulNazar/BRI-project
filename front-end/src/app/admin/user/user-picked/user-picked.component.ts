@@ -53,7 +53,10 @@ export class UserPickedComponent implements OnInit {
   }
 
   public downloadPDF() {
-    const doc = new jsPDF();
+    const doc = new jsPDF('landcape');
+    doc.text('Récapitulatif', 90, 20) ;
+    doc.setTextColor(76,153,0);
+
     const specialElementHandlers = {
       '#editor'(element, renderer) {
         return true;
@@ -61,11 +64,12 @@ export class UserPickedComponent implements OnInit {
     };
 
     const content = this.content.nativeElement;
-    doc.fromHTML(content.innerHTML, 15, 15, {
-      width: 190,
+
+    doc.fromHTML(content.innerHTML, 5, 5, {
+      width: 800,
       elementHandlers: specialElementHandlers
     });
-    doc.save('test.pdf');
+    doc.save('dossier.pdf');
   }
 
   public parseCourse(course: string) {

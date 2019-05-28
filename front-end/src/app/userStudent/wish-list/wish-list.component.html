@@ -3,6 +3,17 @@
     <p class="text-center">Liste de voeux</p>
   </div>
 <hr>
+  <br>
+
+  <p *ngIf="currentUser.accepted === 'true'" class="text-center" style="font-weight: bold; font-size: large"  >
+
+    Etat du dossier: En cours de traitement</p>
+  <p *ngIf="currentUser.accepted === 'rejected'" class="text-center" style="font-weight: bold; font-size: large"  >
+
+    Etat du dossier: Refusé </p>
+  <p *ngIf="currentUser.accepted === 'false'" class="text-center" style="font-weight: bold; font-size: large"  >
+
+    Etat du dossier: Pas encore envoyé</p>
 
 <!--table contenant les voeux de l'étudiant  -->
 <div class="container">
