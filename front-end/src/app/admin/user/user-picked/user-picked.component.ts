@@ -35,10 +35,10 @@ export class UserPickedComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.userService.getStudentById(id).subscribe(user => this.user = user);
     this.notifForm= this.formBuilder.group({
-      notif: new FormControl(' '),
+      notif: new FormControl(''),
     });
 
-    this.notif = JSON.parse(JSON.stringify(this.notifForm.getRawValue()));
+    // this.notif = JSON.parse(JSON.stringify(this.notifForm.getRawValue()));
 
 
 
@@ -98,6 +98,8 @@ export class UserPickedComponent implements OnInit {
 
 
     if (confirm("Vous êtes sur le point de valider le dossier de " + this.user.name.toUpperCase() + " " + this.user.firstname + " voulez vous poursuivre ?")) {
+      const formValue = this.notifForm.value;
+      const notif = formValue.notif;
       const tmpUser = new User(this.user.mail,
         this.user.password,
         this.user.name,
@@ -114,7 +116,7 @@ export class UserPickedComponent implements OnInit {
         this.user.status,
         this.user.id,
         'true',
-        this.user.notif);
+        notif);
 
       //const tmpUser = this.notifFormAccepted.getRawValue();
 
@@ -126,7 +128,8 @@ export class UserPickedComponent implements OnInit {
 
     rejectApplication() {
       if (confirm("Vous êtes sur le point de rejeter le dossier de " +  this.user.name.toUpperCase() + " " + this.user.firstname + " voulez vous poursuivre ? Il ne sera plus accessible")) {
-
+        const formValue = this.notifForm.value;
+        const notif = formValue.notif;
         const tmpUser = new User(this.user.mail,
           this.user.password,
           this.user.name,
@@ -143,7 +146,7 @@ export class UserPickedComponent implements OnInit {
           this.user.status,
           this.user.id,
           'rejected',
-          this.notif);
+          notif);
 
         this.userService.updateStudent(tmpUser as User);
 

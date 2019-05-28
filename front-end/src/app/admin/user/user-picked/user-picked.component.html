@@ -123,9 +123,13 @@
 
 
   <div *ngIf="isConnected && isAdminPinna  " class="md-form mb-4 pink-textarea active-pink-textarea">
-    <textarea  class="md-textarea form-control" id="notif" formControlName="notif" rows="2" placeholder="Ecrivez ici un commentaire pour {{user.name}} {{user.firstname}}, l'etudiant(e) pourra consulter ce commentaire dans son dossier pour avoir des informations"></textarea>
+    <form [formGroup]="notifForm" >
+      <div class="form-group">
+      <input  class="md-textarea form-control" id="notif" formControlName="notif" rows="2" placeholder="Ecrivez ici un commentaire pour {{user.name}} {{user.firstname}}, l'etudiant(e) pourra consulter ce commentaire dans son dossier pour avoir des informations">
+      </div>
     <p>notif : {{notif}}</p>
     <p>{{notifForm.value}} </p>
+    </form>
   </div>
 
   <p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
