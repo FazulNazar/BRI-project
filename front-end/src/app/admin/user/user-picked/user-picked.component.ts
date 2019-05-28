@@ -6,7 +6,8 @@ import {WishModel} from '../../../../models/Wish.model';
 import {WishService} from '../../../../services/wish.service';
 import {SessionService} from '../../../../services/session/session.service';
 import * as jsPDF from 'jspdf';
-import {FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {getValue} from "@angular/core/src/render3/styling/class_and_style_bindings";
 
 
 @Component({
@@ -22,13 +23,34 @@ export class UserPickedComponent implements OnInit {
   private isAdmin: boolean;
   private isAdminPinna: boolean;
   private isConnected: boolean;
+  public notifForm: FormGroup;
 
+
+  public notif: string;
 
   constructor(private route: ActivatedRoute, private userService: UserService, private  wishService: WishService,
-              private sessionService: SessionService) {
+              private sessionService: SessionService, public formBuilder: FormBuilder) {
+
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userService.getStudentById(id).subscribe(user => this.user = user);
+    this.notifForm= this.formBuilder.group({
+      notif: new FormControl(' '),
+    });
+
+    this.notif = JSON.parse(JSON.stringify(this.notifForm.getRawValue()));
+
+
+
+
   }
 
-  ngOnInit() {
+
+
+
+
+
+    ngOnInit() {
     this.getUserById();
     this.getWishes();
     this.user = this.sessionService.getCurrentUserModel();
@@ -91,7 +113,10 @@ export class UserPickedComponent implements OnInit {
         this.user.educationStream,
         this.user.status,
         this.user.id,
-        'true');
+        'true',
+        this.user.notif);
+
+      //const tmpUser = this.notifFormAccepted.getRawValue();
 
       this.userService.updateStudent(tmpUser as User);
 
@@ -117,7 +142,8 @@ export class UserPickedComponent implements OnInit {
           this.user.educationStream,
           this.user.status,
           this.user.id,
-          'rejected');
+          'rejected',
+          this.notif);
 
         this.userService.updateStudent(tmpUser as User);
 

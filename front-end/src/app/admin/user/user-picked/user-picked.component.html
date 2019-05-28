@@ -120,12 +120,22 @@
 
   <hr style="width: 30%; border-top: 2px solid #b4b4b4">
   <!--actions selon l'admin connecté-->
+
+
+  <div *ngIf="isConnected && isAdminPinna  " class="md-form mb-4 pink-textarea active-pink-textarea">
+    <textarea  class="md-textarea form-control" id="notif" formControlName="notif" rows="2" placeholder="Ecrivez ici un commentaire pour {{user.name}} {{user.firstname}}, l'etudiant(e) pourra consulter ce commentaire dans son dossier pour avoir des informations"></textarea>
+    <p>notif : {{notif}}</p>
+    <p>{{notifForm.value}} </p>
+  </div>
+
   <p *ngIf="isConnected && isAdminPinna; else anotherAdmin" class="text-center">
     <button *ngIf="user.accepted == 'false'" class="btn btn-primary text-center" style="background-color: #4CAF50" (click)="transferToAccepted() " routerLink="/applications">Valider le dossier</button>
     <button *ngIf="isConnected && isAdminPinna" class="btn btn-primary text-center" style="background-color: #a94442; margin-left: 60px" (click)="rejectApplication()" routerLink="/applications">Refuser le
       dossier
     </button>
+
   </p>
+
   <ng-template #anotherAdmin>
     <p class="text-center">
       <button (click)="downloadPDF()" class="btn btn-primary text-center" style="background-color: #4CAF50">Imprimer le
@@ -134,7 +144,12 @@
     </p>
   </ng-template>
 
+
+
 </div>
+
+
+
 
 
 

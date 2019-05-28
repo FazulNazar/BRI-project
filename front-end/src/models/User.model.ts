@@ -18,6 +18,7 @@ export class User {
     public status?: string,
     public id?: number,
     public accepted?: string,
+    public notif?: string,
     // public wishListId: number
     // public wishList?: Array<WishModel>,
   ) {}

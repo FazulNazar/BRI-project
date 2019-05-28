@@ -34,7 +34,9 @@ export class RegisterComponent implements OnInit {
       phone: new FormControl(''),
       studentNumber: new FormControl('', [Validators.pattern('[0-9]*')]),
       educationStream: new FormControl(''),
-      accepted: new FormControl('false')
+      accepted: new FormControl('false'),
+      notif: new FormControl('Dossier en cours de traitement'),
+
 
     });
   }
