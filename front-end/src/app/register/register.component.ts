@@ -10,7 +10,8 @@ import {User} from '../../models/User.model';
 })
 export class RegisterComponent implements OnInit {
   gender = ['Homme', 'Femme', 'Autre'];
-  educationStream = ['SI3', 'SI4', 'ELEC3', 'ELEC4', 'BAT3', 'BAT4', 'GE3', 'GE4', 'GB3', 'GB4'];
+  educationStream = ['SI3', 'SI4', 'SI5', 'ELEC3', 'ELEC4', 'ELEC5', 'BAT3', 'BAT4', 'BAT5', 'GE3', 'GE4', 'GE5', 'GB3', 'GB4',
+    'GB5', 'MAM3', 'MAM4', 'MAM5'];
 
   public profilForm: FormGroup;
   public profilList: User[] = [];
