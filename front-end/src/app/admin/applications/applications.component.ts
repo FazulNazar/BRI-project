@@ -10,6 +10,7 @@ import {UserService} from '../../../services/user.service';
 export class ApplicationsComponent implements OnInit {
 
   public userList: User[];
+  public orderedUser: User[];
   private FirstName: string;
   private LastName: string;
   private Filiere: string;
@@ -26,7 +27,21 @@ export class ApplicationsComponent implements OnInit {
     this.userService.getStudentsByObservable()
       .subscribe(user => {
         this.userList = user;
+        this.sortBy('name');
       });
+  }
+
+  sortBy(field: string) {
+    this.userList.sort((a: any, b: any) => {
+      if (a[field] < b[field]) {
+        return -1;
+      } else if (a[field] > b[field]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    this.orderedUser = this.userList;
   }
 }
 

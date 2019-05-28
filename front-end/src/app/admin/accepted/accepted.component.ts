@@ -10,6 +10,7 @@ import  {UserService} from "../../../services/user.service";
 export class AcceptedComponent implements OnInit {
 
   public userList: User[];
+  public orderedUser: User[];
 
   constructor(public userService: UserService) {
     this.userService.students$.subscribe((students) => this.userList = students);
@@ -19,11 +20,25 @@ export class AcceptedComponent implements OnInit {
     this.getUsers();
   }
 
-  getUsers():void {
+  getUsers(): void {
     this.userService.getStudentsByObservable()
       .subscribe(user => {
         this.userList = user;
-      })
+        this.sortBy('name');
+      });
+  }
+
+  sortBy(field: string) {
+    this.userList.sort((a: any, b: any) => {
+      if (a[field] < b[field]) {
+        return -1;
+      } else if (a[field] > b[field]) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    this.orderedUser = this.userList;
   }
 
 }
