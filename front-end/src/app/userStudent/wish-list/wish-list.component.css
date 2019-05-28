@@ -17,3 +17,16 @@
 .etat{
   font-style: italic;
 }
+
+
+
+
+.card{
+  width: 100%;
+  border: 1px solid black;
+  margin: 25px auto;
+  padding: 0.5rem;
+  font: 18px sans-serif;
+  background-color: aliceblue;
+}
+
