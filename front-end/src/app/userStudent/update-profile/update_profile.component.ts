@@ -36,6 +36,8 @@ export class UpdateprofileComponent implements OnInit {
       studentNumber: new FormControl(this.currentUser.studentNumber, [Validators.pattern('[0-9]*')]),
       educationStream: new FormControl(this.currentUser.educationStream),
       id: this.currentUser.id,
+      accepted: new FormControl(this.currentUser.accepted),
+      notif: new FormControl(this.currentUser.notif)
     });
   }
 

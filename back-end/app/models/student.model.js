@@ -16,5 +16,6 @@ module.exports = new BaseModel('Student', {
   studentNumber: Joi.string().required(),
   educationStream: Joi.string().required(),
   accepted: Joi.string(),
+  notif: Joi.string(),
   // id: Joi.number().integer(),
 });

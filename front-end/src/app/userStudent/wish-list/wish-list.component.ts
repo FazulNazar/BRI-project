@@ -58,4 +58,23 @@ export class WishListComponent implements OnInit {
   }
 
 
+  setAcceptedToDefault() {
+    const tmpUser = new User(this.currentUser.mail,
+      this.currentUser.password,
+      this.currentUser.name,
+      this.currentUser.firstname,
+      this.currentUser.birthday,
+      this.currentUser.gender,
+      this.currentUser.nationality,
+      this.currentUser.address,
+      this.currentUser.zip,
+      this.currentUser.city,
+      this.currentUser.phone,
+      this.currentUser.studentNumber,
+      this.currentUser.educationStream,
+      this.currentUser.status,
+      this.currentUser.id,
+      'false');
+    this.userService.updateStudent(tmpUser as User);
+  }
 }

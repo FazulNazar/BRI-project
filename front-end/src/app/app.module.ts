@@ -43,6 +43,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {AcceptedFilterPipe} from './filter-accepted';
 import {NotAcceptedFilterPipe} from './filter-notAccepted';
 
+
+
 import {RelevenoteComponent} from './userStudent/document/relevenote/relevenote.component';
 import { UniversitiesListComponent } from './admin/universities-list/universities-list.component';
 import { UniversityDetailsComponent } from './admin/university-details/university-details.component';
@@ -123,6 +125,7 @@ const appRoutes: Routes = [
     FormsModule,
     StorageServiceModule,
     PdfViewerModule,
+
   ],
   providers: [
     UserService,
