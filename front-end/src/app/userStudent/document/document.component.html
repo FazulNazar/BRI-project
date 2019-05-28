@@ -3,44 +3,55 @@
     <p class="text-center">Documents à fournir</p>
   </div>
 
-  <div class="container-fluid padding">
-    <div class="row welcome">
-      <div class="col-12"></div>
-      <hr>
-      <div>
-        <p class="lead text-center" style="font-weight: bold">
-          Avant de procéder à la constitution du dossier, il est impératif de joindre la liste des documents suivantes
-        </p>
-        <p class="lead text-center" style="font-weight: bold">
-          à votre dossier.
-        </p>
-      </div>
-      <hr>
-    </div>
-  </div>
+
 
   <!--interface pour charger les documents géneraux-->
-  <div class="container-fluid">
-    <div class="col-sm-6 col-md-6 col-lg-6 offset-3">
-      <div class="card" style="font-weight: bold">
-        <P>Curriculum Vitae </P>
-        <input (change)="onFileSelected()" type="file" accept="application/pdf" id="file">
-        <pdf-viewer [src]="pdfSrc" [render-text]="true" [show-all]="true" style="display: block;">
-        </pdf-viewer>
-        <br>
 
-        <!-- <input (change)="onFileSelected2()" type="file" id="file2">  -->
-        <br>
-      </div>
+
+</div>
+
+<div class="container-fluid padding text-center">
+  <div class="row welcome text-center" style="width: 85%">
+    <div class="col-10"></div>
+    <hr>
+    <div>
+      <p style="font-weight: bold; font-size: large">
+        Veuillez vous munir des documents suivants, vous serez amené à les télécharger sur la plateforme pour valider la constitution du dossier.
+      </p>
+      <p style="font-weight: bold; font-size: large">
+        Vous pouvez toujours constituer votre liste de voeux et télécharger les documents plus tard.
+      </p>
     </div>
+    <hr>
   </div>
+</div>
 
+<div class="container-fluid padding text-center" style="margin-left: -20px">
+  <br>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <div>
+    <p class="text-center" style="font-size: 20px; font-style: italic; font-weight: bold">
+      Documents
+    </p>
+  </div>
+  <hr style="width: 30%; border-top: 2px solid #b4b4b4">
+  <p class="text-center" style="font-style: italic; font-size: 20px">
+    Lettre de motivation
+    <br>
+    Curriculum vitæ
+    <br>
+    Relevés de notes
+    <br>
+    Budget prévisionnel
+    <br>
+    Certificat de langue en fonction de l'université choisie
+  </p>
 </div>
 
 <br>
 <div class="col text-center">
   <div id="submit">
-    <button type="submit" class="btn btn-secondary" [disabled]="pdfSrc == ''" routerLink="/relevenote">Suivant</button>
+    <button type="submit" class="btn btn-secondary"  routerLink="/menu-student/countries-list">Suivant</button>
   </div>
 </div>
 
