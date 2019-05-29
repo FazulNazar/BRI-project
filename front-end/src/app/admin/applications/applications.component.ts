@@ -15,6 +15,7 @@ export class ApplicationsComponent implements OnInit {
   private LastName: string;
   private Filiere: string;
   private NumEtu: string;
+  private Display: string;
 
 
   constructor(public userService: UserService) {}

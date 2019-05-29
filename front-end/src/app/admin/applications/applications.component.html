@@ -35,6 +35,18 @@
           </div>
           <input type="text" class="form-control text-center offset-2" placeholder="Filière"
                  style="width: 285px" [(ngModel)]="Filiere"/>
+          <hr>
+          <div class="text-center">
+            <p>Options d'affichage</p>
+          </div>
+          <select type="" class="form-control text-center offset-2"
+                  style="width: 285px" [(ngModel)]="Display" >
+            <option selected="selected">Tous</option>
+            <option>Validés</option>
+            <option>En attente</option>
+            <option>Refusés</option>
+          </select>
+
           <br>
         </div>
       </div>
@@ -53,7 +65,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor=" let user of userList | notAcceptedFilter | AdminNameFilter:LastName | AdminNumberFilter: NumEtu | AdminMajorFilter:Filiere">
+          <tr *ngFor=" let user of userList | ApplicationsFilter:Display | AdminNameFilter:LastName | AdminNumberFilter: NumEtu | AdminMajorFilter:Filiere">
 
             <td><a routerLink="/user-picked/{{user.id}}">{{user.name}}</a></td>
             <td>{{user.firstname}}</td>
@@ -64,6 +76,8 @@
           </tbody>
         </table>
       </div>
+
+
     </div>
   </div>
 </div>

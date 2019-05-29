@@ -35,7 +35,7 @@ export class UserPickedComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.userService.getStudentById(id).subscribe(user => this.user = user);
     this.notifForm= this.formBuilder.group({
-      notif: new FormControl(''),
+      notif: new FormControl('Dossier en attente'),
     });
 
     // this.notif = JSON.parse(JSON.stringify(this.notifForm.getRawValue()));

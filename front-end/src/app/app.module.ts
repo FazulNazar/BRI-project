@@ -41,7 +41,7 @@ import { AcceptedComponent } from './admin/accepted/accepted.component';
 import { AdminPinnaComponent } from './admin/admin-pinna/admin-pinna.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {AcceptedFilterPipe} from './filter-accepted';
-import {NotAcceptedFilterPipe} from './filter-notAccepted';
+import {ApplicationsFilterPipe} from './filter-applications';
 
 
 
@@ -49,6 +49,7 @@ import {RelevenoteComponent} from './userStudent/document/relevenote/relevenote.
 import { UniversitiesListComponent } from './admin/universities-list/universities-list.component';
 import { UniversityDetailsComponent } from './admin/university-details/university-details.component';
 import {OrderModule} from 'ngx-order-pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const appRoutes: Routes = [
   { path: 'presentation', component: PresentationComponent },
   { path: 'connexion', component: ConnexionComponent },
@@ -111,7 +112,7 @@ const appRoutes: Routes = [
     AcceptedComponent,
     AdminPinnaComponent,
     AcceptedFilterPipe,
-    NotAcceptedFilterPipe,
+    ApplicationsFilterPipe,
     RelevenoteComponent,
     UniversitiesListComponent,
     UniversityDetailsComponent
@@ -127,6 +128,8 @@ const appRoutes: Routes = [
     StorageServiceModule,
     PdfViewerModule,
     OrderModule,
+    BrowserAnimationsModule,
+
 
   ],
   providers: [
