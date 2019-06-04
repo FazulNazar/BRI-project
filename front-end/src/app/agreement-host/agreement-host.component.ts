@@ -22,8 +22,12 @@ export class AgreementHostComponent implements OnInit {
               'Ingenieur en génie du bâtiment', 'Ingenieur en biologie'];
   university: UniversityModel;
   user: User;
+  wish: WishModel;
   public wishList: WishModel[] = [];
   public agreementForm: FormGroup;
+  oldCourses: string[];
+  oldDiploma: string;
+  oldSemester: string;
   courses: FormArray;
 
   constructor(private route: ActivatedRoute, public formBuilder: FormBuilder, private universityService: UniversityService,
@@ -36,6 +40,9 @@ export class AgreementHostComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.oldCourses = this.wishService.getCourses();
+    this.oldDiploma = this.wishService.getDiploma();
+    this.oldSemester = this.wishService.getSemester();
     this.getUniversity();
     this.user = this.sessionService.getCurrentUserModel();
   }

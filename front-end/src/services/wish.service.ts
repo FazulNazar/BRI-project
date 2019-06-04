@@ -16,7 +16,9 @@ export class WishService {
   private httpOptions = httpOptionsBase;
   private url = serverUrl + wishesUrl;
   public wish$: BehaviorSubject<WishModel[]> = new BehaviorSubject(this.wishList);
-
+  private courses;
+  private diploma;
+  private semester;
 
   constructor(public http: HttpClient, private errorService: ErrorService) {
   }
@@ -87,6 +89,30 @@ export class WishService {
     }
 
     return courseTab;
+  }
+
+  getCourses(): string[] {
+    return this.parseCourses(this.courses);
+  }
+
+  setCourses(value: string) {
+    this.courses = value;
+  }
+
+  getDiploma(): string {
+    return this.diploma;
+  }
+
+  setDiploma(diploma: string) {
+    this.diploma = diploma;
+  }
+
+  getSemester(): string {
+    return this.semester;
+  }
+
+  setSemester(semester: string) {
+    this.semester = semester;
   }
 }
 

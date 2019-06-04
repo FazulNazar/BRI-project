@@ -40,8 +40,11 @@ export class WishListComponent implements OnInit {
       });
   }
 
-  editWish(id: number) {
-    this.wishService.deleteWish(id)
+  editWish(wish: WishModel) {
+    this.wishService.setDiploma(wish.diploma);
+    this.wishService.setSemester(wish.semester);
+    this.wishService.setCourses(wish.courses);
+    this.wishService.deleteWish(wish.id)
       .subscribe(wishes => {
         this.getWishes();
       });
@@ -77,4 +80,5 @@ export class WishListComponent implements OnInit {
       'false');
     this.userService.updateStudent(tmpUser as User);
   }
+
 }

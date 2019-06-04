@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UniversityModel} from '../../../models/University.model';
 import {UniversityService} from '../../../services/university.service';
 import {OrderModule, OrderPipe} from 'ngx-order-pipe';
+import {WishService} from '../../../services/wish.service';
 @Component({
   selector: 'app-countries-list',
   templateUrl: './countries-list.component.html',
@@ -17,9 +18,12 @@ export class CountriesListComponent implements OnInit {
   Agreement: string;
 
 
-  constructor(public universityService: UniversityService) {}
+  constructor(public universityService: UniversityService, public wishService: WishService) {}
 
   ngOnInit() {
+    this.wishService.setCourses('');
+    this.wishService.setDiploma('');
+    this.wishService.setSemester('');
     this.getUniversities();
   }
 

@@ -42,7 +42,7 @@
       <tbody>
         <ng-container *ngFor="let wish of wishList">
           <tr *ngIf="currentUser.id == wish.studentID">
-            <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish.id)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
+            <td scope="row"><div class="btn-group"><button class="btn-info" (click)="editWish(wish)" routerLink="/agreement-host/{{wish.university.id}}" >EDITER</button>
               <button class="btn-danger" (click)="deleteWish(wish.id)" >SUPRIMER</button></div></td>
             <td>{{ wish.university.name }}</td>
             <td>{{ wish.university.country }}</td>
